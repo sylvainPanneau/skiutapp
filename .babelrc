@@ -1,0 +1,5 @@
+{
+  "presets": ["react", "env"],
+  "sourceMaps": true,
+  "plugins": ["transform-object-assign", "transform-object-rest-spread", "syntax-dynamic-import"]
+}
