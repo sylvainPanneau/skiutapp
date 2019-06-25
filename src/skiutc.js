@@ -4,7 +4,7 @@ import App from "./App"
 import {createStore, compose, applyMiddleware } from "redux"
 import {Provider} from "react-redux"
 import thunk from "redux-thunk"
-import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 
 //Own api Utils and routing comp to link
