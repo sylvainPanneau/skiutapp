@@ -12,9 +12,6 @@ export const SUCCESS_KEYS_POSTFIX = "|SUCCESS"
 export const FAILED_KEYS_POSTFIX = "|FAILED"
 export const CLEAN_KEYS_POSTFIX = "|CLEAN"
 
-const BODY_SAML_REQUEST = "SAMLRequest"
-const TIMEOUT_ERROR_MESSAGE = "Your session has timed out. Please refresh the application to login."
-
 export const APIUTILS_REFRESH_MANUAL = 'MANUAL'
 export const APIUTILS_REFRESH_CHECK = 'CHECK'
 export const APIUTILS_API_NEW_STATE = "NEW"

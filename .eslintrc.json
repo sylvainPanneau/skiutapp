@@ -13,7 +13,6 @@
   },
   "plugins": [
     "react",
-    "security",
     "react-hooks"
   ],
   "rules": {

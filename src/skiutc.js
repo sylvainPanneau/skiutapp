@@ -5,7 +5,7 @@ import {createStore, compose, applyMiddleware } from "redux"
 import {Provider} from "react-redux"
 import thunk from "redux-thunk"
 import { HashRouter } from 'react-router-dom';
-
+import { CookiesProvider } from 'react-cookie';
 
 //Own api Utils and routing comp to link
 import * as apiUtils from "./utils/apiUtils"
@@ -17,9 +17,11 @@ const store = createStore(mainStore, {}, composeEnhancers(applyMiddleware(thunk,
 
 ReactDOM.render(
     <Provider store={store}>
-        <HashRouter>
-            <App />
-        </HashRouter>
+        <CookiesProvider>
+            <HashRouter>
+                <App />
+            </HashRouter>
+        </CookiesProvider>
     </Provider>
     , document.getElementById('app')
 );
