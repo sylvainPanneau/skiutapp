@@ -7,24 +7,18 @@ import { Shotgun } from "./components/shotgun"
 import { LoginComponent } from "./components/login/login"
 
 import {login} from "skiutactions"
-import { useCookies } from 'react-cookie';
 
 import "css/container.scss"
 
 function AppComp(props) {
 
-    const [cookies, setCookie] = useCookies(['ticket']);
-
-
     useEffect(() => {
         //Calls skiutcserver
-        if ( !cookies.ticket ) props.login()
+        props.login()
     },[])
     useEffect(()=> {
-        if (props.ticket && !cookies.ticket && cookies.ticket !== props.ticket){
-            setCookie("ticket", props.ticket)
-        }
-    },[props.ticket])
+
+    },[])
 
     return(
         <Switch className="fullWidth fullHeight">
