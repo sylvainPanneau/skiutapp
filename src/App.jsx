@@ -15,6 +15,7 @@ function AppComp(props) {
     useEffect(() => {
         //Calls skiutcserver
         props.login()
+        console.log(localStorage)
     },[])
     useEffect(()=> {
 
