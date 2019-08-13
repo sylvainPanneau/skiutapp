@@ -1,9 +1,11 @@
 import { callApi } from "utils/apiUtils"
-import { CAS_URL } from "./config"
+import { API_URL } from "./config"
 
+export const login = (log, pass) => {
+    const url = API_URL + "/login"
+    return callApi(url, "TEST_KEY", "POST",{username: log,password: pass})
+}
 
-export const login = () => {
-
-
-    return callApi(CAS_URL, "TEST_KEY", "POST",{username: "d",password: ""})
+export const getMeta = () => {
+    return callApi(API_URL + "/meta", "AUTH", "GET")
 }

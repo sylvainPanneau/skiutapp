@@ -5,40 +5,41 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import { LoginComponent } from "./components/login/login"
-
-import {login} from "skiutactions"
+import { getMeta } from "./skiutactions"
 
 import "css/container.scss"
 
 function AppComp(props) {
 
     useEffect(() => {
-        //Calls skiutcserver
-        props.login()
-        console.log(localStorage)
-    },[])
-    useEffect(()=> {
+        if (props.user.token) {
+            localStorage.setItem("token",props.user.token)
+        }
+    },[props.user])
 
-    },[])
+    useEffect(() => {
+        props.getMeta()
+    }, [])
+
 
     return(
         <Switch className="fullWidth fullHeight">
-            <Route path="/shotgun" component={Shotgun}/>
-            <Route path="/login" component={LoginComponent}/>
-            <Route path="/" component={Accueil}/>
+            <Route path="/shotgun" component={Shotgun} />
+            <Route path="/login" component={LoginComponent} />
+            <Route path="/" component={Accueil} />
         </Switch>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        ticket: state["LOGIN"]["data"].ticket
+        user: state["LOGIN"]["data"]
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: () => {dispatch(login())}
+        getMeta: () => {dispatch(getMeta())}
     }
 }
 
