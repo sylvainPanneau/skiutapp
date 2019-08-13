@@ -2,16 +2,24 @@ import React, {useState, useEffect} from "react"
 import {connect} from "react-redux";
 import * as c from "../skiutconstants"
 import { logout } from "../skiutactions"
+import PropTypes from 'prop-types';
 
-function ConnexionShow(props) {
+function ConnexionShow({ auth, user, logout, history }) {
 
-    if (props.auth)
+    if (auth)
         return <div>
-            <div>Welcome {props.user.login}</div>
-            <button onClick={() => {props.logout()}}>Deconnecte-toi</button>
+            <div>Welcome {user.login}</div>
+            <button onClick={() => {logout()}}>Deconnecte-toi</button>
         </div>
     else
-        return <button onClick={() => {props.history.push("/login")}}>Connecte-toi</button>
+        return <button onClick={() => {history.push("/login")}}>Connecte-toi</button>
+}
+
+ConnexionShow.propTypes = {
+    auth: PropTypes.bool,
+    user: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
 }
 
 export function AccueilContainer(props) {
