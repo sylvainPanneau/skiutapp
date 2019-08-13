@@ -1,9 +1,18 @@
 import { callApi } from "utils/apiUtils"
-import { CAS_URL } from "./config"
+import { API_URL } from "./config"
+import { LOG_API_KEY, META_API_KEY } from "./skiutactiontypes"
 
 
-export const login = () => {
+export const login = (log, pass) => {
+    const url = API_URL + "/login"
+    return callApi(url, LOG_API_KEY, "POST",{username: log,password: pass})
+}
 
+export const logout = () => {
+    const url = API_URL + "/logout"
+    return callApi(url, LOG_API_KEY, "GET")
+}
 
-    return callApi(CAS_URL, "TEST_KEY", "POST",{username: "d",password: ""})
+export const getMeta = () => {
+    return callApi(API_URL + "/meta", META_API_KEY, "GET")
 }

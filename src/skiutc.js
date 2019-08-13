@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 import {createStore, compose, applyMiddleware } from "redux"
+import { apiAuthMiddleware } from "./utils/apiUtils";
 import {Provider} from "react-redux"
 import thunk from "redux-thunk"
 import { HashRouter } from 'react-router-dom';
@@ -12,7 +13,7 @@ import mainStore from "./store"
 
 //check for Chrome or IE
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(mainStore, {}, composeEnhancers(applyMiddleware(thunk, apiUtils.apiMiddleware)))
+const store = createStore(mainStore, {}, composeEnhancers(applyMiddleware(thunk, apiAuthMiddleware, apiUtils.apiMiddleware)))
 
 ReactDOM.render(
     <Provider store={store}>

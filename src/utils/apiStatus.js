@@ -1,12 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Loader from 'react-loader-spinner'
+import PropTypes from 'prop-types';
 
-function ApiStatus(){
-  return (
-        <div className = "loader-container">
-          <Loader type="Triangle" color="#343434" height={120} width={120}  />
-        </div>
-    )
+function ApiStatus({api, children}){
+
+    const isArray = api instanceof Array
+
+    if (isArray) {
+        //@TODO ApiStatus for an array of api given in props.api
+
+    } else {
+        let toReturn = api.status === "SUCCESS" ?
+            <div className="fullHeight fullWidth">{children}</div>
+        :
+            <div className="loader fullHeight fullWidth">
+                <div className = "loader-container">
+                    <Loader type="Triangle" color="#343434" height={120} width={120}  />
+                </div>
+            </div>
+
+        return toReturn
+    }
 }
+
+ApiStatus.propTypes = {
+    api: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+};
 
 export default ApiStatus;
