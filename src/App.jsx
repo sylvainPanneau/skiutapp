@@ -6,34 +6,31 @@ import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import { LoginComponent } from "./components/login/login"
 import { getMeta } from "./skiutactions"
-
+import ApiStatus from "./utils/apiStatus"
 import "css/container.scss"
+import * as c from "./skiutconstants"
 
 function AppComp(props) {
-
-    useEffect(() => {
-        if (props.user.token) {
-            localStorage.setItem("token",props.user.token)
-        }
-    },[props.user])
 
     useEffect(() => {
         props.getMeta()
     }, [])
 
-
     return(
-        <Switch className="fullWidth fullHeight">
-            <Route path="/shotgun" component={Shotgun} />
-            <Route path="/login" component={LoginComponent} />
-            <Route path="/" component={Accueil} />
-        </Switch>
+        <ApiStatus api={props.meta}>
+            <Switch className="fullWidth fullHeight">
+                <Route path="/shotgun" component={Shotgun} />
+                <Route path="/login" component={LoginComponent} />
+                <Route path="/" component={Accueil} />
+            </Switch>
+        </ApiStatus>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        user: state["LOGIN"]["data"]
+        meta: state[c.META],
+        user: state[c.LOG]["data"]
     }
 }
 

@@ -1,13 +1,14 @@
 import { combineReducers } from "redux"
 import { createReducer } from "utils/reducer"
 import { createReducerForApi } from "utils/apiUtils"
-import { NAME } from "skiutconstants"
+import * as c from "skiutconstants"
+import { LOG_API_KEY, META_API_KEY } from "skiutactiontypes"
 
 export default combineReducers({
-        [NAME]: createReducer({},{
+        [c.NAME]: createReducer({},{
 
         }),
-        ["LOGIN"]: createReducerForApi("TEST_KEY", {data:{}}),
-        ["AUTHENT_TEST"]: createReducerForApi("AUTH", {data:{}})
+        [c.LOG]: createReducerForApi(LOG_API_KEY, {data:{}}),
+        [c.META]: createReducerForApi(META_API_KEY, {data:{}})
     }
 )

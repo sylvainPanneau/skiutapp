@@ -1,0 +1,3 @@
+export const LOG_API_KEY = "LOG_API_KEY"
+
+export const META_API_KEY = "META_API_KEY"
