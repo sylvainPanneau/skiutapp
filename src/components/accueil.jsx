@@ -9,10 +9,10 @@ function ConnexionShow({ auth, user, logout, history }) {
     if (auth)
         return <div>
             <div>Welcome {user.login}</div>
-            <button onClick={() => {logout()}}>Deconnecte-toi</button>
+            <a className="button bouncy" onClick={() => {logout()}}>Deconnecte-toi</a>
         </div>
     else
-        return <button onClick={() => {history.push("/login")}}>Connecte-toi</button>
+        return <a className="button bouncy" onClick={() => {history.push("/login")}}>Connecte-toi</a>
 }
 
 ConnexionShow.propTypes = {

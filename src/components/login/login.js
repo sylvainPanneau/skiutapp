@@ -27,9 +27,9 @@ function LoginContainer(props) {
 
         <input type="password" value={password} onChange={(e) => changeInput(e, setPassword)}></input>
 
-        <button onClick={() => {
+        <a className="button bouncy" onClick={() => {
             props.login(login, password)
-        }}>Connexion</button>
+        }}>Connexion</a>
     </div>
 }
 
