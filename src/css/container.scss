@@ -1,3 +1,5 @@
+@import "variables";
+
 .fullHeight {
   height: 100%;
 }
@@ -14,6 +16,12 @@ body {
 html {
   height: 100%;
   width: 100%;
+  background: $white;
+  font-family:'Roboto',sans-serif;
+}
+
+.login {
+  padding: 5px;
 }
 
 /*
@@ -27,4 +35,75 @@ Loader Styles
 
 .loader-container{
   margin: auto;
+}
+
+/*
+Buttons
+ */
+a.button{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid $beige2;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:$black;
+  text-align:center;
+  transition: all 0.2s;
+  background-color: $beige1;
+}
+a.button:hover{
+  cursor: pointer;
+  background-color: $beige2;
+}
+@media all and (max-width:30em){
+  a.button1 {
+    display: block;
+    margin: 0.4em auto;
+  }
+}
+
+/*
+Inputs
+ */
+
+.input {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  margin: 6px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.input__field {
+  margin-left: 20px;
+  display: block;
+  padding: 4px;
+  width: 260px;
+  border: none;
+  border-radius: 0;
+  background: $beige1;
+  color: $blue1;
+  font-weight: bold;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.input__field:focus {
+  outline: none;
+}
+
+.input__label {
+  display: block;
+  width: 100%;
+  color: $blue1;
+}
+
+.input__label-content {
+  position: relative;
+  display: block;
+  width: 100%;
 }

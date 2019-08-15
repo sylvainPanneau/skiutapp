@@ -21,15 +21,23 @@ function LoginContainer(props) {
         document.location = "/skiutc.html"
     }
 
-    return <div className="">
+    return <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) props.login(login, password)}}>
+        <div className="input">
+            <input className="input__field" type="text" value={login} onChange={(e) => changeInput(e, setLogin)}/>
+            <label className="input__label">
+                <span className="input__label-content">Login</span>
+            </label>
+        </div>
+        <div className="input">
+            <input className="input__field" type="password" value={password} onChange={(e) => changeInput(e, setPassword)}/>
+            <label className="input__label">
+                <span className="input__label-content">Password</span>
+            </label>
+        </div>
 
-        <input value={login} onChange={(e) => changeInput(e, setLogin)}></input>
-
-        <input type="password" value={password} onChange={(e) => changeInput(e, setPassword)}></input>
-
-        <button onClick={() => {
+        <a className="button bouncy" onClick={() => {
             props.login(login, password)
-        }}>Connexion</button>
+        }}>Connexion</a>
     </div>
 }
 
