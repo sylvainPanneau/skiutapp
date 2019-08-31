@@ -99,7 +99,7 @@ export const callApi = (endpoint, apiKey, method='GET', body=undefined, options=
     let headers, sBody
 
     headers = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
     }
     sBody = JSON.stringify(body);
 
