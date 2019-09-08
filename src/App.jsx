@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import { connect } from "react-redux"
 import { Route, Switch, withRouter } from 'react-router-dom';
-
+import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/container"
@@ -19,12 +19,14 @@ function AppComp(props) {
 
     return(
         <ApiStatus api={props.meta}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/shotgun" component={Shotgun} />
                 <Route path="/login" component={LoginComponent} />
                 <Route path="/tombola" component={Tombola}/>
                 <Route path="/" component={Accueil} />
             </Switch>
+          </ConnectMiddleware>
         </ApiStatus>
     )
 }
