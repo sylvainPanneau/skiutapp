@@ -1,0 +1,30 @@
+.accueil-container {
+  position: relative;
+
+  .accueil-presentation {
+    background-image: url("../images/aurore.svg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 0 -30px;
+    text-align: center;
+    border : none;
+    .skiutc-title {
+      width: 40%;
+      margin: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  .accueil-navigation, .accueil-user {
+    width: 100%;
+    text-align: center;
+    a {
+      display: inline-block;
+      margin: 0 30px;
+    }
+  }
+
+  .accueil-user {
+    margin-top:50px;
+    margin-bottom:50px;
+  }
+}
