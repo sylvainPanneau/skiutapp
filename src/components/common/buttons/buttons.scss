@@ -1,0 +1,144 @@
+@import "../../../css/colors.scss";
+
+.container-wrapper {
+  position:relative;
+  margin:20px;
+  width: 233px;
+  height: 233px;
+
+  &.internal {
+    margin: 0 auto;
+    margin-top: 6.25%;
+    width: 203px;
+    height: 203px;
+  }
+
+  &:hover {
+    .container {
+      &.one, &.two, &.three, &.four {
+        -webkit-animation: rotation 0.75s 1 linear;
+        &.internal {
+          -webkit-animation: rotation-invert 0.75s 1 linear;
+        }
+      }
+      &.one {
+        border-color: $hover-blue transparent transparent transparent;
+      }
+      &.two {
+        border-color: transparent $hover-blue transparent transparent;
+      }
+      &.three {
+        border-color: transparent transparent $hover-blue transparent;
+      }
+      &.four {
+        border-color: transparent transparent transparent $hover-blue;
+      }
+    }
+    object {
+      filter: $svg-hover-blue;
+    }
+    .buttons {
+      &.link-button {
+        color: $hover-blue;
+
+        .link-button-separator {
+          border-color: $hover-blue;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  position:absolute;
+  top:0;
+  left:0;
+  width: 230px;
+  height: 230px;
+  border-radius:100%;
+  border: 3px solid;
+  border-color: transparent;
+
+  &.internal {
+    width: 200px;
+    height: 200px;
+  }
+
+  &.content {
+    border-color: transparent;
+  }
+
+  &.one {
+    border-color:$black transparent transparent transparent;
+  }
+
+  &.two {
+    border-color:transparent $black transparent transparent;
+  }
+
+  &.three {
+    border-color:transparent transparent $black transparent;
+  }
+
+  &.four {
+    border-color:transparent transparent transparent $black;
+  }
+
+
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotation-invert {
+  from {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+
+.buttons {
+  font-size: 1.5em;
+  color: $simple-grey;
+
+  &.link-button {
+    text-align: center;
+    vertical-align: middle;
+    margin: 12.5%;
+
+    .link-button-separator {
+      margin: 5px auto;
+      border-top: 3px solid;
+      border-color: $black;
+      width: 50%;
+      height: 20px;
+
+    }
+    .link-button-icon {
+      max-width: 75px;
+      margin: 0 auto;
+    }
+  }
+
+  &.simple-button {
+     border-radius: 20px;
+     background-color: $light-brown;
+     width: 100%;
+     min-width: 200px;
+     padding: 20px;
+
+     &:hover {
+       color: $white;
+     }
+
+    .simple-button-left, .simple-button-right{
+      width: 20%;
+    }
+
+    .simple-button-name {
+      text-align: center;
+    }
+  }
+}
