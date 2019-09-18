@@ -6,6 +6,7 @@ import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/container"
 import { LoginComponent } from "./components/login/login"
+import { StationComponent } from "./components/station/station"
 import { getMeta } from "./skiutactions"
 import ApiStatus from "./utils/apiStatus"
 import "css/container.scss"
@@ -19,9 +20,10 @@ function AppComp(props) {
 
     return(
         <ApiStatus api={props.meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', 'station']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/shotgun" component={Shotgun} />
+                <Route path="/station" component={StationComponent} />
                 <Route path="/login" component={LoginComponent} />
                 <Route path="/tombola" component={Tombola}/>
                 <Route path="/" component={Accueil} />

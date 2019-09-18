@@ -107,3 +107,69 @@ Inputs
   display: block;
   width: 100%;
 }
+
+.fade {
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.9)
+    100%);
+}
+
+.montagnes {
+  position: relative;
+  height: 800px;
+  background: url('../images/montagnes.svg') 0 0 no-repeat;
+  background-size: 100%;
+}
+
+.menu {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99;
+  top: 10px;
+  float: left !important;
+  background: white;
+
+  .menu-context {
+    display: flex;
+    .menu-title {
+      font-weight: bold;
+      font-style: italic;
+      margin: 10px;
+      margin-left: 40px;
+      font-size: 25px;
+      line-height: 40px;
+    }
+    .menu-icon{
+      position: -webkit-sticky;
+      position: sticky;
+      z-index: 99;
+      top: 0;
+      float: left !important;
+      -webkit-transition: -webkit-transform .3s ease-in-out;
+      -ms-transition: -ms-transform .3s ease-in-out;
+      transition: transform .3s ease-in-out;
+      height: 60px;
+      width: 60px;
+      background: url("../images/menu_a_derouler.svg") no-repeat;
+    }
+    .menu-icon:hover {
+      cursor: pointer;
+    }
+
+    .menu-icon.expanded{
+      transform: rotate(90deg);
+      -ms-transform:rotate(90deg);
+      -webkit-transform:rotate(90deg);
+    }
+  }
+}
+
