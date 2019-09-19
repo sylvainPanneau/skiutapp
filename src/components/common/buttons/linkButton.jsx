@@ -1,27 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Container from "./container";
 import "./buttons.scss";
 
-const LinkButton = ({ children, name, to }) => {
+const LinkButton = ({ children, name, to, history }) => {
+
+  const redirect = React.useCallback(() => history.push(to), [to, history]);
 
   return (
-    <Link to={ to }>
-      <Container randomize>
-        <Container internal randomize >
-            <div className="buttons link-button">
-              <div className="link-button-icon">
-                { children }
-              </div>
-              <div className="link-button-separator"></div>
-              <div className="link-button-name">
-                { name }
-              </div>
+    <div className="buttons link-button-wrapper" onClick={redirect}>
+      <Container randomize >
+        <Container randomize invert>
+          <div className="buttons link-button">
+            <div className="link-button-icon">
+              { children }
             </div>
+            <div className="link-button-separator"></div>
+            <div className="link-button-name">
+              { name }
+            </div>
+          </div>
         </Container>
       </Container>
-  </Link>
+    </div>
   )
 }
 
@@ -34,4 +36,4 @@ LinkButton.propTypes = {
   ]).isRequired,
 }
 
-export default LinkButton;
+export default withRouter(LinkButton);

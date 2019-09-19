@@ -1,45 +1,77 @@
 @import "../../../css/colors.scss";
 
 .container-wrapper {
-  position:relative;
-  margin:20px;
-  width: 233px;
-  height: 233px;
+  position: relative;
+  margin: 20px;
+  max-width: 100%;
 
-  &.internal {
-    margin: 0 auto;
-    margin-top: 6.25%;
-    width: 203px;
-    height: 203px;
+  &::after {
+    content:'';
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .container {
+    border: solid 3px;
+    border-radius: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    &.content {
+      border-color: transparent;
+    }
+
+    &.one {
+      border-color:$black transparent transparent transparent;
+    }
+
+    &.two {
+      border-color:transparent $black transparent transparent;
+    }
+
+    &.three {
+      border-color:transparent transparent $black transparent;
+    }
+
+    &.four {
+      border-color:transparent transparent transparent $black;
+    }
   }
 
   &:hover {
     .container {
       &.one, &.two, &.three, &.four {
         -webkit-animation: rotation 0.75s 1 linear;
-        &.internal {
+        &.invert {
           -webkit-animation: rotation-invert 0.75s 1 linear;
         }
       }
+
       &.one {
-        border-color: $hover-blue transparent transparent transparent;
+        border-color:$hover-blue transparent transparent transparent;
       }
+
       &.two {
-        border-color: transparent $hover-blue transparent transparent;
+        border-color:transparent $hover-blue transparent transparent;
       }
+
       &.three {
-        border-color: transparent transparent $hover-blue transparent;
+        border-color:transparent transparent $hover-blue transparent;
       }
+
       &.four {
-        border-color: transparent transparent transparent $hover-blue;
+        border-color:transparent transparent transparent $hover-blue;
       }
     }
-    object {
-      filter: $svg-hover-blue;
-    }
+
     .buttons {
       &.link-button {
         color: $hover-blue;
+
+        .link-button-icon object {
+          filter: $svg-hover-blue;
+        }
 
         .link-button-separator {
           border-color: $hover-blue;
@@ -47,44 +79,6 @@
       }
     }
   }
-}
-
-.container {
-  position:absolute;
-  top:0;
-  left:0;
-  width: 230px;
-  height: 230px;
-  border-radius:100%;
-  border: 3px solid;
-  border-color: transparent;
-
-  &.internal {
-    width: 200px;
-    height: 200px;
-  }
-
-  &.content {
-    border-color: transparent;
-  }
-
-  &.one {
-    border-color:$black transparent transparent transparent;
-  }
-
-  &.two {
-    border-color:transparent $black transparent transparent;
-  }
-
-  &.three {
-    border-color:transparent transparent $black transparent;
-  }
-
-  &.four {
-    border-color:transparent transparent transparent $black;
-  }
-
-
 }
 
 @-webkit-keyframes rotation {
@@ -99,9 +93,18 @@
   }
 }
 
+
 .buttons {
-  font-size: 1.5em;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-style: italic;
   color: $simple-grey;
+
+  &.link-button-wrapper {
+    width: 240px;
+    display: inline-block;
+    margin: 20px;
+  }
 
   &.link-button {
     text-align: center;
@@ -113,7 +116,7 @@
       border-top: 3px solid;
       border-color: $black;
       width: 50%;
-      height: 20px;
+      height: 1px;
 
     }
     .link-button-icon {
@@ -125,20 +128,31 @@
   &.simple-button {
      border-radius: 20px;
      background-color: $light-brown;
-     width: 100%;
      min-width: 200px;
      padding: 20px;
+     margin: 20px;
+     display: inline-block;
 
      &:hover {
        color: $white;
+       .fleche {
+            filter: $svg-white;
+       }
      }
 
-    .simple-button-left, .simple-button-right{
-      width: 20%;
-    }
+     .simpleButton-container {
+       display: flex;
 
-    .simple-button-name {
-      text-align: center;
-    }
+       .simple-button-right {
+         flex: 1;
+         max-width: 30px;
+         vertical-align: middle;
+       }
+
+      .simple-button-name {
+        flex: 1 auto;
+        text-align: center;
+      }
+     }
   }
 }

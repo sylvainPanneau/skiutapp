@@ -1,17 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./buttons.scss";
+import fleche from "../../../images/fleche.svg";
 
-const Button = ({ name, to }) => {
+const Button = ({ name, to, history }) => {
+
+  const redirect = React.useCallback(() => history.push(to),[to, history]);1
+
   return (
-    <Link to={ to }>
-      <div className="buttons simple-button">
-        <div className="simple-button-left"></div>
-        <div className="simple-button-name">{ name }</div>
-        <div className="simple-button-right"></div>
+      <div className="buttons simple-button" onClick={ redirect }>
+        <div className="simpleButton-container">
+          <div className="simple-button-name">{ name }</div>
+          <div className="simple-button-right">
+            <object className="fleche" type="image/svg+xml" data={fleche}/>
+          </div>
+        </div>
       </div>
-    </Link>
   )
 }
 
@@ -21,6 +26,7 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]).isRequired,
+  history: PropTypes.any.isRequired,
 }
 
-export default Button;
+export default withRouter(Button);
