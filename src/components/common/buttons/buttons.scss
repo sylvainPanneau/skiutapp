@@ -2,7 +2,7 @@
 
 .container-wrapper {
   position: relative;
-  margin: 20px;
+  margin: 15px;
   max-width: 100%;
 
   &::after {
@@ -96,40 +96,42 @@
 
 .buttons {
   cursor: pointer;
-  font-size: 1.1em;
-  font-style: italic;
   color: $simple-grey;
 
   &.link-button-wrapper {
-    width: 240px;
+    width: 200px;
     display: inline-block;
-    margin: 20px;
+    margin: 10px;
   }
 
   &.link-button {
+    vertical-align: middle;
+    font-size: 1.1em;
+    font-style: italic;
     text-align: center;
     vertical-align: middle;
-    margin: 12.5%;
+    margin-top: 15%;
 
     .link-button-separator {
       margin: 5px auto;
       border-top: 3px solid;
       border-color: $black;
-      width: 50%;
+      width: 70%;
       height: 1px;
 
     }
     .link-button-icon {
-      max-width: 75px;
+      max-width: 40px;
       margin: 0 auto;
     }
   }
 
   &.simple-button {
-     border-radius: 20px;
+    font-size: 1.4em;
+     border-radius: 40px;
      background-color: $light-brown;
      min-width: 200px;
-     padding: 20px;
+     padding: 10px;
      margin: 20px;
      display: inline-block;
 
@@ -145,7 +147,8 @@
 
        .simple-button-right {
          flex: 1;
-         max-width: 30px;
+         max-width: 25px;
+         margin-right: 5%;
          vertical-align: middle;
        }
 
