@@ -1,4 +1,5 @@
 @import "variables";
+@import "../components/station/css/station.scss";
 
 .fullHeight {
   height: 100%;
@@ -128,23 +129,53 @@ Inputs
 }
 
 .menu {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
   padding-left: 10px;
   padding-top: 10px;
   padding-right: 10px;
   position: -webkit-sticky;
   position: sticky;
   z-index: 99;
-  top: 10px;
+  top: 0;
   float: left !important;
-  background: white;
-
+  .menu-context.expanded {
+    opacity: 0.9;
+    background: white;
+    -moz-box-shadow:    2px 2px 1px 3px $gray2;
+    -webkit-box-shadow: 2px 2px 1px 3px $gray2;
+    box-shadow:         2px 2px 1px 3px $gray2;
+    animation: fadeIn ease 0.5s;
+    -webkit-animation: fadeIn ease 0.5s;
+    -moz-animation: fadeIn ease 0.5s;
+    -o-animation: fadeIn ease 0.5s;
+    -ms-animation: fadeIn ease 0.5s;
+    border-radius: 3px;
+  }
   .menu-context {
     display: flex;
+    flex-flow: row wrap;
+    .menu-options{
+      flex-basis: 100%;
+      width: 0;
+      .menu-row {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        font-weight: 300;
+        flex: 1;
+        &:hover {
+          cursor: pointer;
+          background: $gray1;
+        }
+     }
+    }
     .menu-title {
       font-weight: bold;
       font-style: italic;
-      margin: 10px;
-      margin-left: 40px;
+      margin: 20px 40px 20px 20px;
       font-size: 25px;
       line-height: 40px;
     }
@@ -153,18 +184,18 @@ Inputs
       position: sticky;
       z-index: 99;
       top: 0;
+      margin: 20px;
       float: left !important;
       -webkit-transition: -webkit-transform .3s ease-in-out;
       -ms-transition: -ms-transform .3s ease-in-out;
       transition: transform .3s ease-in-out;
-      height: 60px;
-      width: 60px;
+      height: 40px;
+      width: 40px;
       background: url("../images/menu_a_derouler.svg") no-repeat;
     }
     .menu-icon:hover {
       cursor: pointer;
     }
-
     .menu-icon.expanded{
       transform: rotate(90deg);
       -ms-transform:rotate(90deg);
@@ -173,3 +204,47 @@ Inputs
   }
 }
 
+@keyframes fadeIn{
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
