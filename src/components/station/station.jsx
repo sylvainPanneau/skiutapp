@@ -6,16 +6,15 @@ import { ContextMenu } from "../contextmenu"
 import stationTitle from "../../images/facts_titre.svg";
 
 function Station(props) {
-
     return <div className="fullHeight fullWidth">
         <ContextMenu />
-        <div className="fullWidth montagnes">
-            <div className="fade"/>
-        </div>
+
         <div className="station-title">
             <object type="image/svg+xml" data={stationTitle}/>
         </div>
-
+        <div className="fullWidth montagnes">
+            <div className="fade"/>
+        </div>
     </div>
 }
 
