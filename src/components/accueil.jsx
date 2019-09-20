@@ -3,61 +3,48 @@ import {connect} from "react-redux";
 import * as c from "../skiutconstants"
 import { logout } from "../skiutactions"
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import LinkButton from "./common/buttons/linkButton";
+import Button from "./common/buttons/simpleButton";
+import iconVoyage from "../images/voyage_1.svg";
+import iconTrailer from "../images/trailer.svg";
+import iconStation from "../images/station.svg";
+import iconPacks from "../images/packs_1.svg";
+import loupMontagne from "../images/loup_montagnes2.svg";
+import skiutcTitle from "../images/skiutc_title.svg";
+import "../css/accueil.scss";
 
-function ConnexionShow({ auth, user, logout, history }) {
+export function Accueil() {
 
-    if (auth)
-        return <div>
-            <div>Welcome {user.login}</div>
-            <a className="button bouncy" onClick={() => {logout()}}>Deconnecte-toi</a>
+    return (
+      <div className="accueil-container">
+        <div className="accueil-presentation">
+          <object type="image/svg+xml" data={skiutcTitle} className="skiutc-title"/>
+          <object type="image/svg+xml" data={loupMontagne} className="accueil-loup"/>
+          <object type="image/svg+xml" data={loupMontagne} className="accueil-loup absolute"/>
         </div>
-    else
-        return <a className="button bouncy" onClick={() => {history.push("/login")}}>Connecte-toi</a>
+        <div className="accueil-navigation">
+
+          <LinkButton  name="Le voyage" to="/voyage">
+            <object type="image/svg+xml" data={iconVoyage}/>
+          </LinkButton>
+
+          <LinkButton  name="La station" to="/station">
+            <object type="image/svg+xml" data={iconStation}/>
+          </LinkButton>
+
+          <LinkButton  name="Les packs" to="/packs">
+            <object type="image/svg+xml" data={iconPacks}/>
+          </LinkButton>
+
+          <LinkButton  name="Le trailer" to="/trailer">
+            <object type="image/svg+xml" data={iconTrailer}/>
+          </LinkButton>
+        </div>
+        <div className="accueil-user">
+          <Button name="Connexion" to="/login"/>
+          <Button name="Shotgun" to="/shotgun"/>
+        </div>
+      </div>
+    )
 }
-
-ConnexionShow.propTypes = {
-    auth: PropTypes.bool,
-    user: PropTypes.object.isRequired,
-    logout: PropTypes.func.isRequired,
-    history: PropTypes.object.isRequired,
-}
-
-export function AccueilContainer(props) {
-
-    const [redirect, setRedirect] = useState(false)
-
-    useEffect(() => {
-        if (props.disc_status && props.disc_status === "SUCCESS") {
-            setRedirect(true)
-        }
-    },[props.disc_status])
-
-    if (redirect) {
-        document.location = "/skiutc.html"
-    }
-
-    const auth = props.user_auth ? props.user_auth.auth : false
-
-    return <div className="fullHeight fullWidth">
-        <ConnexionShow auth={auth} user={props.user_auth} logout={props.logout} history={props.history}/>
-
-    </div>
-}
-
-const mapStateToProps = (state) => {
-    return {
-        user_auth: state[c.META]["data"]["user"],
-        disc_status: state[c.LOG]["status"]
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        logout: () => {dispatch(logout())}
-    }
-}
-
-export const Accueil = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AccueilContainer)
