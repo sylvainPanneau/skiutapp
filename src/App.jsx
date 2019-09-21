@@ -7,6 +7,7 @@ import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/container"
 import { LoginComponent } from "./components/login/login"
 import { StationComponent } from "./components/station/station"
+import { VoyageComponent } from "./components/voyage/voyage"
 import { getMeta } from "./skiutactions"
 import ApiStatus from "./utils/apiStatus"
 import "css/container.scss"
@@ -24,6 +25,7 @@ function AppComp(props) {
             <Switch className="fullWidth fullHeight">
                 <Route path="/shotgun" component={Shotgun} />
                 <Route path="/station" component={StationComponent} />
+                <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginComponent} />
                 <Route path="/tombola" component={Tombola}/>
                 <Route path="/" component={Accueil} />

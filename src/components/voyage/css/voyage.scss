@@ -1,0 +1,57 @@
+@media only screen and (min-width: 768px) {
+    .voyage {
+      position: fixed;
+      height: calc(100% - 25px);
+      width: 100%;
+      padding-top: 25px;
+      background: url("../images/fond_voyage.svg") no-repeat;
+      background-size: cover;
+      background-position: bottom;
+      .voyage-title {
+        width: 30%;
+        margin: auto;
+      }
+      .voyage-content {
+        display: inline-flex;
+        height: 75%;
+        width: 100%;
+        margin-top: 20px;
+        .voyage-calendar {
+          width: 30%;
+          margin: auto;
+          object {
+            margin: 0 auto;
+            display: list-item;
+            width: 70%;
+          }
+        }
+        .voyage-info {
+          margin-top: 25px;
+          width: 70%;
+          display: block;
+          object {
+            margin: auto;
+            display: block;
+          }
+          .info-dec {
+            margin-left: 5%;
+          }
+        }
+      }
+      .shotgun-info {
+        display: block;
+        margin: auto;
+        width: 35%;
+      }
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+
+
+
+
+
+}
