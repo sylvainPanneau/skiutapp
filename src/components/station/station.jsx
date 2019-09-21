@@ -3,17 +3,18 @@ import { connect } from "react-redux";
 import * as c from "../../skiutconstants";
 import { withRouter } from "react-router-dom";
 import { ContextMenu } from "../contextmenu"
-import stationTitle from "../../images/facts_titre.svg";
+import stationFacts from "../../images/facts_station.svg";
+
 
 function Station(props) {
     return <div className="fullHeight fullWidth">
         <ContextMenu />
-
-        <div className="station-title">
-            <object type="image/svg+xml" data={stationTitle}/>
-        </div>
-        <div className="fullWidth montagnes">
-            <div className="fade"/>
+        <div className="station fullWidth">
+            <div className="station-title" />
+            <div className="station-cover" />
+            <div className="station-info">
+                <object data={stationFacts} width="100%" />
+            </div>
         </div>
     </div>
 }

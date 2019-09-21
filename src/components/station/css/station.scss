@@ -2,8 +2,51 @@
 CSS station page
  */
 
-.station-title {
-  width: 50%;
-  margin: auto;
-  padding-top: 40px;
+.station {
+  height: calc(100% - 20px);
+  padding-top: 20px;
+  background: url("../images/montagnes.svg") no-repeat;
+  background-position: bottom;
+  .station-title {
+    width: 50%;
+    height: 10%;
+    background-size: cover;
+    background-origin: content-box;
+    margin: auto;
+    background: url('../images/facts_titre.svg') no-repeat;
+  }
+
+  .station-cover {
+    position: relative;
+    margin-top: 40px;
+    height: 20%;
+    background: url('../images/val_dallos.svg') no-repeat;
+    background-size: cover;
+    background-origin: content-box;
+  }
+
+  .station-info {
+    position: relative;
+    width: 45%;
+    margin: 40px auto auto auto;
+  }
+
+  .station-background {
+
+  }
+}
+
+/*
+Responsive calls
+ */
+@media only screen and (max-width: 600px) {
+  .station-cover {
+    position: relative;
+    margin-top: 20px !important;
+    height: 35px !important;
+    width: 100% !important;
+    background-image: url('../images/val_dallos.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
