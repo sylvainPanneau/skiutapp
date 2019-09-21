@@ -1,39 +1,56 @@
 /*
 CSS station page
  */
+@media only screen and (min-width: 768px) {
+  .station {
+    height: calc(100% - 25px);
+    padding-top: 25px;
+    background: url("../images/montagnes.svg") no-repeat;
+    background-position: bottom;
 
-.station {
-  height: calc(100% - 25px);
-  padding-top: 25px;
-  background: url("../images/montagnes.svg") no-repeat;
-  background-position: bottom;
-
-  .station-title {
-    width: 30%;
-    margin: auto;
-  }
-
-  .station-cover {
-    width: 65%;
-    margin: 40px auto auto auto;
-  }
-
-  .station-info {
-    position: relative;
-    width: 40%;
-    margin: 40px auto auto auto;
-  }
-
-  .station-background {
-
+    .station-title {
+      width: 30%;
+      margin: auto;
+    }
+    .station-cover {
+      width: 65%;
+      margin: 40px auto auto auto;
+    }
+    .station-info {
+      position: relative;
+      width: 35%;
+      margin: 40px auto auto auto;
+    }
   }
 }
+
 
 /*
 Responsive calls
  */
 @media only screen and (max-width: 600px) {
-  .station-cover {
-
+  .station {
+    position: fixed;
+    height: calc(100% - 30px);
+    padding-top: 30px;
+    width: 100%;
+    background: url("../images/montagnes.svg") no-repeat;
+    background-position: bottom;
+    .station-title {
+      position: relative;
+      width: 60%;
+      left: 30%;
+    }
+    .station-cover {
+      position: relative;
+      width: 100%;
+      margin: 40px auto auto auto;
+    }
+    .station-info {
+      position: relative;
+      width: 90%;
+      margin: 40px auto auto auto;
+    }
   }
+
 }
