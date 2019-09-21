@@ -3,31 +3,24 @@ CSS station page
  */
 
 .station {
-  height: calc(100% - 20px);
-  padding-top: 20px;
+  height: calc(100% - 25px);
+  padding-top: 25px;
   background: url("../images/montagnes.svg") no-repeat;
   background-position: bottom;
+
   .station-title {
-    width: 50%;
-    height: 10%;
-    background-size: cover;
-    background-origin: content-box;
+    width: 30%;
     margin: auto;
-    background: url('../images/facts_titre.svg') no-repeat;
   }
 
   .station-cover {
-    position: relative;
-    margin-top: 40px;
-    height: 20%;
-    background: url('../images/val_dallos.svg') no-repeat;
-    background-size: cover;
-    background-origin: content-box;
+    width: 65%;
+    margin: 40px auto auto auto;
   }
 
   .station-info {
     position: relative;
-    width: 45%;
+    width: 40%;
     margin: 40px auto auto auto;
   }
 
@@ -41,12 +34,6 @@ Responsive calls
  */
 @media only screen and (max-width: 600px) {
   .station-cover {
-    position: relative;
-    margin-top: 20px !important;
-    height: 35px !important;
-    width: 100% !important;
-    background-image: url('../images/val_dallos.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
+
   }
 }
