@@ -1,8 +1,7 @@
 @media only screen and (min-width: 768px) {
     .voyage {
-      position: fixed;
-      height: calc(100% - 25px);
-      width: 100%;
+      position: absolute;
+      max-width: 100%;
       padding-top: 25px;
       background: url("../images/fond_voyage.png") no-repeat;
       background-size: cover;
@@ -14,7 +13,6 @@
       }
       .voyage-content {
         display: inline-flex;
-        height: 75%;
         width: 100%;
         margin-top: 20px;
         .voyage-calendar {
@@ -31,15 +29,20 @@
           width: 70%;
           display: block;
           object {
+            width: 70%;
             margin: auto;
             display: block;
+            margin-right: 5%;
           }
           .info-dec {
-            margin-left: 5%;
+            object {
+              margin-right: 11%;
+            }
           }
         }
       }
       .shotgun-info {
+        height: 300px;
         display: block;
         margin: auto;
         width: 35%;
