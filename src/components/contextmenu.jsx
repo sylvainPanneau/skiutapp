@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
-import { Link } from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import * as c from "../skiutconstants";
+import {connect} from "react-redux";
 
 function changeMenu(showMenu, setShowMenu) {
 
@@ -33,7 +35,7 @@ function changeMenu(showMenu, setShowMenu) {
     return MenuContext
 }
 
-export function ContextMenu() {
+function ContextMenuComponent({}) {
     const [showMenu, setShowMenu] = useState(false)
     //@TODO : Check for current page and not display
     //@TODO : Check if user in shotgun to add Mon Compte
@@ -41,3 +43,14 @@ export function ContextMenu() {
             {changeMenu(showMenu, setShowMenu)}
         </div>
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state[c.META]["data"]["user"]
+    }
+};
+
+export const ContextMenu = withRouter(connect(
+    mapStateToProps,
+    null
+)(ContextMenuComponent))
