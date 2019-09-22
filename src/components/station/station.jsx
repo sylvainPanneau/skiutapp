@@ -1,13 +1,10 @@
-import React, {useState, useEffect} from "react";
-import { connect } from "react-redux";
-import * as c from "../../skiutconstants";
-import { withRouter } from "react-router-dom";
+import React from "react";
 import { ContextMenu } from "../contextmenu"
 import stationTitle from "../../images/facts_titre.svg";
 import stationFacts from "../../images/facts_station.svg";
 import valDallos from "../../images/val_dallos.svg";
 
-function Station(props) {
+export function StationComponent() {
     return <div className="fullHeight fullWidth">
         <ContextMenu />
         <div className="station fullWidth">
@@ -23,18 +20,4 @@ function Station(props) {
         </div>
     </div>
 }
-
-
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export const StationComponent = withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Station))
 

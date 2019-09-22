@@ -144,18 +144,47 @@
 
      .simpleButton-container {
        display: flex;
-
        .simple-button-right {
          flex: 1;
          max-width: 25px;
          margin-right: 5%;
          vertical-align: middle;
        }
-
-      .simple-button-name {
+       .simple-button-name {
         flex: 1 auto;
         text-align: center;
-      }
+       }
      }
+  }
+  &.simple-button-connected {
+    font-size: 1.4em;
+    border-radius: 40px;
+    background-color: $light-green;
+    min-width: 200px;
+    padding: 10px;
+    margin: 20px;
+    display: inline-block;
+    color: $white;
+    &:hover {
+      cursor: default;
+    }
+    .valid {
+      vertical-align: middle;
+      filter: $svg-white;
+    }
+    .simpleButton-container {
+      display: flex;
+      .simple-button-right {
+        flex: 1;
+        max-width: 25px;
+        margin-right: 5%;
+        vertical-align: middle;
+      }
+      .simple-button-name {
+        flex: 1 auto;
+        line-height: 30px;
+        text-align: center;
+      }
+    }
   }
 }
