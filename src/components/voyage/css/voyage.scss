@@ -4,9 +4,10 @@
       height: calc(100% - 25px);
       width: 100%;
       padding-top: 25px;
-      background: url("../images/fond_voyage.svg") no-repeat;
+      background: url("../images/fond_voyage.png") no-repeat;
       background-size: cover;
       background-position: bottom;
+      opacity: 0.8;
       .voyage-title {
         width: 30%;
         margin: auto;
@@ -48,10 +49,46 @@
 
 
 @media only screen and (max-width: 600px) {
-
-
-
-
-
-
+  .voyage {
+    position: fixed;
+    height: calc(100% - 25px);
+    width: 100%;
+    padding-top: 30px;
+    background: url("../images/fond_voyage.png") no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    .voyage-title {
+      position: relative;
+      width: 60%;
+      left: 30%;
+    }
+    .voyage-content {
+      margin-top: 40px;
+      width: 100%;
+      .voyage-calendar {
+        margin: auto;
+        object {
+          margin: 0 auto;
+          display: list-item;
+          width: 70%;
+        }
+      }
+      .voyage-info {
+        margin-top: 25px;
+        object {
+          width: 90%;
+          margin: auto;
+          display: block;
+        }
+        .info-dec {
+          margin-top: 30px;
+        }
+      }
+    }
+    .shotgun-info {
+      display: block;
+      width: 60%;
+      margin: auto;
+    }
+  }
 }
