@@ -14,7 +14,7 @@
       .voyage-content {
         display: inline-flex;
         width: 100%;
-        margin-top: 20px;
+        margin-top: 100px;
         .voyage-calendar {
           width: 30%;
           margin: auto;
@@ -42,9 +42,8 @@
         }
       }
       .shotgun-info {
-        height: 300px;
         display: block;
-        margin: auto;
+        margin: auto auto 20px auto;
         width: 35%;
       }
     }

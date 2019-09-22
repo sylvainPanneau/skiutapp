@@ -21,7 +21,7 @@ function AppComp(props) {
 
     return(
         <ApiStatus api={props.meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/shotgun" component={Shotgun} />
                 <Route path="/station" component={StationComponent} />
