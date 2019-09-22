@@ -35,7 +35,7 @@ Button.propTypes = {
   to: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
-  ]).isRequired,
+  ]),
   history: PropTypes.any.isRequired,
 }
 
