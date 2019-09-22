@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Loader from 'react-loader-spinner'
 import PropTypes from 'prop-types';
 
-function ApiStatus({api, children}){
+function ApiStatus({api, load, children}){
 
     const isArray = api instanceof Array
 
@@ -10,6 +10,17 @@ function ApiStatus({api, children}){
         //@TODO ApiStatus for an array of api given in props.api
 
     } else {
+        if (load) {
+            let toReturn = api.status === "NEW" ?
+                <div className="fullHeight fullWidth">{children}</div>
+            :
+                <div className="loader fullHeight fullWidth">
+                    <div className = "loader-container">
+                        <Loader type="Triangle" color="#343434" height={120} width={120}  />
+                    </div>
+                </div>
+            return toReturn
+        }
         let toReturn = api.status === "SUCCESS" ?
             <div className="fullHeight fullWidth">{children}</div>
         :
