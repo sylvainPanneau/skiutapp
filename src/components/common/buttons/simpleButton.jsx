@@ -5,9 +5,9 @@ import "./buttons.scss";
 import fleche from "../../../images/fleche.svg";
 import valid from "../../../images/valid.svg";
 
-const Button = ({ name, to, history, connected }) => {
+const Button = ({ name, to, history, connected, action }) => {
 
-  const redirect = React.useCallback(() => history.push(to),[to, history]);1
+  const actionClick = action ? action : React.useCallback(() => history.push(to),[to, history]);
 
   if (connected === true) {
      return (<div className="buttons simple-button-connected">
@@ -19,7 +19,7 @@ const Button = ({ name, to, history, connected }) => {
         </div>
       </div>)
   }else {
-    return (<div className="buttons simple-button" onClick={ redirect }>
+    return (<div className="buttons simple-button" onClick={ actionClick }>
         <div className="simpleButton-container">
           <div className="simple-button-name">{ name }</div>
           <div className="simple-button-right">
@@ -36,7 +36,7 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
-  history: PropTypes.any.isRequired,
+  history: PropTypes.any.isRequired
 }
 
 export default withRouter(Button);

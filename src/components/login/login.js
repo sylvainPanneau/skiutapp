@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import { changeInput } from "./utils/loginUtils"
 import {login} from "../../skiutactions";
 import * as c from "../../skiutconstants";
+import Button from "../common/buttons/simpleButton";
 
 function LoginContainer(props) {
 
@@ -21,23 +22,22 @@ function LoginContainer(props) {
         document.location = "/skiutc.html"
     }
 
-    return <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) props.login(login, password)}}>
-        <div className="input">
-            <input className="input__field" type="text" value={login} onChange={(e) => changeInput(e, setLogin)}/>
-            <label className="input__label">
-                <span className="input__label-content">Login</span>
-            </label>
+    return <div className="login-container fullHeight">
+        <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) props.login(login, password)}}>
+            <div className="input">
+                <input className="input__field" type="text" value={login} onChange={(e) => changeInput(e, setLogin)}/>
+                <label className="input__label">
+                    <span className="input__label-content">Login</span>
+                </label>
+            </div>
+            <div className="input">
+                <input className="input__field" type="password" value={password} onChange={(e) => changeInput(e, setPassword)}/>
+                <label className="input__label">
+                    <span className="input__label-content">Password</span>
+                </label>
+            </div>
+            <Button name="Connexion" action={ () => props.login(login, password) } />
         </div>
-        <div className="input">
-            <input className="input__field" type="password" value={password} onChange={(e) => changeInput(e, setPassword)}/>
-            <label className="input__label">
-                <span className="input__label-content">Password</span>
-            </label>
-        </div>
-
-        <a className="button bouncy" onClick={() => {
-            props.login(login, password)
-        }}>Connexion</a>
     </div>
 }
 
