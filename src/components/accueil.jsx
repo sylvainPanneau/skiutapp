@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux";
 import * as c from "../skiutconstants"
-import { logout } from "../skiutactions"
-import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import LinkButton from "./common/buttons/linkButton";
 import Button from "./common/buttons/simpleButton";
 import iconVoyage from "../images/voyage_1.svg";
@@ -14,7 +12,14 @@ import loupMontagne from "../images/loup_montagnes2.svg";
 import skiutcTitle from "../images/skiutc_title.svg";
 import "../css/accueil.scss";
 
-export function Accueil() {
+function AccueilComponent({user}) {
+    const [ConnectButton, setComponent] = useState(<Button name="Connexion" to="/login"/>)
+
+    useEffect(() => {
+        if (user.auth) {
+            setComponent(<Button name="Connecté" connected={true}/>)
+        }
+    }, [user]);
 
     return (
       <div className="accueil-container">
@@ -42,9 +47,21 @@ export function Accueil() {
           </LinkButton>
         </div>
         <div className="accueil-user">
-          <Button name="Connexion" to="/login"/>
+            {ConnectButton}
           <Button name="Shotgun" to="/shotgun"/>
         </div>
       </div>
     )
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        user: state[c.META]["data"]["user"]
+    }
+};
+
+export const Accueil = withRouter(connect(
+    mapStateToProps,
+    null
+)(AccueilComponent))

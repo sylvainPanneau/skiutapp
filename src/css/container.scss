@@ -20,14 +20,43 @@ body {
 }
 
 html {
+  user-select: none;
   height: 100%;
   width: 100%;
   background: $white;
   font-family:'Roboto',sans-serif;
 }
 
-.login {
-  padding: 5px;
+@media only screen and (min-width: 768px) {
+  .login-container {
+    position: relative;
+  }
+  .login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+    margin: -10% 0 0 -25%;
+
+    .buttons.simple-button {
+      margin: auto;
+      width: 250px;
+      display: block;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .login-container {
+    position: relative;
+  }
+  .login {
+    .buttons.simple-button {
+      margin: auto;
+      width: 250px;
+      display: block;
+    }
+  }
 }
 
 /*
@@ -78,10 +107,9 @@ Inputs
 
 .input {
   position: relative;
-  display: inline-block;
   width: 300px;
-  margin: 6px;
-  vertical-align: top;
+  margin: 25px auto;
+  vertical-align: middle;
   text-align: center;
 }
 
