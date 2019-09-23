@@ -23,7 +23,7 @@ function Voyage(props) {
                 </div>
                 <div className="voyage-info">
                     <div className="fullWidth info-dec"><object data={textSensation} width="50%" /></div>
-                    <div className="fullWidth"><object data={textDefis} width="50%" /></div>
+                    <div className="fullWidth info-dec2"><object data={textDefis} width="50%" /></div>
                     <div className="fullWidth info-dec"><object data={textSouvenirs} width="50%" /></div>
                 </div>
             </div>
