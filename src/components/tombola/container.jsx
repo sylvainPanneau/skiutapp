@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import * as c from "../../skiutconstants";
 import { buy_tombola, get_tombola, patch_tombola } from "../../skiutactions";
-import PropTypes from "prop-types";
 import TicketItem from "./ticketItem";
 import { withRouter } from "react-router-dom";
+import * as sel from "../../utils/selectors"
 
 const Tombola = ({
-  user_auth,
+  login,
   tombola_stats,
   buy,
   refresh,
@@ -17,19 +17,24 @@ const Tombola = ({
   if(typeof tombola_stats === 'string') {
     tombola_stats = JSON.parse(tombola_stats);
   }
-  React.useEffect(() => { refresh();}, [])
 
   React.useEffect(() => {
+    refresh()
+  }, [])
+
+  React.useEffect(() => {
+    console.log(tombola_stats)
     if(tombola_stats.url) {
       window.location = tombola_stats.url;
     }
+
   }, [tombola_stats]);
 
   const [form, setForm] = React.useState({});
-  console.log(form);
+
   return (
     <div className="tombola">
-      <div> Bonjour { user_auth.login }</div>
+      <div> Bonjour { login }</div>
       <div> Vous Avez aujourd'hui acheté </div>
       <ul>
         <li>{tombola_stats.ticket1 || 0} ticket -1</li>
@@ -48,8 +53,8 @@ const Tombola = ({
 };
 
 const mapStateToProps = (state) => ({
-  user_auth: state[c.META]['data']['user'],
-  tombola_stats: state[c.TOMBOLA]['data'],
+  login: sel.login(state),
+  tombola_stats: state[c.TOMBOLA]["data"],
 });
 
 const mapDispatchToProps = (dispatch) => ({

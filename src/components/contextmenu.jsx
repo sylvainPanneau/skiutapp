@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {Link, withRouter} from "react-router-dom";
-import * as c from "../skiutconstants";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import * as sel from "../utils/selectors"
 
 function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun) {
 
@@ -50,15 +50,15 @@ ChangeMenu.propTypes = {
     isShotgun: PropTypes.bool.isRequired
 }
 
-function ContextMenuComponent({user}) {
+function ContextMenuComponent({userInfo, admin}) {
     const [showMenu, setShowMenu] = useState(false)
     const [isAdmin, setAdmin] = useState(false)
     const [isShotgun, setShotgun] = useState(false)
     //@TODO : Check for current page and not display
     useEffect( () => {
-        user.info ? setShotgun(true) : setShotgun(false)
-        user.admin ? setAdmin(true) : setAdmin(false)
-    }, [user]);
+        userInfo ? setShotgun(true) : setShotgun(false)
+        admin ? setAdmin(true) : setAdmin(false)
+    }, [userInfo]);
 
     return <div className="menu" >
             {ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun)}
@@ -67,7 +67,8 @@ function ContextMenuComponent({user}) {
 
 const mapStateToProps = (state) => {
     return {
-        user: state[c.META]["data"]["user"]
+        userInfo: sel.userInfo(state),
+        admin: sel.isAdmin(state)
     }
 };
 

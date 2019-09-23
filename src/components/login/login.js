@@ -5,29 +5,30 @@ import {login} from "../../skiutactions";
 import * as c from "../../skiutconstants";
 import Button from "../common/buttons/simpleButton";
 import ApiStatus from "../../utils/apiStatus"
+import * as sel from "../../utils/selectors"
 
-function LoginContainer(props) {
+function LoginContainer({loginStatus, token, login}) {
 
-    const [login, setLogin] = useState("")
+    const [login_user, setLogin] = useState("")
     const [password, setPassword] = useState("")
     const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
-        if (props.user && props.user.token) {
-            localStorage.setItem("token",props.user.token)
+        if (token) {
+            localStorage.setItem("token", token)
             setRedirect(true)
         }
-    },[props.user])
+    },[token])
 
     if (redirect) {
         document.location = "/skiutc.html"
     }
 
-    return <ApiStatus api={props.loginStatus} load={true}>
+    return <ApiStatus api={loginStatus} load={true}>
         <div className="login-container fullHeight">
-            <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) props.login(login, password)}}>
+            <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) login(login_user, password)}}>
                 <div className="input">
-                    <input className="input__field" type="text" value={login} onChange={(e) => changeInput(e, setLogin)}/>
+                    <input className="input__field" type="text" value={login_user} onChange={(e) => changeInput(e, setLogin)}/>
                     <label className="input__label">
                         <span className="input__label-content">Login</span>
                     </label>
@@ -38,7 +39,7 @@ function LoginContainer(props) {
                         <span className="input__label-content">Password</span>
                     </label>
                 </div>
-                <Button name="Connexion" action={ () => props.login(login, password) } />
+                <Button name="Connexion" action={ () => login(login_user, password) } />
             </div>
         </div>
     </ApiStatus>
@@ -47,7 +48,7 @@ function LoginContainer(props) {
 const mapStateToProps = (state) => {
     return {
         loginStatus: state[c.LOG],
-        user: state[c.LOG]["data"]
+        token: state[c.LOG]["data"]["token"]
     }
 }
 
