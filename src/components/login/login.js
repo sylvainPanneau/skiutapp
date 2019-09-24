@@ -48,7 +48,7 @@ function LoginContainer({loginStatus, token, login}) {
 const mapStateToProps = (state) => {
     return {
         loginStatus: state[c.LOG],
-        token: state[c.LOG]["data"]["token"]
+        token: sel.token(state)
     }
 }
 

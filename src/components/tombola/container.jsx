@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as c from "../../skiutconstants";
 import { buy_tombola, get_tombola, patch_tombola } from "../../skiutactions";
 import TicketItem from "./ticketItem";
 import { withRouter } from "react-router-dom";
@@ -23,7 +22,6 @@ const Tombola = ({
   }, [])
 
   React.useEffect(() => {
-    console.log(tombola_stats)
     if(tombola_stats.url) {
       window.location = tombola_stats.url;
     }
@@ -54,7 +52,7 @@ const Tombola = ({
 
 const mapStateToProps = (state) => ({
   login: sel.login(state),
-  tombola_stats: state[c.TOMBOLA]["data"],
+  tombola_stats: sel.tombola_stats(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
