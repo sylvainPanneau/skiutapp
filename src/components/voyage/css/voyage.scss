@@ -14,7 +14,7 @@
       .voyage-content {
         display: inline-flex;
         width: 100%;
-        margin-top: 100px;
+        margin-top: 50px;
         .voyage-calendar {
           width: 30%;
           margin: auto;
@@ -32,12 +32,16 @@
             width: 70%;
             margin: auto;
             display: block;
-            margin-right: 5%;
+            margin-right: 4%;
           }
           .info-dec {
+            margin-bottom: 50px;
             object {
               margin-right: 11%;
             }
+          }
+          .info-dec2 {
+            margin-bottom: 50px;
           }
         }
       }
@@ -84,6 +88,10 @@
         }
         .info-dec {
           margin-top: 30px;
+          margin-bottom: 50px;
+        }
+        .info-dec2 {
+          margin-bottom: 50px;
         }
       }
     }
