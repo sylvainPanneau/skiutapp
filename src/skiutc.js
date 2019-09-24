@@ -11,8 +11,10 @@ import { HashRouter } from 'react-router-dom';
 import * as apiUtils from "./utils/apiUtils"
 import mainStore from "./store"
 
-//check for Chrome or IE
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+let composeEnhancers = compose
+if (process.env.NODE_ENV === "development")
+    composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 const store = createStore(mainStore, {}, composeEnhancers(applyMiddleware(thunk, apiAuthMiddleware, apiUtils.apiMiddleware)))
 
 ReactDOM.render(

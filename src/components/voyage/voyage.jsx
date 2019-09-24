@@ -1,7 +1,4 @@
-import React, {useState, useEffect} from "react";
-import { connect } from "react-redux";
-import * as c from "../../skiutconstants";
-import { withRouter } from "react-router-dom";
+import React from "react";
 import { ContextMenu } from "../contextmenu"
 import voyageTitle from "../../images/titre_voyage.svg";
 import calendar from "../../images/calendar.svg";
@@ -10,7 +7,7 @@ import textDefis from "../../images/text_defis.svg";
 import textSouvenirs from "../../images/text_souvernirs.svg";
 import textShotgun from "../../images/text_shotgun.svg";
 
-function Voyage(props) {
+export function VoyageComponent() {
     return <div className="fullHeight fullWidth">
         <ContextMenu />
         <div className="voyage fullWidth">
@@ -33,18 +30,3 @@ function Voyage(props) {
         </div>
     </div>
 }
-
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export const VoyageComponent = withRouter(connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Voyage))
-
-

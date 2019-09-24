@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react"
 import {connect} from "react-redux";
-import * as c from "../skiutconstants"
 import {withRouter} from "react-router-dom";
 import LinkButton from "./common/buttons/linkButton";
 import Button from "./common/buttons/simpleButton";
@@ -10,16 +9,16 @@ import iconStation from "../images/station.svg";
 import iconPacks from "../images/packs_1.svg";
 import loupMontagne from "../images/loup_montagnes2.svg";
 import skiutcTitle from "../images/skiutc_title.svg";
-import "../css/accueil.scss";
+import * as sel from "../utils/selectors"
 
-function AccueilComponent({user}) {
+function AccueilComponent({isAuth}) {
     const [ConnectButton, setComponent] = useState(<Button name="Connexion" to="/login"/>)
 
     useEffect(() => {
-        if (user.auth) {
+        if (isAuth) {
             setComponent(<Button name="Connecté" connected={true}/>)
         }
-    }, [user]);
+    }, [isAuth]);
 
     return (
       <div className="accueil-container">
@@ -57,7 +56,7 @@ function AccueilComponent({user}) {
 
 const mapStateToProps = (state) => {
     return {
-        user: state[c.META]["data"]["user"]
+        isAuth: sel.isAuth(state)
     }
 };
 

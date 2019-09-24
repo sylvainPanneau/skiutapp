@@ -37,8 +37,7 @@ function AppComp(props) {
 
 const mapStateToProps = (state) => {
     return {
-        meta: state[c.META],
-        user: state[c.LOG]["data"]
+        meta: state[c.META]
     }
 }
 
