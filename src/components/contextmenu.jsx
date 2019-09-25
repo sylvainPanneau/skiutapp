@@ -27,6 +27,7 @@ function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun) {
                     <Link to="/voyage" style={{ textDecoration: 'none', color: 'black' }}><div className="menu-row">Le voyage</div></Link>
                     <Link to="/station" style={{ textDecoration: 'none', color: 'black' }}><div className="menu-row">La station</div></Link>
                     <Link to="/packs" style={{ textDecoration: 'none', color: 'black' }}><div className="menu-row">Les packs</div></Link>
+                    <Link to="/tombola" style={{ textDecoration: 'none', color: 'black' }}><div className="menu-row">La tombola</div></Link>
                     {MonCompte}
                     {Admin}
                 </div>

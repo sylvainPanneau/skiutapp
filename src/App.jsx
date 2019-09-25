@@ -4,7 +4,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
-import Tombola from "./components/tombola/container"
+import Tombola from "./components/tombola/tombola"
 import Packs from "./components/packs/container"
 import { LoginComponent } from "./components/login/login"
 import { StationComponent } from "./components/station/station"

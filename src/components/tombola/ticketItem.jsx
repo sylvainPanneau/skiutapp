@@ -1,16 +1,30 @@
 import React from "react";
 
 const TicketItem = ({ name, qte, onChange }) => {
-  return(
-    <button onClick={ () => onChange() }>
-      <div>
-        { name }
+  if (qte>0) {
+    return(
+      <div className={name}>
+        <div className="logo"></div>
+        <div>
+          { qte }
+        </div>
+        <button className="minus" onClick={ () => onChange((-1)) } />        
+        <button className="plus" onClick={ () => onChange(1) }/>
       </div>
-      <div>
-        { qte }
-      </div>
-    </button>
-  )
+    )
+  }
+  else{
+    return(
+        <div className={name}>
+          <div className="logo"></div>
+          <div>
+            { qte }
+          </div>
+          <button className="minus" onClick={ () => onChange(0) } />        
+          <button className="plus" onClick={ () => onChange(1) }/>
+        </div>
+      )
+  }
 }
 
 export default TicketItem;
