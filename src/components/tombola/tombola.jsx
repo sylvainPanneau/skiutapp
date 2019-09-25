@@ -31,7 +31,7 @@ const Tombola = ({
   const [form, setForm] = React.useState({});
   console.log(form);
   return (
-    <div className="tombola">
+    <div className="tombola"><div className="halfTombolaBG"></div>
       <div className="headBlock">
         <div className="mainTitle" >
           <object data={tomboTitle} width="100%" />
@@ -40,7 +40,7 @@ const Tombola = ({
       <div className="recap" >
         <div className="recapTitle"><object data={recapTitle} width="100%" /></div>
         <div className="recapTxt">
-        <div> Bonjour { login }, <br />Tu as acheté: </div><br />
+        <div> Bonjour { login }, </div><br /><div>Tu as acheté: </div><br />
         <ul>
           <li>  {tombola_stats.ticket1 || 0} ticket x1</li>
           <li>  {tombola_stats.ticket5 || 0} ticket x5</li>
