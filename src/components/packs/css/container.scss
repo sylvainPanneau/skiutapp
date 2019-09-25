@@ -1,0 +1,51 @@
+@import "../../../css/colors.scss";
+
+.packs {
+  text-align: center;
+
+  .packs-content {
+    margin: 0 5% 0 5%;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    grid-template-areas: "left right";
+
+    .packs-informations {
+      grid-area: left;
+      .row {
+        display: flex;
+      }
+    }
+
+    .packs-shoes {
+      grid-area: right;
+
+      .packs-shoes-title {
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        width: 30%;
+      }
+
+      .packs-shoes-packs {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .packs {
+    .packs-content {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .packs {
+    .packs-content .packs-informations .row{
+      display: block;
+    }
+  }
+}
