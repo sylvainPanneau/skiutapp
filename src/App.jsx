@@ -5,6 +5,7 @@ import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/container"
+import Packs from "./components/packs/container"
 import { LoginComponent } from "./components/login/login"
 import { StationComponent } from "./components/station/station"
 import { VoyageComponent } from "./components/voyage/voyage"
@@ -21,13 +22,14 @@ function AppComp(props) {
 
     return(
         <ApiStatus api={props.meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/shotgun" component={Shotgun} />
                 <Route path="/station" component={StationComponent} />
                 <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginComponent} />
                 <Route path="/tombola" component={Tombola}/>
+                <Route path="/packs" component={Packs}/>
                 <Route path="/" component={Accueil} />
             </Switch>
           </ConnectMiddleware>
