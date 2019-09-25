@@ -6,14 +6,13 @@ import textSensation from "../../images/text_sensation.svg";
 import textDefis from "../../images/text_defis.svg";
 import textSouvenirs from "../../images/text_souvernirs.svg";
 import textShotgun from "../../images/text_shotgun.svg";
+import PageTitle from "../common/pageTitle";
 
 export function VoyageComponent() {
     return <div className="fullHeight fullWidth">
         <ContextMenu />
         <div className="voyage fullWidth">
-            <div className="voyage-title" >
-                <object data={voyageTitle} width="100%" />
-            </div>
+            <PageTitle title={voyageTitle}/>
             <div className="voyage-content">
                 <div className="voyage-calendar">
                     <object data={calendar} width="50%" />

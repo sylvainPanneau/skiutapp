@@ -2,7 +2,6 @@
     .voyage {
       position: absolute;
       max-width: 100%;
-      padding-top: 25px;
       background: url("../images/fond_voyage.png") no-repeat;
       background-size: cover;
       background-position: bottom;
@@ -59,7 +58,6 @@
     position: fixed;
     height: calc(100% - 25px);
     width: 100%;
-    padding-top: 30px;
     background: url("../images/fond_voyage.png") no-repeat;
     background-size: cover;
     background-position: bottom;
