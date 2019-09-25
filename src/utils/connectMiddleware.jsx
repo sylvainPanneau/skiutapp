@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as c from "../skiutconstants";
 import PropTypes from "prop-types";
+import * as sel from "./selectors"
 
 const ConnectMiddleware = ({
   history,
   location,
   user_auth,
+  isShotgun,
+  isAdmin,
   authorizedPathnames,
   children
 }) => {
@@ -17,7 +20,13 @@ const ConnectMiddleware = ({
     if( !authorizedPathnames.includes(pathname) && (!user_auth || !user_auth.auth ) && location.pathname !== '/login') {
       history.push('/login');
     }
-  }, [user_auth, pathname, authorizedPathnames]);
+    if (!isAdmin && location.pathname === "/admin") {
+      history.push('/');
+    }
+    if (!isShotgun && location.pathname === "/compte") {
+      history.push('/');
+    }
+  }, [user_auth, isShotgun, isAdmin, pathname, authorizedPathnames]);
 
   return children;
 }
@@ -36,7 +45,9 @@ ConnectMiddleware.defaultProps = {
 };
 
 const mapStateToProps = (state) => ({
-  user_auth: state[c.META]['data']['user'],
+  user_auth: sel.userGlobal(state),
+  isShotgun: sel.userInfo(state),
+  isAdmin: sel.isAdmin(state)
 });
 
 export default withRouter(connect(mapStateToProps)(ConnectMiddleware));
