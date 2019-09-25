@@ -4,6 +4,8 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
+import Compte from "./components/compte/compte"
+import Admin from "./components/admin/admin"
 import Tombola from "./components/tombola/container"
 import Packs from "./components/packs/container"
 import { LoginComponent } from "./components/login/login"
@@ -24,12 +26,14 @@ function AppComp(props) {
         <ApiStatus api={props.meta}>
           <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs']}>
             <Switch className="fullWidth fullHeight">
+                <Route path="/compte" component={Compte} />
+                <Route path="/admin" component={Admin} />
                 <Route path="/shotgun" component={Shotgun} />
                 <Route path="/station" component={StationComponent} />
                 <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginComponent} />
-                <Route path="/tombola" component={Tombola}/>
-                <Route path="/packs" component={Packs}/>
+                <Route path="/tombola" component={Tombola} />
+                <Route path="/packs" component={Packs} />
                 <Route path="/" component={Accueil} />
             </Switch>
           </ConnectMiddleware>

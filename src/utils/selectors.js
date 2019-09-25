@@ -4,6 +4,7 @@ import * as c from "../skiutconstants"
 const createSelector = (path) => R.path(path)
 
 //Meta selectors
+export const userGlobal = createSelector([c.META, 'data', 'user'])
 export const isAuth = createSelector([c.META, 'data', 'user', 'auth'])
 export const isAdmin = createSelector([c.META, 'data', 'user', 'admin'])
 export const login = createSelector([c.META, 'data', 'user', 'login'])
