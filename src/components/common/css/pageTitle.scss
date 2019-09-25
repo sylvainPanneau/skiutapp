@@ -1,0 +1,17 @@
+.page-title {
+    width: 30%;
+    margin: 20px auto 50px auto;
+    text-align: center;
+    object {
+      width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  .page-title {
+    position: relative;
+    margin-top: 30px;
+    width: 60%;
+    left: 10%;
+  }
+}

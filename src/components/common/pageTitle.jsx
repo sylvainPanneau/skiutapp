@@ -1,6 +1,5 @@
 import React from "react";
 import { ContextMenu } from "../contextmenu";
-import "./pageTitle.scss";
 
 const PageTitle = ({ title }) => (
   <React.Fragment>
