@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import * as c from "../skiutconstants";
 import PropTypes from "prop-types";
 import * as sel from "./selectors"
 

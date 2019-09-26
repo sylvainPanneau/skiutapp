@@ -9,6 +9,8 @@ export const isAuth = createSelector([c.META, 'data', 'user', 'auth'])
 export const isAdmin = createSelector([c.META, 'data', 'user', 'admin'])
 export const login = createSelector([c.META, 'data', 'user', 'login'])
 export const userInfo = createSelector([c.META, 'data', 'user', 'info'])
+export const shotgunAuthorized = createSelector([c.META, 'data', 'shotgun_authorized'])
+export const currentServerTime = createSelector([c.META, 'data', 'current_date'])
 
 //Tombola selectors
 export const tombola_stats = createSelector([c.TOMBOLA, 'data'])
