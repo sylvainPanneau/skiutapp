@@ -14,6 +14,12 @@
       left: 40%;
       transform: perspective(1px) translateY(-50%);
     }
+    .shotgun-news {
+      position: absolute;
+      top: 60%;
+      left: 38%;
+      transform: perspective(1px) translateY(-50%);
+    }
   }
 }
 
@@ -30,6 +36,12 @@
       position: absolute;
       top: 50%;
       left: 20%;
+      transform: perspective(1px) translateY(-50%);
+    }
+    .shotgun-news {
+      position: absolute;
+      top: 60%;
+      left: 15%;
       transform: perspective(1px) translateY(-50%);
     }
   }

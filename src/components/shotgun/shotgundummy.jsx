@@ -37,6 +37,7 @@ function ShotgunDummyComponent({currentServerTime, history}) {
     return <div className="shotgun">
         <div className="shotgun-date">Date : {day} {month}</div>
         <div className="shotgun-time">Heure actuelle du serveur : {currDate.toLocaleTimeString()}</div>
+        <div className="shotgun-news">Date du Shotgun : Lundi 14 Octobre à 4h00</div>
     </div>
 }
 
