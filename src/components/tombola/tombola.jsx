@@ -55,7 +55,7 @@ const Tombola = ({
           <TicketItem name="ticket-10" qte={ form.ticket10 || 0 } onChange={ (sign) => setForm({ ...form, ticket10: (form.ticket10 || 0)+sign })}/>
         </div>
         <div className="buyButton">
-          <button type="submit" onClick={ () => buy(form) }><span>Acheter</span></button>
+          <button type="submit" onClick={ () => {if (form.ticket1 < 0 & form.ticket5 < 0 & form.ticket10 < 0) {console.log("fuck off!")} else {buy(form)}} }><span>Acheter</span></button>
         </div>
       </div>
   </div>
