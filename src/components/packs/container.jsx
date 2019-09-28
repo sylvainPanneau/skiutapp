@@ -21,7 +21,7 @@ const Pack = () => {
           <div className="packs-content">
             <div className="packs-informations">
               <div className="row">
-                <InformationBlock icon={ iconBase } title="LE PACK DE BASE: 320€">
+                <InformationBlock icon={ iconBase } title="LE PACK DE BASE: 329€">
                   Ce pack de base comporte tes trajets en navette aller retour, ta chambre ainsi que ton forfait de ski, les trois sont sympas pour monter en altitude.
                 </InformationBlock>
                 <InformationBlock icon={ iconPanier } title="LE PACK DE NOURRITURE: 42€">
