@@ -27,7 +27,7 @@ function AppComp({meta, getMeta, shotgunAuthorized}) {
     const ShotgunRoute = shotgunAuthorized ?
         <Route path="/shotgun" component={Shotgun} />
         :
-        <Route path="/shotgun" component={Shotgun} />
+        <Route path="/shotgun" component={ShotgunDummy} />
 
     return(
         <ApiStatus api={meta}>
