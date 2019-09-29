@@ -21,6 +21,31 @@
       transform: perspective(1px) translateY(-50%);
     }
   }
+  .real-shotgun {
+    position: relative;
+    .shotgun-form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 50%;
+      width: 50%;
+      margin: -10% 0 0 -25%;
+      .input__field {
+        margin: auto;
+      }
+      .button-shotgun {
+        width: 100%;
+        .buttons.simple-button {
+          max-width: 150px;
+          margin: 10px auto;
+          display: block;
+        }
+      }
+    }
+    .canvas-container {
+      background-color: white;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -43,6 +68,31 @@
       top: 60%;
       left: 1%;
       transform: perspective(1px) translateY(-50%);
+    }
+  }
+  .real-shotgun {
+    position: relative;
+    .shotgun-form {
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      height: 50%;
+      width: 50%;
+      .input__field {
+        margin: auto;
+        width: auto;
+      }
+      .button-shotgun {
+        width: 100%;
+        .buttons.simple-button {
+          min-width: auto;
+          margin: 10px auto;
+          display: block;
+        }
+      }
+    }
+    .canvas-container {
+      background-color: white;
     }
   }
 }

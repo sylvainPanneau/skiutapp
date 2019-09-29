@@ -17,3 +17,6 @@ export const tombola_stats = createSelector([c.TOMBOLA, 'data'])
 
 //Connexion selectors
 export const token = createSelector([c.LOG, 'data', 'token'])
+
+//Shotgun selectors
+export const shotgunStatus = createSelector([c.SHOTGUN, 'data', 'status'])

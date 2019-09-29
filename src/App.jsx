@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
-import { Shotgun } from "./components/shotgun"
+import { Shotgun } from "./components/shotgun/shotgun"
 import { ShotgunDummy } from "./components/shotgun/shotgundummy"
 import Compte from "./components/compte/compte"
 import Admin from "./components/admin/admin"
@@ -27,7 +27,7 @@ function AppComp({meta, getMeta, shotgunAuthorized}) {
     const ShotgunRoute = shotgunAuthorized ?
         <Route path="/shotgun" component={Shotgun} />
         :
-        <Route path="/shotgun" component={ShotgunDummy} />
+        <Route path="/shotgun" component={Shotgun} />
 
     return(
         <ApiStatus api={meta}>
