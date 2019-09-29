@@ -3,23 +3,31 @@ import * as sel from "../../utils/selectors";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
 import {Unlocker} from "./unlocker"
-import {shotgun} from "../../skiutactions"
+import {shotgun, clean_shotgun} from "../../skiutactions"
 import {changeInput} from "../login/utils/loginUtils"
 import Button from "../common/buttons/simpleButton";
 
-function ShotgunComponent({shotgun, shotgunStatus}) {
+function ShotgunComponent({shotgun, shotgunStatus, clean_shotgun}) {
 
     const [login, setLogin] = useState("")
+
+    useEffect(() => {
+        return () => {
+            clean_shotgun()
+        }
+    }, [])
 
     let ShotgunMe = null
 
     if (shotgunStatus === "SUCCESS") {
         ShotgunMe = (<div className="shotgun-form">
-            Ton shotgun est pris en compte !
+            <div className="shotgun-result">Ton shotgun est pris en compte !</div>
+            <div className="button-shotgun"><Button name="Retour accueil" to="/" /></div>
         </div>)
     }else if (shotgunStatus === "FAILED") {
         ShotgunMe = (<div className="shotgun-form">
-            Tu as déjà Shotgun bg
+            <div className="shotgun-result">Tu as déjà Shotgun bg</div>
+            <div className="button-shotgun"><Button name="Retour accueil" to="/" /></div>
         </div>)
     }else{
         ShotgunMe = (<div className="shotgun-form">
@@ -44,7 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        shotgun: (login) => {dispatch(shotgun(login))}
+        shotgun: (login) => {dispatch(shotgun(login))},
+        clean_shotgun: () => {dispatch(clean_shotgun())}
     }
 }
 

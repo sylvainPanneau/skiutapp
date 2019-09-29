@@ -1,4 +1,4 @@
-import { callApi } from "utils/apiUtils"
+import { callApi, cleanApiData } from "utils/apiUtils"
 import { API_URL } from "./config"
 import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY } from "./skiutactiontypes"
 
@@ -24,4 +24,8 @@ export const patch_tombola = () => callApi(`${API_URL}/tombola`, TOMBOLA_API_KEY
 export const shotgun = (login) => {
     const url = API_URL + "/shotgunme"
     return callApi(url, SHOTGUN_API_KEY, "POST", {"login": login})
+}
+
+export const clean_shotgun = () => {
+    return cleanApiData(SHOTGUN_API_KEY)
 }
