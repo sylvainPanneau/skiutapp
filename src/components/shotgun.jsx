@@ -1,6 +1,6 @@
 import React from "react"
 
-export function Shotgun(props) {
+export function Shotgun() {
 
-    return <div>Shotgunnnn</div>
+    return <div>Shotgunnnnx</div>
 }

@@ -4,16 +4,15 @@ import stationTitle from "../../images/facts_titre.svg";
 import stationFacts from "../../images/facts_station.svg";
 import stationMediaFacts from "../../images/phone_facts.svg";
 import valDallos from "../../images/val_dallos.svg";
+import PageTitle from "../common/pageTitle";
 
 export function StationComponent() {
     const mq = window.matchMedia( "(min-width: 600px)" );
-    const stationContainer = mq.matches ?
+    return mq.matches ?
         (<div className="fullHeight fullWidth">
             <ContextMenu />
             <div className="station fullWidth">
-                <div className="station-title" >
-                    <object data={stationTitle} width="100%" />
-                </div>
+                <PageTitle title={stationTitle} />
                 <div className="station-cover" >
                     <object data={valDallos} width="100%" />
                 </div>
@@ -26,9 +25,7 @@ export function StationComponent() {
         (<div className="fullHeight fullWidth">
             <ContextMenu />
             <div className="station fullWidth">
-                <div className="station-title" >
-                    <object data={stationTitle} width="100%" />
-                </div>
+                <PageTitle title={stationTitle} />
                 <div className="station-cover" >
                     <object data={valDallos} width="100%" />
                 </div>
@@ -37,6 +34,5 @@ export function StationComponent() {
                 </div>
             </div>
         </div>)
-    return stationContainer
 }
 

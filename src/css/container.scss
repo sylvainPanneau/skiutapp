@@ -4,6 +4,7 @@
 @import "accueil.scss";
 @import "../components/common/css/pageTitle.scss";
 @import "../components/tombola/css/tombola.scss";
+@import "../components/shotgun/css/shotgun.scss";
 
 @font-face {
   font-family: "Acumin";
@@ -189,10 +190,10 @@ Inputs
   padding-left: 10px;
   padding-top: 10px;
   padding-right: 10px;
-  position: absolute;
+  position: sticky;
   z-index: 99;
   top: 0;
-  float: left !important;
+  float: left;
   .menu-context.expanded {
     opacity: 0.9;
     background: white;

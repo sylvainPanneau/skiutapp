@@ -3,8 +3,8 @@ CSS station page
  */
 @media only screen and (min-width: 768px) {
   .station {
-    height: calc(100% - 25px);
-    padding-top: 25px;
+    position: absolute;
+    height: 100%;
     background: url("../images/montagnes.svg") no-repeat;
     background-position: bottom;
     .station-title {
@@ -30,8 +30,7 @@ Responsive calls
 @media only screen and (max-width: 600px) {
   .station {
     position: fixed;
-    height: calc(100% - 30px);
-    padding-top: 30px;
+    height: 100%;
     width: 100%;
     background: url("../images/montagnes.svg") no-repeat;
     background-position: bottom;
