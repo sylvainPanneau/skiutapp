@@ -29,7 +29,7 @@ const Tombola = ({
     }
   }, [tombola_stats]);
 
-  const [form, setForm] = React.useState({});
+  const [form, setForm] = React.useState({ticket1: 0, ticket5:0, ticket10:0});
   return (
     <div className="tombola"><div className="halfTombolaBG"></div>
       <div className="headBlock">
@@ -55,7 +55,7 @@ const Tombola = ({
           <TicketItem name="ticket-10" qte={ form.ticket10 || 0 } onChange={ (sign) => setForm({ ...form, ticket10: (form.ticket10 || 0)+sign })}/>
         </div>
         <div id="achat">
-          <Btn name="Acheter" type="submit" action={ () => {if (form.ticket1 < 0 || form.ticket5 < 0 || form.ticket10 < 0 || (form.ticket1 == 0 && form.ticket5 == 0 && form.ticket10 == 0)) {} else {buy(form)}} }/>
+          <Btn name="Acheter" type="submit" action={ () => {if (form.ticket1 < 0 || form.ticket5 < 0 || form.ticket10 < 0 || (form.ticket1 === 0 && form.ticket5 === 0 && form.ticket10 === 0)) {} else {buy(form)}} }/>
         </div>
       </div>
   </div>
