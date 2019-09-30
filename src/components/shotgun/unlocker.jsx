@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
+import {isMobileDevice} from "../../utils/globals"
 import p5 from "p5"
 
 function newCanvas(){
@@ -87,7 +88,8 @@ const sketch = p => {
     p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight - 5)
         p.stroke(255);
-        for (let i = 0; i < 3; i++) {
+        const nbBubbles = isMobileDevice() ? 4 : 3
+        for (let i = 0; i < nbBubbles; i++) {
             bubbles.push(new Bubble(p, getRandom()[0], getRandom()[1]))
         }
     }
