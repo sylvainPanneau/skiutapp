@@ -8,6 +8,7 @@ import * as c from "../../skiutconstants";
 import PropTypes from "prop-types";
 import recapTitle from "../../images/recapitulatif.svg";
 import tomboTitle from "../../images/la_tombola.svg";
+import Btn from "../common/buttons/simpleButton";
 
 const Tombola = ({
   login,
@@ -54,8 +55,8 @@ const Tombola = ({
           <TicketItem name="ticket-5" qte={ form.ticket5 || 0 } onChange={ (sign) => setForm({ ...form, ticket5: (form.ticket5 || 0)+sign })}/>
           <TicketItem name="ticket-10" qte={ form.ticket10 || 0 } onChange={ (sign) => setForm({ ...form, ticket10: (form.ticket10 || 0)+sign })}/>
         </div>
-        <div className="buyButton">
-          <button type="submit" onClick={ () => {if (form.ticket1 < 0 & form.ticket5 < 0 & form.ticket10 < 0) {console.log("fuck off!")} else {buy(form)}} }><span>Acheter</span></button>
+        <div id="achat">
+          <Btn name="Acheter" type="submit" onClick={ () => {if (form.ticket1 < 0 || form.ticket5 < 0 || form.ticket10 < 0 || (form.ticket1 == 0 & form.ticket5 == 0 & form.ticket10 == 0)) {} else {buy(form)}} }/>
         </div>
       </div>
   </div>
