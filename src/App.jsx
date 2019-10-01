@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
-import { Shotgun } from "./components/shotgun"
+import { Shotgun } from "./components/shotgun/shotgun"
 import Tombola from "./components/tombola/tombola"
 import { ShotgunDummy } from "./components/shotgun/shotgundummy"
 import Compte from "./components/compte/compte"
