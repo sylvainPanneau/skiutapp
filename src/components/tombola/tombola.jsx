@@ -16,7 +16,7 @@ const checkTickets = (form, buy) => {
 }
 
 const setTicketString = (ticket) => {
-  if (ticket > 0) {
+  if (ticket > 1) {
     return "tickets"
   } else {
     return "ticket"
