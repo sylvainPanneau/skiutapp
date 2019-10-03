@@ -13,7 +13,7 @@ const LinkButton = ({ children, name, to, history }) => {
       <Container randomize >
         <Container randomize invert>
           <div className="buttons link-button">
-            <div className="link-button-icon">
+            <div className="link-button-icon" >
               { children }
             </div>
             <div className="link-button-separator"></div>

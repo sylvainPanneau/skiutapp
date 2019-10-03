@@ -9,6 +9,7 @@ import iconStation from "../images/station.svg";
 import iconPacks from "../images/packs_1.svg";
 import loupMontagne from "../images/loup_montagnes2.svg";
 import skiutcTitle from "../images/skiutc_title.svg";
+import stationName from "../images/val_dallos_1.svg"
 import * as sel from "../utils/selectors"
 
 function AccueilComponent({isAuth}) {
@@ -23,7 +24,10 @@ function AccueilComponent({isAuth}) {
     return (
       <div className="accueil-container">
         <div className="accueil-presentation">
-          <object type="image/svg+xml" data={skiutcTitle} className="skiutc-title"/>
+          <div className="accueil-title">
+            <object type="image/svg+xml" data={skiutcTitle} className="skiutc-title"/>
+            <object type="image/svg+xml" data={stationName} className="station-title"/>
+          </div>
           <object type="image/svg+xml" data={loupMontagne} className="accueil-loup"/>
           <object type="image/svg+xml" data={loupMontagne} className="accueil-loup absolute"/>
         </div>
