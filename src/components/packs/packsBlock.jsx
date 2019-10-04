@@ -11,7 +11,7 @@ const PacksBlock = ({ name, to, icon }) => {
         { name }
       </div>
       <div className="packs-block-icon">
-        <object data={icon}/>
+        <object type="image/svg+xml" data={icon}/>
       </div>
       <div className="packs-block-button">
         <Button name="Voir plus" to={ to }/>

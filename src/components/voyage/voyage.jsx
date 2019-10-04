@@ -15,16 +15,16 @@ export function VoyageComponent() {
             <PageTitle title={voyageTitle}/>
             <div className="voyage-content">
                 <div className="voyage-calendar">
-                    <object data={calendar} width="50%" />
+                    <object type="image/svg+xml" data={calendar} width="50%" />
                 </div>
                 <div className="voyage-info">
-                    <div className="fullWidth info-dec"><object data={textSensation} width="50%" /></div>
-                    <div className="fullWidth info-dec2"><object data={textDefis} width="50%" /></div>
-                    <div className="fullWidth info-dec"><object data={textSouvenirs} width="50%" /></div>
+                    <div className="fullWidth info-dec"><object type="image/svg+xml" data={textSensation} width="50%" /></div>
+                    <div className="fullWidth info-dec2"><object type="image/svg+xml" data={textDefis} width="50%" /></div>
+                    <div className="fullWidth info-dec"><object type="image/svg+xml" data={textSouvenirs} width="50%" /></div>
                 </div>
             </div>
             <div className="fullWidth">
-                <object className="shotgun-info" data={textShotgun} width="50%" />
+                <object type="image/svg+xml" className="shotgun-info" data={textShotgun} width="50%" />
             </div>
         </div>
     </div>

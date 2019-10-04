@@ -48,11 +48,11 @@ const Tombola = ({
     <div className="tombola"><div className="halfTombolaBG"></div>
       <div className="headBlock">
         <div className="mainTitle" >
-          <object data={tomboTitle} width="100%" />
+          <object type="image/svg+xml" data={tomboTitle} width="100%" />
         </div>
       </div>
       <div className="recap" >
-        <div className="recapTitle"><object data={recapTitle} width="100%" /></div>
+        <div className="recapTitle"><object type="image/svg+xml" data={recapTitle} width="100%" /></div>
         <div className="recapTxt">
         <div> Bonjour { login }, </div><br /><div>Tu as acheté: </div><br />
         <ul>

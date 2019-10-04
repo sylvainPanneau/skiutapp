@@ -7,8 +7,7 @@ module.exports = {
         "./src/skiutc.js"
     ],
     output: {
-        path: __dirname + "/webdocs",
-        publicPath: "/",
+        path: __dirname + "/public_html",
         filename: "[name].min.js",
         chunkFilename: "[name].min.js"
     },
@@ -38,13 +37,30 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-                test: /\.(png|svg|jpg)$/i,
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: "file-loader",
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+            {
+                test: /\.(png|jpg)$/i,
                 use:[{
                     loader: "url-loader",
                     options: {
-                        limit: 20000
+                        limit: 20000,
+                        name: 'images/[name].[ext]'
                     }
                 }]
+            },
+            {
+                test: /\.svg/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {
+                        name:  'images/[name].[ext]'
+                    }
+                }
             }
         ]
     },
@@ -60,7 +76,7 @@ module.exports = {
     ],
     devtool: "#inline-source-map",
     devServer: {
-        contentBase: "./webdocs",
+        contentBase: "./public_html",
         hot: true
     },
     target: "web",

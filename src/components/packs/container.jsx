@@ -42,7 +42,7 @@ const Pack = () => {
             </div>
             <div className="packs-shoes">
               <div className="packs-shoes-title">
-                <object data={ titreChoose }/>
+                <object type="image/svg+xml" data={ titreChoose }/>
               </div>
               <div className="packs-shoes-packs">
                 <PacksBlock name="PACK BRONZE" to="/packs/bronze" icon={ packBronze }/>

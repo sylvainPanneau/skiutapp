@@ -14,10 +14,10 @@ export function StationComponent() {
             <div className="station fullWidth">
                 <PageTitle title={stationTitle} />
                 <div className="station-cover" >
-                    <object data={valDallos} width="100%" />
+                    <object type="image/svg+xml" data={valDallos} width="100%" />
                 </div>
                 <div className="station-info">
-                    <object data={stationFacts} width="100%" />
+                    <object type="image/svg+xml" data={stationFacts} width="100%" />
                 </div>
             </div>
         </div>)
@@ -27,10 +27,10 @@ export function StationComponent() {
             <div className="station fullWidth">
                 <PageTitle title={stationTitle} />
                 <div className="station-cover" >
-                    <object data={valDallos} width="100%" />
+                    <object type="image/svg+xml" data={valDallos} width="100%" />
                 </div>
                 <div className="station-info">
-                    <object data={stationMediaFacts} width="100%" />
+                    <object type="image/svg+xml" data={stationMediaFacts} width="100%" />
                 </div>
             </div>
         </div>)
