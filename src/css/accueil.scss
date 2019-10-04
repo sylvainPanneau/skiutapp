@@ -21,9 +21,20 @@
         bottom: -12%;
       }
     }
-    .skiutc-title {
-      width: 30%;
-      margin-top: 10px;
+
+    .accueil-title {
+      text-align: center;
+      .skiutc-title {
+        display: block;
+        margin: 0 auto;
+        width: 30%;
+      }
+
+      .station-title {
+        display: block;
+        margin: 0 auto;
+        width: 20%;
+      }
     }
   }
   .accueil-navigation {
@@ -42,6 +53,24 @@
 Responsive calls
  */
 @media only screen and (max-width: 600px) {
-  body {
+  .accueil-container {
+    .accueil-presentation {
+      .accueil-title {
+        .skiutc-title {
+          width: 70%;
+        }
+        .station-title {
+          width: 40%;
+        }
+      }
+    }
+
+    .accueil-navigation {
+      margin-bottom: 40px;
+    }
+    .accueil-user {
+      margin-bottom: 0;
+      margin-top: 25px;
+    }
   }
 }
