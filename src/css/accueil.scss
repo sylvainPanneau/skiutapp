@@ -1,5 +1,5 @@
 .accueil-container {
-  position: relative;
+  position: absolute;
   .accueil-presentation {
     position: relative;
     margin-bottom: 50px;
@@ -8,12 +8,10 @@
     background-repeat: no-repeat;
     background-origin: content-box;
     text-align: center;
-
     .accueil-loup {
       width: 100%;
       position: relative;
       visibility: hidden;
-
       &.absolute {
         visibility: visible;
         position: absolute;
@@ -21,7 +19,6 @@
         bottom: -12%;
       }
     }
-
     .accueil-title {
       text-align: center;
       .skiutc-title {
@@ -29,7 +26,6 @@
         margin: 0 auto;
         width: 30%;
       }
-
       .station-title {
         display: block;
         margin: 0 auto;
@@ -41,7 +37,6 @@
     width: 100%;
     text-align: center;
   }
-
   .accueil-user {
     width: 100%;
     text-align: center;
@@ -64,11 +59,15 @@ Responsive calls
         }
       }
     }
-
     .accueil-navigation {
+      display: flex;
       margin-bottom: 40px;
+      .link-button-wrapper {
+        flex: 1;
+      }
     }
     .accueil-user {
+      display: block;
       margin-bottom: 0;
       margin-top: 25px;
     }
