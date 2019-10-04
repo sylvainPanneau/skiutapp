@@ -16,7 +16,7 @@ function checkLogoutStatus (logoutStatus) {
     return redirect
 }
 
-function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, logoutStatus) {
+function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, logoutStatus, history) {
 
     const [MenuContext, setMenuComponent] = useState(<div className="menu-context" onClick={() => setShowMenu(!showMenu)}>
                 <span className="menu-icon " />
@@ -65,7 +65,7 @@ function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, l
     },[showMenu])
 
     if (redirect) {
-        document.location = "/skiutc.html"
+        history.go("/")
     }
 
     return MenuContext
@@ -77,7 +77,7 @@ ChangeMenu.propTypes = {
     isShotgun: PropTypes.bool.isRequired
 }
 
-function ContextMenuComponent({userInfo, admin, auth, logout, logoutStatus}) {
+function ContextMenuComponent({userInfo, admin, auth, logout, logoutStatus, history}) {
     const [showMenu, setShowMenu] = useState(false)
     const [isAdmin, setAdmin] = useState(false)
     const [isShotgun, setShotgun] = useState(false)
@@ -90,7 +90,7 @@ function ContextMenuComponent({userInfo, admin, auth, logout, logoutStatus}) {
     }, [userInfo]);
 
     return <div className="menu" >
-            {ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, logoutStatus)}
+            {ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, logoutStatus, history)}
         </div>
 }
 

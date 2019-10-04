@@ -19,6 +19,9 @@ const ConnectMiddleware = ({
     if( !authorizedPathnames.includes(pathname) && (!user_auth || !user_auth.auth ) && location.pathname !== '/login') {
       history.push('/login');
     }
+    if (user_auth.auth && location.pathname === "/login"){
+      history.push("/");
+    }
     if (!isAdmin && location.pathname === "/admin") {
       history.push('/');
     }

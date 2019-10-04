@@ -6,8 +6,9 @@ import * as c from "../../skiutconstants";
 import Button from "../common/buttons/simpleButton";
 import ApiStatus from "../../utils/apiStatus"
 import * as sel from "../../utils/selectors"
+import {withRouter} from "react-router-dom";
 
-function LoginContainer({loginStatus, token, login}) {
+function LoginContainer({loginStatus, token, login, history}) {
 
     const [login_user, setLogin] = useState("")
     const [password, setPassword] = useState("")
@@ -21,7 +22,7 @@ function LoginContainer({loginStatus, token, login}) {
     },[token])
 
     if (redirect) {
-        document.location = "/skiutc.html"
+        history.go("/")
     }
 
     return <ApiStatus api={loginStatus} load={true}>
@@ -58,8 +59,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export const LoginComponent = connect(
+export const LoginComponent = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginContainer)
+)(LoginContainer))
 
