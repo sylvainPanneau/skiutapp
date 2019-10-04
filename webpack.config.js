@@ -7,7 +7,7 @@ module.exports = {
     "./src/skiutc.js"
   ],
   output: {
-    path: __dirname + "/webdocs",
+    path: __dirname + "/public_html",
     publicPath: "/",
     filename: "[name].min.js",
     chunkFilename: "[name].min.js"
@@ -54,7 +54,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: "./webdocs",
+    contentBase: "./public_html",
     hot: true
   },
   target: "web",
