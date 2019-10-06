@@ -21,22 +21,20 @@ const Pack = () => {
           <div className="packs-content">
             <div className="packs-informations">
               <div className="row">
-                <InformationBlock icon={ iconBase } title="LE PACK DE BASE: 329€">
+                <InformationBlock icon={ iconBase } title="LE PACK DE BASE: 330€">
                   Ce pack de base comporte tes trajets en navette aller retour, ta chambre ainsi que ton forfait de ski, les trois sont sympas pour monter en altitude.
                 </InformationBlock>
+              </div>
+              <div className="row">
                 <InformationBlock icon={ iconPanier } title="LE PACK DE NOURRITURE: 42€">
                   Avec ce pack tu auras toute la nourriture délicieuse que ton ventre demande tant. Tu auras de quoi de rassasier du matin au soir!
                   <br/>
                   Eh oui, la glisse ça creuse!
                 </InformationBlock>
-              </div>
-              <div className="row">
                 <InformationBlock icon={ iconAssurance } title="LES ASSURANCES">
                   "Parce qu'on sait jamais", c'est ce que tu peux te dire devant ton écran. Et tu as raison, un accident peut arriver même à Ski'UTC. Alors si tu es prévoyant et sécure, c'est simple:
                   <br/>
-                  Assurance annulation et bagage: XX€
-                  <br/>
-                  Assurance rapatriement: XX€
+                  Assurance annulation et bagage: 10€80
                 </InformationBlock>
               </div>
             </div>
