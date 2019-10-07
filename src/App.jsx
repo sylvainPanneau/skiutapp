@@ -18,7 +18,7 @@ import "css/container.scss"
 import * as c from "./skiutconstants"
 import * as sel from "./utils/selectors";
 
-function AppComp({meta, getMeta, shotgunAuthorized}) {
+function AppComp({meta, getMeta, shotgunAuthorized, history}) {
 
     useEffect(() => {
         getMeta()
@@ -30,7 +30,7 @@ function AppComp({meta, getMeta, shotgunAuthorized}) {
         <Route path="/shotgun" component={ShotgunDummy} />
 
     return(
-        <ApiStatus api={meta}>
+        <ApiStatus api={meta} history={history}>
           <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/compte" component={Compte} />

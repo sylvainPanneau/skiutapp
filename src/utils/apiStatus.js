@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Loader from 'react-loader-spinner'
 import PropTypes from 'prop-types';
 
-function ApiStatus({api, load, children}){
+function ApiStatus({api, load, children, history}){
 
     const isArray = api instanceof Array
+
+    if (api.status === "FAILED") {
+        history.push("/")
+    }
 
     if (isArray) {
         //@TODO ApiStatus for an array of api given in props.api

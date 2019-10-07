@@ -25,7 +25,7 @@ function LoginContainer({loginStatus, token, login, history}) {
         history.go("/")
     }
 
-    return <ApiStatus api={loginStatus} load={true}>
+    return <ApiStatus api={loginStatus} load={true} history={history}>
         <div className="login-container fullHeight">
             <div className="login" onKeyDown={(e) => {if (e.keyCode === 13) login(login_user, password)}}>
                 <div className="input">
