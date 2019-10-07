@@ -100,6 +100,12 @@ const sketch = p => {
         }
     }
 
+    p.touchStarted = () => {
+        for (let i = 0; i < bubbles.length; i++) {
+            bubbles[i].clicked(bubbles, i)
+        }
+    }
+
     p.draw = () => {
         p.background(255)
         for (let i = 0; i < bubbles.length; i++) {
@@ -120,8 +126,10 @@ export const Unlocker = ({children}) => {
     const [NewCanvas, setNewCanvas] = useState(newCanvas())
 
     useEffect(() => {
+        document.addEventListener("touchstart", handleClickOutside, false);
         document.addEventListener("click", handleClickOutside, false);
         return () => {
+          document.removeEventListener("touchstart", handleClickOutside, false);
           document.removeEventListener("click", handleClickOutside, false);
         };
     }, []);
