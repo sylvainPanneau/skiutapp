@@ -6,7 +6,7 @@ function ApiStatus({api, load, children, history}){
 
     const isArray = api instanceof Array
 
-    if (api.status === "FAILED") {
+    if (history && api.status === "FAILED") {
         history.push("/")
     }
 
