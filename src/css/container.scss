@@ -198,6 +198,7 @@ Inputs
   float: left;
   .menu-context.expanded {
     opacity: 0.9;
+    visibility: visible;
     background: white;
     -moz-box-shadow:    2px 2px 1px 3px $gray2;
     -webkit-box-shadow: 2px 2px 1px 3px $gray2;
