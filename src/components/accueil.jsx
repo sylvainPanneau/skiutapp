@@ -45,7 +45,7 @@ function AccueilComponent({isAuth}) {
                 <object type="image/svg+xml" data={iconPacks}/>
               </LinkButton>
               <a href="https://www.youtube.com/watch?v=FT3VctDXu3w">
-                  <LinkButton  name="Le trailer">
+                  <LinkButton  name="Le trailer" to="">
                     <object type="image/svg+xml" data={iconTrailer}/>
                   </LinkButton>
               </a>

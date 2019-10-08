@@ -62,6 +62,9 @@ Responsive calls
     .accueil-navigation {
       display: flex;
       margin-bottom: 40px;
+      a {
+        margin-right: 10px;
+      }
       .link-button-wrapper {
         flex: 1;
       }

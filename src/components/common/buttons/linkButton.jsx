@@ -5,11 +5,12 @@ import Container from "./container";
 import "./buttons.scss";
 
 const LinkButton = ({ children, name, to, history }) => {
+  const mq = window.matchMedia( "(max-width: 767px)")
 
   const redirect = React.useCallback(() => history.push(to), [to, history]);
 
   return (
-    <div className="buttons link-button-wrapper" onClick={redirect}>
+    <div className="buttons link-button-wrapper" onClick={redirect} onMouseOver={() => {if (mq.matches) redirect()}}>
       <Container randomize >
         <Container randomize invert>
           <div className="buttons link-button">
