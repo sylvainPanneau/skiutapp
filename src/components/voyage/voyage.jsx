@@ -4,7 +4,7 @@ import voyageTitle from "../../images/titre_voyage.svg";
 import calendar from "../../images/calendar.svg";
 import textSensation from "../../images/text_sensation.svg";
 import textDefis from "../../images/text_defis.svg";
-import textSouvenirs from "../../images/text_souvernirs.svg";
+import textSouvenirs from "../../images/text_souvenirs.svg";
 import textShotgun from "../../images/text_shotgun.svg";
 import PageTitle from "../common/pageTitle";
 

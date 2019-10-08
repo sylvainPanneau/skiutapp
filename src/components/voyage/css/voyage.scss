@@ -59,6 +59,7 @@
     background: url("../images/fond_voyage.png") no-repeat;
     background-size: cover;
     background-position: bottom;
+    height: 100%;
     .voyage-title {
       position: relative;
       width: 60%;
@@ -84,7 +85,7 @@
         }
         .info-dec {
           margin-top: 30px;
-          margin-bottom: 50px;
+          margin-bottom: 40px;
         }
         .info-dec2 {
           margin-bottom: 50px;
