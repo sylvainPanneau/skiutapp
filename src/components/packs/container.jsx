@@ -23,6 +23,8 @@ const Pack = () => {
               <div className="row">
                 <InformationBlock icon={ iconBase } title="LE PACK DE BASE: 325€">
                   Ce pack de base comporte tes trajets en navette aller retour, ta chambre ainsi que ton forfait de ski, les trois sont sympas pour monter en altitude.
+                <br/>
+                  En plus tu as une assurance rapatriement comprise au cas où tu fais trop le fou, plutôt chouette non ?
                 </InformationBlock>
               </div>
               <div className="row">
@@ -34,7 +36,7 @@ const Pack = () => {
                 <InformationBlock icon={ iconAssurance } title="LES ASSURANCES">
                   "Parce qu'on sait jamais", c'est ce que tu peux te dire devant ton écran.
                   <br/>
-                  Et tu as raison, un accident peut arriver même à Ski'UTC. Alors si tu es prévoyant et sécure, c'est simple:
+                  Alors si tu es prévoyant et sécure, c'est simple:
                   <br/>
                   Assurance annulation et bagage: 10€80
                 </InformationBlock>

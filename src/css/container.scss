@@ -196,6 +196,7 @@ Inputs
   z-index: 99;
   top: 0;
   float: left;
+  visibility: visible;
   .menu-context.expanded {
     opacity: 0.9;
     visibility: visible;
@@ -213,7 +214,9 @@ Inputs
   .menu-context {
     display: flex;
     flex-flow: row wrap;
+    visibility: visible;
     .menu-options{
+      visibility: visible;
       flex-basis: 100%;
       width: 0;
       .menu-row {
@@ -222,6 +225,7 @@ Inputs
         text-align: center;
         font-weight: 300;
         flex: 1;
+        visibility: visible;
         &:hover {
           cursor: pointer;
           background: $gray1;
@@ -234,6 +238,7 @@ Inputs
       margin: 20px 40px 20px 20px;
       font-size: 25px;
       line-height: 40px;
+      visibility: visible;
     }
     .menu-icon{
       position: -webkit-sticky;
@@ -248,6 +253,7 @@ Inputs
       height: 40px;
       width: 40px;
       background: url("../images/menu_a_derouler.svg") no-repeat;
+      visibility: visible;
     }
     .menu-icon:hover {
       cursor: pointer;
@@ -256,6 +262,7 @@ Inputs
       transform: rotate(90deg);
       -ms-transform:rotate(90deg);
       -webkit-transform:rotate(90deg);
+      visibility: visible;
     }
   }
 }

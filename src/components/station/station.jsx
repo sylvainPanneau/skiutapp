@@ -4,6 +4,7 @@ import stationTitle from "../../images/facts_titre.svg";
 import stationFacts from "../../images/facts_station.svg";
 import stationMediaFacts from "../../images/phone_facts.svg";
 import valDallos from "../../images/val_dallos.svg";
+import PraLou from "../../images/domaine.svg";
 import PageTitle from "../common/pageTitle";
 
 export function StationComponent() {
@@ -15,6 +16,9 @@ export function StationComponent() {
                 <PageTitle title={stationTitle} />
                 <div className="station-cover" >
                     <object type="image/svg+xml" data={valDallos} width="100%" />
+                </div>
+                <div className="station-info" >
+                    <object type="image/svg+xml" data={PraLou} width="100%" />
                 </div>
                 <div className="station-info">
                     <object type="image/svg+xml" data={stationFacts} width="100%" />
@@ -28,6 +32,9 @@ export function StationComponent() {
                 <PageTitle title={stationTitle} />
                 <div className="station-cover" >
                     <object type="image/svg+xml" data={valDallos} width="100%" />
+                </div>
+                <div className="station-info" >
+                    <object type="image/svg+xml" data={PraLou} width="100%" />
                 </div>
                 <div className="station-info">
                     <object type="image/svg+xml" data={stationMediaFacts} width="100%" />
