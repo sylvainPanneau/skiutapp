@@ -17,7 +17,7 @@ export function StationComponent() {
                 <div className="station-cover" >
                     <object type="image/svg+xml" data={valDallos} width="100%" />
                 </div>
-                <div className="station-info" >
+                <div className="station-cover2" >
                     <object type="image/svg+xml" data={PraLou} width="100%" />
                 </div>
                 <div className="station-info">
@@ -33,7 +33,7 @@ export function StationComponent() {
                 <div className="station-cover" >
                     <object type="image/svg+xml" data={valDallos} width="100%" />
                 </div>
-                <div className="station-info" >
+                <div className="station-cover2" >
                     <object type="image/svg+xml" data={PraLou} width="100%" />
                 </div>
                 <div className="station-info">

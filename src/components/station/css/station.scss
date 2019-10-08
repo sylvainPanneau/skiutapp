@@ -12,8 +12,12 @@ CSS station page
       margin: auto;
     }
     .station-cover {
-      width: 65%;
+      width: 45%;
       margin: 40px auto auto auto;
+    }
+    .station-cover2 {
+      width: 15%;
+      margin: 10px auto auto auto;
     }
     .station-info {
       position: relative;
@@ -29,7 +33,7 @@ Responsive calls
  */
 @media only screen and (max-width: 600px) {
   .station {
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: 100%;
     background: url("../images/montagnes.svg") no-repeat;
@@ -42,6 +46,11 @@ Responsive calls
     .station-cover {
       position: relative;
       width: 100%;
+      margin: 40px auto auto auto;
+    }
+    .station-cover2 {
+      position: relative;
+      width: 40%;
       margin: 40px auto auto auto;
     }
     .station-info {
