@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { ContextMenu } from "../contextmenu";
 import { buy_tombola, patch_tombola } from "../../skiutactions";
 import TicketItem from "./ticketItem";
 import { withRouter } from "react-router-dom";
@@ -45,34 +46,37 @@ const Tombola = ({
   const [form, setForm] = React.useState({ticket1: 0, ticket5:0, ticket10:0});
 
   return (
-    <div className="tombola"><div className="halfTombolaBG"></div>
-      <div className="headBlock">
-        <div className="mainTitle" >
-          <object type="image/svg+xml" data={tomboTitle} width="100%" />
-        </div>
+    <div className="fullHeight">
+      <ContextMenu/>
+        <div className="tombola"><div className="halfTombolaBG"></div>
+          <div className="headBlock">
+            <div className="mainTitle" >
+              <object type="image/svg+xml" data={tomboTitle} width="100%" />
+            </div>
+          </div>
+          <div className="recap" >
+            <div className="recapTitle"><object type="image/svg+xml" data={recapTitle} width="100%" /></div>
+            <div className="recapTxt">
+            <div> Bonjour { login }, </div><br /><div>Tu as acheté: </div><br />
+            <ul>
+              <li>  {tombola_stats.ticket1 || 0} {setTicketString(tombola_stats.ticket1)} x1</li>
+              <li>  {tombola_stats.ticket5 || 0} {setTicketString(tombola_stats.ticket5)} x5</li>
+              <li>  {tombola_stats.ticket10 || 0} {setTicketString(tombola_stats.ticket5)} x10</li>
+            </ul>
+            </div>
+          </div>
+          <div className="buy">
+            <div className="choices">
+              <TicketItem name="ticket-1" qte={ form.ticket1 || 0 } onChange={ (sign) => setForm({ ...form, ticket1: (form.ticket1 || 0) + sign })}/>
+              <TicketItem name="ticket-5" qte={ form.ticket5 || 0 } onChange={ (sign) => setForm({ ...form, ticket5: (form.ticket5 || 0) + sign })}/>
+              <TicketItem name="ticket-10" qte={ form.ticket10 || 0 } onChange={ (sign) => setForm({ ...form, ticket10: (form.ticket10 || 0) + sign })}/>
+            </div>
+            <div id="achat">
+              <Btn name="Acheter" type="submit" action={ () => {checkTickets(form,buy)}}/>
+            </div>
+          </div>
       </div>
-      <div className="recap" >
-        <div className="recapTitle"><object type="image/svg+xml" data={recapTitle} width="100%" /></div>
-        <div className="recapTxt">
-        <div> Bonjour { login }, </div><br /><div>Tu as acheté: </div><br />
-        <ul>
-          <li>  {tombola_stats.ticket1 || 0} {setTicketString(tombola_stats.ticket1)} x1</li>
-          <li>  {tombola_stats.ticket5 || 0} {setTicketString(tombola_stats.ticket5)} x5</li>
-          <li>  {tombola_stats.ticket10 || 0} {setTicketString(tombola_stats.ticket5)} x10</li>
-        </ul>
-        </div>
-      </div>
-      <div className="buy">
-        <div className="choices">
-          <TicketItem name="ticket-1" qte={ form.ticket1 || 0 } onChange={ (sign) => setForm({ ...form, ticket1: (form.ticket1 || 0) + sign })}/>
-          <TicketItem name="ticket-5" qte={ form.ticket5 || 0 } onChange={ (sign) => setForm({ ...form, ticket5: (form.ticket5 || 0) + sign })}/>
-          <TicketItem name="ticket-10" qte={ form.ticket10 || 0 } onChange={ (sign) => setForm({ ...form, ticket10: (form.ticket10 || 0) + sign })}/>
-        </div>
-        <div id="achat">
-          <Btn name="Acheter" type="submit" action={ () => {checkTickets(form,buy)}}/>
-        </div>
-      </div>
-  </div>
+    </div>
   )
 };
 
