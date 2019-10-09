@@ -30,6 +30,10 @@
 .packs-block {
   display: inline-block;
   text-align: center;
+  border: solid 1px $light-grey;
+  margin: 0 1px;
+  box-shadow: 0 0  30px 0px $light-grey;
+  perspective: 1000px;
 
   &:hover {
     .packs-block-icon {
@@ -38,7 +42,7 @@
       }
     }
   }
-
+  
   .packs-block-name {
     font-family: "Acumin";
     font-style: italic;
@@ -46,6 +50,7 @@
     margin: 10px 0;
     font-size: 1.2em;
   }
+
   .packs-block-icon {
     margin: 0 auto;
     object {
