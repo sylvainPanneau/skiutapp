@@ -38,7 +38,7 @@ const Pack = () => {
                   <br/>
                   Alors si tu es prévoyant et sécure, c'est simple:
                   <br/>
-                  Assurance annulation et bagage: 10€80
+                  Assurance annulation et bagage: 10,80€
                 </InformationBlock>
               </div>
             </div>
@@ -47,9 +47,36 @@ const Pack = () => {
                 <object type="image/svg+xml" data={ titreChoose }/>
               </div>
               <div className="packs-shoes-packs">
-                <PacksBlock name="PACK BRONZE" to="/packs/bronze" icon={ packBronze }/>
-                <PacksBlock name="PACK ARGENT" to="/packs/argent" icon={ packArgent }/>
-                <PacksBlock name="PACK OR" to="/packs/or" icon={ packOr }/>
+                <PacksBlock name="PACK BRONZE" to="/packs/bronze" icon={ packBronze }>
+                  Pour découvrir la station en long et en large:
+                  <br/>
+                  <br/>
+                  Pack complet: 50€
+                  <br/>
+                  Skis seuls: 40€
+                  <br/>
+                  Chaussures seules: 35€
+                </PacksBlock>
+                <PacksBlock name="PACK ARGENT" to="/packs/argent" icon={ packArgent }>
+                  Envoie du lourd sur les pistes avec ce pack pour habitués:
+                  <br/>
+                  <br/>
+                  Pack complet: 69€
+                  <br/>
+                  Skis seuls: 60€
+                  <br/>
+                  Chaussures seules: 55€
+                </PacksBlock>
+                <PacksBlock name="PACK OR" to="/packs/or" icon={ packOr }>
+                  Profite d'un max de sensations avec ce pack pour experts:
+                  <br/>
+                  <br/>
+                  Pack complet: 89€
+                  <br/>
+                  Skis seuls: 80€
+                  <br/>
+                  Chaussures seules: 75€
+                </PacksBlock>
               </div>
               <div className="packs-shoes-informations">
                 Ces packs de ski te donneront accès à du matos IN-CROY-YABLE.
