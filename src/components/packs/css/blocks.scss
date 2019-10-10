@@ -8,7 +8,7 @@
   font-size: 1em;
 
   .information-block-icon {
-    object {
+    img {
       width: 100px;
     }
   }
@@ -69,7 +69,7 @@
       &.front {
         .packs-block-icon {
           margin: 0 auto;
-          object {
+          img {
             transition: all 0.5s;
             width: 100px;
           }
@@ -89,7 +89,7 @@
 
         .packs-block-icon {
           margin: 10px auto;
-          object {
+          img {
             width: 40px;
           }
         }
