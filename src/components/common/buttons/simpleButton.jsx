@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import "./buttons.scss";
-import fleche from "../../../images/fleche.svg";
-import valid from "../../../images/valid.svg";
 
 const Button = ({ name, to, history, connected, action }) => {
 
@@ -14,7 +12,7 @@ const Button = ({ name, to, history, connected, action }) => {
         <div className="simpleButton-container">
           <div className="simple-button-name">{ name }</div>
           <div className="simple-button-right">
-            <object className="valid" type="image/svg+xml" data={valid}/>
+            <img className="valid" src="../images/valid.svg"/>
           </div>
         </div>
       </div>)
@@ -23,7 +21,7 @@ const Button = ({ name, to, history, connected, action }) => {
         <div className="simpleButton-container">
           <div className="simple-button-name">{ name }</div>
           <div className="simple-button-right">
-            <object className="fleche" type="image/svg+xml" data={fleche}/>
+            <img className="fleche" src="../images/fleche.svg"/>
           </div>
         </div>
       </div>)
