@@ -14,10 +14,14 @@
         display: inline-flex;
         width: 100%;
         margin-top: 50px;
+        img {
+          width: 50%;
+        }
+
         .voyage-calendar {
           width: 30%;
           margin: auto;
-          object {
+          img {
             margin: 0 auto;
             display: list-item;
             width: 70%;
@@ -27,7 +31,7 @@
           margin-top: 25px;
           width: 70%;
           display: block;
-          object {
+          img {
             width: 70%;
             margin: auto;
             display: block;
@@ -35,7 +39,7 @@
           }
           .info-dec {
             margin-bottom: 50px;
-            object {
+            img {
               margin-right: 11%;
             }
           }
@@ -65,12 +69,16 @@
       width: 60%;
       left: 30%;
     }
+
+    img {
+      width: 50%;
+    }
     .voyage-content {
       margin-top: 40px;
       width: 100%;
       .voyage-calendar {
         margin: auto;
-        object {
+        img {
           margin: 0 auto;
           display: list-item;
           width: 50%;
@@ -78,7 +86,7 @@
       }
       .voyage-info {
         margin-top: 25px;
-        object {
+        img {
           width: 90%;
           margin: auto;
           display: block;
