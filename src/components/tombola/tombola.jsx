@@ -5,8 +5,6 @@ import { buy_tombola, patch_tombola } from "../../skiutactions";
 import TicketItem from "./ticketItem";
 import { withRouter } from "react-router-dom";
 import * as sel from "../../utils/selectors"
-import recapTitle from "../../images/recapitulatif.svg";
-import tomboTitle from "../../images/la_tombola.svg";
 import Btn from "../common/buttons/simpleButton";
 
 const checkTickets = (form, buy) => {
@@ -51,11 +49,11 @@ const Tombola = ({
         <div className="tombola"><div className="halfTombolaBG"></div>
           <div className="headBlock">
             <div className="mainTitle" >
-              <object type="image/svg+xml" data={tomboTitle} width="100%" />
+              <img src="../images/la_tombola.svg"/>
             </div>
           </div>
           <div className="recap" >
-            <div className="recapTitle"><object type="image/svg+xml" data={recapTitle} width="100%" /></div>
+            <div className="recapTitle"><img src="../images/recapitulatif.svg"/></div>
             <div className="recapTxt">
             <div> Bonjour { login }, </div><br /><div>Tu as acheté: </div><br />
             <ul>
