@@ -1,3 +1,20 @@
 .admin {
   position: absolute;
+  .admin-navbar {
+    width: 50%;
+    height: 10%;
+    margin: 30px auto;
+    display: flex;
+    &:hover {
+      cursor: pointer;
+    }
+    .admin-row {
+      background-color: $admin-unselected;
+      width: 20%;
+      text-align: center;
+    }
+    .admin-row.selected {
+      background-color: $admin-selected;
+    }
+  }
 }
