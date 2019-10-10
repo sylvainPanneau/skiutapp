@@ -9,12 +9,21 @@ import iconStation from "../images/station.svg";
 import iconPacks from "../images/packs_1.svg";
 import loupMontagne from "../images/loup_montagnes2.svg";
 import skiutcTitle from "../images/skiutc_title.svg";
-import stationName from "../images/val_dallos_1.svg"
+import stationName from "../images/val_dallos_1.svg";
+import logoVC from "../images/logo-vc.jpg"
+import logoTremplin from "../images/logo-trmeplin.png"
+import logoArt from "../images/logo-arthur.png"
+import logoEDM from "../images/logo-edm.png"
+import logoRB from "../images/logo-redbull.png"
+import logoSG from "../images/logo-sg.png"
+import logoCAVE from "../images/logo-cave.jpg"
 import * as sel from "../utils/selectors"
 import { ContextMenu } from "./contextmenu"
 
 function AccueilComponent({isAuth}) {
     const [ConnectButton, setComponent] = useState(<Button name="Connexion" to="/login"/>)
+    const mq = window.matchMedia( "(min-width: 600px)")
+    const wdth = mq.matches ? "10%" : "20%"
 
     useEffect(() => {
         if (isAuth) {
@@ -25,7 +34,7 @@ function AccueilComponent({isAuth}) {
     return (
         <div className="fullHeight fullWidth">
           <ContextMenu />
-          <div className="accueil-container fullWidth">
+          <div className="accueil-container fullWidth fullHeight">
             <div className="accueil-presentation">
               <div className="accueil-title">
                 <object type="image/svg+xml" data={skiutcTitle} className="skiutc-title"/>
@@ -53,6 +62,15 @@ function AccueilComponent({isAuth}) {
             <div className="accueil-user">
                 {ConnectButton}
               <Button name="Shotgun" to="/shotgun"/>
+            </div>
+            <div className="logo-partenaires">
+              <img src={logoVC} width={wdth}/>
+              <img src={logoArt} width={wdth}/>
+              <img src={logoCAVE} width={wdth}/>
+              <img src={logoEDM} width={wdth}/>
+              <img src={logoRB} width={wdth}/>
+              <img src={logoSG} width={wdth}/>
+              <img src={logoTremplin} width={wdth}/>
             </div>
           </div>
         </div>

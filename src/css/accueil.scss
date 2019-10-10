@@ -42,6 +42,13 @@
     text-align: center;
     margin-bottom:50px;
   }
+  .logo-partenaires{
+    margin: auto;
+    width: 50%;
+    img {
+      margin-left: 30px;
+    }
+  }
 }
 
 /*
@@ -73,6 +80,13 @@ Responsive calls
       display: block;
       margin-bottom: 0;
       margin-top: 25px;
+    }
+    .logo-partenaires{
+      margin: auto;
+      width: 70%;
+      img {
+        margin-left: 30px;
+      }
     }
   }
 }
