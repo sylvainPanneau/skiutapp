@@ -2,7 +2,7 @@
   position: absolute;
   .admin-navbar {
     width: 50%;
-    height: 10%;
+    height: 15%;
     margin: 30px auto;
     display: flex;
     &:hover {
@@ -12,6 +12,10 @@
       background-color: $admin-unselected;
       width: 20%;
       text-align: center;
+      color: white;
+      &:hover {
+        background-color: $admin-unselected-hover;
+      }
     }
     .admin-row.selected {
       background-color: $admin-selected;
