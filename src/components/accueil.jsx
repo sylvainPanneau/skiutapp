@@ -3,13 +3,6 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import LinkButton from "./common/buttons/linkButton";
 import Button from "./common/buttons/simpleButton";
-import iconVoyage from "../images/voyage_1.svg";
-import iconTrailer from "../images/trailer.svg";
-import iconStation from "../images/station.svg";
-import iconPacks from "../images/packs_1.svg";
-import loupMontagne from "../images/loup_montagnes2.svg";
-import skiutcTitle from "../images/skiutc_title.svg";
-import stationName from "../images/val_dallos_1.svg"
 import * as sel from "../utils/selectors"
 import { ContextMenu } from "./contextmenu"
 
@@ -25,34 +18,38 @@ function AccueilComponent({isAuth}) {
     return (
         <div className="fullHeight fullWidth">
           <ContextMenu />
-          <div className="accueil-container fullWidth">
+          <div className="accueil-container fullWidth fullHeight">
             <div className="accueil-presentation">
-              <div className="accueil-title">
-                <object type="image/svg+xml" data={skiutcTitle} className="skiutc-title"/>
-                <object type="image/svg+xml" data={stationName} className="station-title"/>
-              </div>
-              <object type="image/svg+xml" data={loupMontagne} className="accueil-loup"/>
-              <object type="image/svg+xml" data={loupMontagne} className="accueil-loup absolute"/>
+              <img src="images/tout_accueil.png"/>
             </div>
             <div className="accueil-navigation">
               <LinkButton  name="Le voyage" to="/voyage">
-                <object type="image/svg+xml" data={iconVoyage}/>
+                <img src="images/voyage_1.svg"/>
               </LinkButton>
               <LinkButton  name="La station" to="/station">
-                <object type="image/svg+xml" data={iconStation}/>
+                <img src="images/station.svg"/>
               </LinkButton>
               <LinkButton  name="Les packs" to="/packs">
-                <object type="image/svg+xml" data={iconPacks}/>
+                <img src="images/packs_1.svg"/>
               </LinkButton>
               <a href="https://www.youtube.com/watch?v=FT3VctDXu3w">
                   <LinkButton  name="Le trailer" to="">
-                    <object type="image/svg+xml" data={iconTrailer}/>
+                    <img src="images/trailer.svg"/>
                   </LinkButton>
               </a>
             </div>
             <div className="accueil-user">
                 {ConnectButton}
               <Button name="Shotgun" to="/shotgun"/>
+            </div>
+            <div className="logo-partenaires">
+              <img src="images/logo-vc.jpg"/>
+              <img src="images/logo-arthur.png"/>
+              <img src="images/logo-cave.jpg"/>
+              <img src="images/logo-edm.png"/>
+              <img src="images/logo-redbull.png"/>
+              <img src="images/logo-sg.png"/>
+              <img src="images/logo-trmeplin.png"/>
             </div>
           </div>
         </div>

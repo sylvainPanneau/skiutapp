@@ -2,35 +2,10 @@
   position: absolute;
   .accueil-presentation {
     position: relative;
-    margin-bottom: 50px;
-    background-image: url("../images/aurore.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-origin: content-box;
+    margin-bottom: 20px;
     text-align: center;
-    .accueil-loup {
+    img {
       width: 100%;
-      position: relative;
-      visibility: hidden;
-      &.absolute {
-        visibility: visible;
-        position: absolute;
-        left: 0;
-        bottom: -12%;
-      }
-    }
-    .accueil-title {
-      text-align: center;
-      .skiutc-title {
-        display: block;
-        margin: 0 auto;
-        width: 30%;
-      }
-      .station-title {
-        display: block;
-        margin: 0 auto;
-        width: 20%;
-      }
     }
   }
   .accueil-navigation {
@@ -41,6 +16,15 @@
     width: 100%;
     text-align: center;
     margin-bottom:50px;
+  }
+  .logo-partenaires{
+    margin-top: 40px;
+    text-align: center;
+    img {
+      margin: 0 20px;
+      max-height: 40px;
+      max-width: 100px;
+    }
   }
 }
 

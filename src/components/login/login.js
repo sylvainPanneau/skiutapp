@@ -41,6 +41,8 @@ function LoginContainer({loginStatus, token, login, history}) {
                     </label>
                 </div>
                 <Button name="Connexion" action={ () => login(login_user, password) } />
+                <br/>
+                <Button name="Accueil" to="/accueil" />
             </div>
         </div>
     </ApiStatus>
@@ -63,4 +65,3 @@ export const LoginComponent = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(LoginContainer))
-

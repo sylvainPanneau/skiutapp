@@ -21,7 +21,7 @@ const PacksBlock = ({ name, to, icon, children }) => {
             { name }
           </div>
           <div className="packs-block-icon">
-            <object type="image/svg+xml" data={icon}/>
+            <img src = {icon}/>
           </div>
           <div className="packs-block-button">
             <Button name="Voir plus" action={ () => setBack(true) }/>
@@ -35,7 +35,7 @@ const PacksBlock = ({ name, to, icon, children }) => {
             { children }
           </div>
           <div className="packs-block-icon">
-            <object type="image/svg+xml" data={icon}/>
+            <img src={icon}/>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ const PacksBlock = ({ name, to, icon, children }) => {
 
 PacksBlock.propTypes = {
   name: PropTypes.string.isRequired,
-  icon: PropTypes.any.isRequired,
+  icon: PropTypes.string.isRequired,
   to: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object

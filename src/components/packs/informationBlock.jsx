@@ -6,7 +6,7 @@ const InformationBlock = ({ children, title, icon, className }) => {
   return (
     <div className={`${className} information-block`}>
       <div className="information-block-icon">
-        <object type="image/svg+xml" data={ icon }/>
+        <img src={ icon }/>
       </div>
       <div className="information-block-title">{ title }</div>
       <div className="information-block-text">{ children }</div>
@@ -15,16 +15,13 @@ const InformationBlock = ({ children, title, icon, className }) => {
 }
 
 InformationBlock.propTypes = {
-  children: PropTypes.node,
-  title: PropTypes.string,
-  icon: PropTypes.any,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   className: PropTypes.string
 }
 
 InformationBlock.defaultProps = {
-  children: null,
-  title: null,
-  icon: '',
   className: '',
 }
 
