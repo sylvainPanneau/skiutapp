@@ -10,13 +10,13 @@ export function StationComponent() {
             <div className="station fullWidth">
                 <PageTitle title="../images/facts_titre.svg" />
                 <div className="station-cover" >
-                    <img src="../images/val_dallos.svg" width="100%" />
+                    <img src="images/val_dallos.svg" width="100%" />
                 </div>
                 <div className="station-cover2" >
-                    <img src="../images/domaine.svg" width="100%" />
+                    <img src="images/domaine.svg" width="100%" />
                 </div>
                 <div className="station-info">
-                    <img src="../images/facts_station.svg" width="100%" />
+                    <img src="images/facts_station.svg" width="100%" />
                 </div>
             </div>
         </div>)
@@ -26,13 +26,13 @@ export function StationComponent() {
             <div className="station fullWidth">
                 <PageTitle title="../images/facts_titre.svg" />
                 <div className="station-cover" >
-                    <img src="../images/val_dallos.svg" width="100%" />
+                    <img src="images/val_dallos.svg" width="100%" />
                 </div>
                 <div className="station-cover2" >
-                    <img src="../images/domaine.svg" width="100%" />
+                    <img src="images/domaine.svg" width="100%" />
                 </div>
                 <div className="station-info">
-                    <img src="../images/phone_facts.svg" width="100%" />
+                    <img src="images/phone_facts.svg" width="100%" />
                 </div>
             </div>
         </div>)

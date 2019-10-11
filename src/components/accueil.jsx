@@ -20,21 +20,21 @@ function AccueilComponent({isAuth}) {
           <ContextMenu />
           <div className="accueil-container fullWidth fullHeight">
             <div className="accueil-presentation">
-              <img src="../images/tout_accueil.png"/>
+              <img src="images/tout_accueil.png"/>
             </div>
             <div className="accueil-navigation">
               <LinkButton  name="Le voyage" to="/voyage">
-                <img src="../images/voyage_1.svg"/>
+                <img src="images/voyage_1.svg"/>
               </LinkButton>
               <LinkButton  name="La station" to="/station">
-                <img src="../images/station.svg"/>
+                <img src="images/station.svg"/>
               </LinkButton>
               <LinkButton  name="Les packs" to="/packs">
-                <img src="../images/packs_1.svg"/>
+                <img src="images/packs_1.svg"/>
               </LinkButton>
               <a href="https://www.youtube.com/watch?v=FT3VctDXu3w">
                   <LinkButton  name="Le trailer" to="">
-                    <img src="../images/trailer.svg"/>
+                    <img src="images/trailer.svg"/>
                   </LinkButton>
               </a>
             </div>
@@ -43,13 +43,13 @@ function AccueilComponent({isAuth}) {
               <Button name="Shotgun" to="/shotgun"/>
             </div>
             <div className="logo-partenaires">
-              <img src="../images/logo-vc.jpg"/>
-              <img src="../images/logo-arthur.png"/>
-              <img src="../images/logo-cave.jpg"/>
-              <img src="../images/logo-edm.png"/>
-              <img src="../images/logo-redbull.png"/>
-              <img src="../images/logo-sg.png"/>
-              <img src="../images/logo-trmeplin.png"/>
+              <img src="images/logo-vc.jpg"/>
+              <img src="images/logo-arthur.png"/>
+              <img src="images/logo-cave.jpg"/>
+              <img src="images/logo-edm.png"/>
+              <img src="images/logo-redbull.png"/>
+              <img src="images/logo-sg.png"/>
+              <img src="images/logo-trmeplin.png"/>
             </div>
           </div>
         </div>

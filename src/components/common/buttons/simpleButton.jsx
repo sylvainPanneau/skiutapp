@@ -12,7 +12,7 @@ const Button = ({ name, to, history, connected, action }) => {
         <div className="simpleButton-container">
           <div className="simple-button-name">{ name }</div>
           <div className="simple-button-right">
-            <img className="valid" src="../images/valid.svg"/>
+            <img className="valid" src="images/valid.svg"/>
           </div>
         </div>
       </div>)
@@ -21,7 +21,7 @@ const Button = ({ name, to, history, connected, action }) => {
         <div className="simpleButton-container">
           <div className="simple-button-name">{ name }</div>
           <div className="simple-button-right">
-            <img className="fleche" src="../images/fleche.svg"/>
+            <img className="fleche" src="images/fleche.svg"/>
           </div>
         </div>
       </div>)
