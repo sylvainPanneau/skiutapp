@@ -1,6 +1,6 @@
 import { callApi, cleanApiData } from "utils/apiUtils"
 import { API_URL } from "./config"
-import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY } from "./skiutactiontypes"
+import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS } from "./skiutactiontypes"
 
 
 export const login = (log, pass) => {
@@ -28,4 +28,16 @@ export const shotgun = (login) => {
 
 export const clean_shotgun = () => {
     return cleanApiData(SHOTGUN_API_KEY)
+}
+
+export const add_payed_login = (login) => callApi(`${API_URL}/addPayedLogin`, ADD_PAY_LOGIN, "POST", login)
+
+export const get_recap_users = () => callApi(`${API_URL}/getRecapUsers`, GET_RECAP_USERS, "GET")
+
+export const clean_payed_login = () => {
+    return cleanApiData(ADD_PAY_LOGIN)
+}
+
+export const clean_recap_users = () => {
+    return cleanApiData(GET_RECAP_USERS)
 }
