@@ -4,10 +4,11 @@ import * as sel from "../../utils/selectors";
 import {add_payed_login, get_recap_users, clean_payed_login, clean_recap_users} from "../../skiutactions";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
-import * as c from "../../skiutconstants"
-import ApiStatus from "../../utils/apiStatus"
+import * as c from "../../skiutconstants";
+import ApiStatus from "../../utils/apiStatus";
 import {changeInput} from "../login/utils/loginUtils";
-import * as R from "ramda"
+import Button from "../common/buttons/simpleButton";
+import * as R from "ramda";
 
 const Row = ({user}) => {
     return <tr>
@@ -70,29 +71,30 @@ const RecapComponent = ({payed_login, unpayed_login}) => {
     </div>
 }
 
-const PaymentComponent = () => {
+const PaymentComponent = ({addLogin}) => {
 
+    const [login_inp, setLogin] = useState("")
 
-    return <div>
-        PAYMENT
+    return <div className="admin-payment">
+        LOGIN : <input type="text" value={login_inp} onChange={(e) => changeInput(e, setLogin)}/>
+        <Button name="A payé" action={ () => addLogin(login_inp)}/>
     </div>
 }
 
 const MailComponent = () => {
-
 
     return <div>
         MAIL
     </div>
 }
 
-function AdminComponent({getRecap, payed_login, unpayed_login, admin_get_status}) {
+function AdminComponent({getRecap, payed_login, unpayed_login, admin_get_status, admin_post_status, addLogin}) {
 
     const [Selected,setSelected] = useState(null)
 
     useEffect(() => {
         getRecap()
-    },[])
+    },[admin_post_status.data])
 
     useEffect(() => {
         if (unpayed_login && payed_login)
@@ -104,7 +106,7 @@ function AdminComponent({getRecap, payed_login, unpayed_login, admin_get_status}
         <div className="admin fullWidth">
             <div className="admin-navbar">
                 <div className="admin-row" onClick={() => {setSelected(<RecapComponent payed_login={payed_login} unpayed_login={unpayed_login}/>)}}>Récapitulatifs</div>
-                <div className="admin-row" onClick={() => {setSelected(<PaymentComponent />)}}>Gestion des paiements</div>
+                <div className="admin-row" onClick={() => {setSelected(<PaymentComponent addLogin={addLogin}/>)}}>Gestion des paiements</div>
                 <div className="admin-row" onClick={() => {setSelected(<MailComponent />)}}>Envoi de mail</div>
             </div>
             <div className="admin-content fullWidth">
@@ -119,13 +121,15 @@ const mapStateToProps = (state) => {
     return {
         payed_login: sel.payed_login(state),
         unpayed_login: sel.unpayed_login(state),
-        admin_get_status: state[c.NAME][c.RECAP_PAYED]
+        admin_get_status: state[c.NAME][c.RECAP_PAYED],
+        admin_post_status: state[c.NAME][c.PAYED_LOGIN]
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getRecap: () => dispatch(get_recap_users())
+        getRecap: () => dispatch(get_recap_users()),
+        addLogin: (login) => dispatch(add_payed_login(login))
     }
 }
 

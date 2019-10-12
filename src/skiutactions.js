@@ -30,7 +30,7 @@ export const clean_shotgun = () => {
     return cleanApiData(SHOTGUN_API_KEY)
 }
 
-export const add_payed_login = (login) => callApi(`${API_URL}/addPayedLogin`, ADD_PAY_LOGIN, "POST", login)
+export const add_payed_login = (login) => callApi(`${API_URL}/addPayedLogin`, ADD_PAY_LOGIN, "POST", {"login": login})
 
 export const get_recap_users = () => callApi(`${API_URL}/getRecapUsers`, GET_RECAP_USERS, "GET")
 
