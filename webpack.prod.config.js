@@ -1,11 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: [
-        "./src/skiutc.js"
-    ],
+    entry: {
+        main: "./src/skiutc.js"
+    },
     output: {
         path: __dirname + "/public_html",
         filename: "[name].min.js",
@@ -72,7 +73,12 @@ module.exports = {
         extensions: [".js", ".json", ".jsx", ".css"]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: "skiutc.html",
+            template: "public_html/skiutc_template.html",
+
+        })
     ],
     devtool: "#inline-source-map",
     devServer: {
@@ -86,9 +92,21 @@ module.exports = {
                 sourceMap: true
             })
         ],
+        runtimeChunk: 'single',
         splitChunks: {
             chunks: "all",
-            name: "commons"
+            maxInitialRequests: Infinity,
+            minSize: 0,
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name(module) {
+                    // get the name. E.g. node_modules/packageName/not/this/part.js
+                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                        return `npm.${packageName.replace('@', '')}`;
+                    },
+                },
+            },
         }
     }
 };
