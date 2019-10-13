@@ -31,7 +31,7 @@ function AppComp({meta, getMeta, shotgunAuthorized, history}) {
 
     return(
         <ApiStatus api={meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs', '/compte']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/compte" component={Compte} />
                 <Route path="/admin" component={Admin} />
