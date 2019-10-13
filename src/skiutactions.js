@@ -22,7 +22,7 @@ export const get_tombola = () => callApi(`${API_URL}/tombola`, TOMBOLA_API_KEY, 
 export const patch_tombola = () => callApi(`${API_URL}/tombola`, TOMBOLA_API_KEY, "PATCH")
 
 export const get_recap = () => callApi(`${API_URL}/getRecap`, GET_RECAP, "GET")
-export const change_infos = () => callApi(`${API_URL}/changeInfo`, CHANGE_INFOS, "GET")
+export const change_infos = (form) => callApi(`${API_URL}/changeInfo`, CHANGE_INFOS, "POST", form)
 
 export const shotgun = (login) => {
     const url = API_URL + "/shotgunme"

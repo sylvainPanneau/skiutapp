@@ -12,7 +12,9 @@ export default combineReducers({
         [c.META]: createReducerForApi(META_API_KEY, {data:{}}),
         [c.TOMBOLA] : createReducerForApi(TOMBOLA_API_KEY, {data:{}}),
         [c.SHOTGUN] : createReducerForApi(SHOTGUN_API_KEY, {data:{}}),
-        [c.COMPTE]: createReducerForApi(GET_RECAP, {data:{}}),
-        [c.COMPTE]: createReducerForApi(CHANGE_INFOS, {data:{}})
+        [c.COMPTE]: combineReducers({
+            [c.RECAP]: createReducerForApi(GET_RECAP, {data:{}}),
+            [c.CHANGE]: createReducerForApi(CHANGE_INFOS, {data:{}})
+            })
     }
 )
