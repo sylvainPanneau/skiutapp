@@ -13,7 +13,12 @@ function AccueilComponent({isAuth}) {
         if (isAuth) {
             setComponent(<Button name="Connecté" connected={true}/>)
         }
-    }, [isAuth]);
+
+        const split = window.location.href.split('?')
+        if(split[1]) {
+          window.history.replaceState({}, "", `${window.location.pathname}#/`);
+        }
+    }, [isAuth, window.location]);
 
     return (
         <div className="fullHeight fullWidth">

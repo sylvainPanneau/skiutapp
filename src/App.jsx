@@ -9,11 +9,11 @@ import { ShotgunDummy } from "./components/shotgun/shotgundummy"
 import Compte from "./components/compte/compte"
 import {Admin} from "./components/admin/admin"
 import Packs from "./components/packs/container"
-import { LoginComponent } from "./components/login/login"
 import { StationComponent } from "./components/station/station"
 import { VoyageComponent } from "./components/voyage/voyage"
 import { getMeta } from "./skiutactions"
 import ApiStatus from "./utils/apiStatus"
+import LoginV2 from "./components/login/login_v2"
 import "css/container.scss"
 import * as c from "./skiutconstants"
 import * as sel from "./utils/selectors";
@@ -31,14 +31,14 @@ function AppComp({meta, getMeta, shotgunAuthorized, history}) {
 
     return(
         <ApiStatus api={meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs', '/login']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/compte" component={Compte} />
                 <Route path="/admin" component={Admin} />
                 {ShotgunRoute}
                 <Route path="/station" component={StationComponent} />
                 <Route path="/voyage" component={VoyageComponent} />
-                <Route path="/login" component={LoginComponent} />
+                <Route path="/login" component={LoginV2} />
                 <Route path="/tombola" component={Tombola} />
                 <Route path="/packs" component={Packs} />
                 <Route path="/" component={Accueil} />
