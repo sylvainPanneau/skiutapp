@@ -16,7 +16,7 @@ function createTimer(currentDate) {
     });
 
     function tick() {
-      setDate(new Date());
+      setDate(new Date(date.getTime() + 1000));
     }
 
     return date;
