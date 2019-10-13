@@ -20,3 +20,7 @@ export const token = createSelector([c.LOG, 'data', 'token'])
 
 //Shotgun selectors
 export const shotgunStatus = createSelector([c.SHOTGUN, 'data', 'status'])
+
+//Admin selectors
+export const payed_login = createSelector([c.NAME, c.RECAP_PAYED, 'data', 'has_payed'])
+export const unpayed_login = createSelector([c.NAME, c.RECAP_PAYED, 'data', 'not_payed'])

@@ -8,7 +8,7 @@ export function StationComponent() {
         (<div className="fullHeight fullWidth">
             <ContextMenu />
             <div className="station fullWidth">
-                <PageTitle title="../images/facts_titre.svg" />
+                <PageTitle title="images/facts_titre.svg" />
                 <div className="station-cover" >
                     <img src="images/val_dallos.svg" width="100%" />
                 </div>
