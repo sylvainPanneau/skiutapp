@@ -40,24 +40,31 @@ const Compte = ({userInfo, updateInfos}) => {
                     <option value="1">Oui</option>
                 </select>
                 </li>
+
                 <li> Pack: 
-                <select value={formInfos.pack || "0"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.pack || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
                     <option value="0">Bronze</option>
                     <option value="1">Argent</option>
                     <option value="2">Or</option>
+                    <option value="NULL">Pas de pack</option>
                 </select>
                 </li>
-                <li> Ski? Snow? Aucun des deux?: 
+                {formInfos.pack == "NULL" &&
+                <li>
                 <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
-                    <option value="1">Ski</option>
-                    <option value="2">Snow</option>
-                    <option value="0">Aucun</option>
+                    <option value="0">N/A</option>
                 </select>
-                {formInfos.equipment == 0 &&
-                <select value={formInfos.items} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
-                    <option value="NULL">Pas de choix supplementaire</option>
+                <select value={formInfos.items || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                    <option value="NULL">N/A</option>
                 </select>
+                </li>
                 }
+                {formInfos.pack != "NULL" &&
+                <li> Ski? Snow? : 
+                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                    <option value="1">Ski</option>}
+                    <option value="2">Snow</option>}
+                </select>
                 {formInfos.equipment == 1 &&
                 <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
                     <option value="0">Juste les chaussures</option>
@@ -73,6 +80,8 @@ const Compte = ({userInfo, updateInfos}) => {
                 </select>
                 }
                 </li>
+                }
+
                 <li> Pack Bouffe: 
                 <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
                     <option value="0">non</option>
