@@ -3,9 +3,9 @@ import { API_URL } from "./config"
 import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY } from "./skiutactiontypes"
 
 
-export const login = (log, pass) => {
-    const url = API_URL + "/login"
-    return callApi(url, LOG_API_KEY, "POST",{username: log,password: pass})
+export const login = (service, ticket) => {
+    const url = API_URL + "/login_v2"
+    return callApi(url, LOG_API_KEY, "POST",{service, ticket})
 }
 
 export const logout = () => {
