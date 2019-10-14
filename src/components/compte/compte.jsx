@@ -19,17 +19,21 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
           <PageTitle title="images/titre_compte.svg" />
           <div className="recap" >
             <div className="recapTxt">
-            <div> Bonjour { userInfo.login }, </div><br /><div>Tes options:</div><br />
+            <div> Bonjour { userInfo.login }, </div>
+            <div>Tes options:</div>
+                <div className = "inputs-compte-style">
+                    <div className="input-compte-element">Email: <input name="email" type="text" value={formInfos.email || "email"} onChange={(e) => setFormInfos({ ...formInfos, email: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">Tel: <input name="tel" type="number" value={formInfos.tel || ""} onChange={(e) => setFormInfos({ ...formInfos, tel: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">City: <input name="city" type="text" value={formInfos.city || "ville"} onChange={(e) => setFormInfos({ ...formInfos, city: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">ZipCode: <input name="zipcode" type="number" value={formInfos.zipcode || ""} onChange={(e) => setFormInfos({ ...formInfos, zipcode: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">Adresse: <input name="address" type="text" value={formInfos.address || "adresse"} onChange={(e) => setFormInfos({ ...formInfos, address: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">Taille: <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> cm</div>
+                    <div className="input-compte-element">Poids: <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> kg</div>
+                    <div className="input-compte-element">Pointure: <input name="shoesize" type="number" value={formInfos.shoesize || ""} onChange={(e) => setFormInfos({ ...formInfos, shoesize: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element"></div>
+                </div>
             <ul>
-                <li> Email: <input name="email" type="text" value={formInfos.email || "email"} onChange={(e) => setFormInfos({ ...formInfos, email: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
-                <li> Tel: <input name="tel" type="number" value={formInfos.tel || ""} onChange={(e) => setFormInfos({ ...formInfos, tel: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
-                <li> City: <input name="city" type="text" value={formInfos.city || "ville"} onChange={(e) => setFormInfos({ ...formInfos, city: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
-                    ZipCode: <input name="zipcode" type="number" value={formInfos.zipcode || ""} onChange={(e) => setFormInfos({ ...formInfos, zipcode: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></li>
-                <li> Adresse: <input name="address" type="text" value={formInfos.address || "adresse"} onChange={(e) => setFormInfos({ ...formInfos, address: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
-                <li> Taille: <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> cm </li>
-                <li> Poids: <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> kg </li>
-                <li> Pointure: <input name="shoesize" type="number" value={formInfos.shoesize || ""} onChange={(e) => setFormInfos({ ...formInfos, shoesize: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
-                <li> Trajet aller: 
+                <li> Trajet aller:
                 <select value={formInfos.transport || "1"} onChange={(e) => setFormInfos({ ...formInfos, transport: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Pas de navette aller</option>
                     <option value="1">Depuis Compy</option>
@@ -43,6 +47,7 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 </select>
                 </li>
 
+                /*@TODO: pack to handle*/
                 <li> Pack: 
                 <select value={formInfos.pack || "2"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Bronze</option>
@@ -83,9 +88,10 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 }
                 </li>
                 }
+                </ul>
 
                 <div className="row">
-                    <InformationBlock icon="images/icone_assurance_1.svg" title="PACK BOUF : 42€">
+                    <InformationBlock icon="images/icone_nourriture_1.svg" title="PACK BOUF : 42€">
                         <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                             <option value="0">Nope</option>
                             <option value="1">Avec Porc</option>
@@ -106,7 +112,6 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                         </select>
                     </InformationBlock>
                 </div>
-            </ul>
             </div>
           </div>
           <div>

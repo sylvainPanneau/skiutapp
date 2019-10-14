@@ -1,16 +1,61 @@
-.compte {
-  position: absolute;
+@media only screen and (min-width: 767px) {
+  .compte {
+    position: absolute;
 
-  input {
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-width: 1px;
-    border-color: $blue1;
+    .inputs-compte-style {
+      width: calc(100% - 20px);
+      display: inline-flex;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin: 10px;
+
+      .input-compte-element {
+        margin: auto;
+        height: 30px;
+      }
+    }
+
+    input {
+      border-radius: 2px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-width: 1px;
+      border-color: $blue1;
+      height: 20px;
+    }
+
+    .row {
+      display: flex;
+    }
   }
-  .row {
-    display: flex;
+}
+
+@media only screen and (max-width: 767px) {
+  .compte {
+    position: absolute;
+    .inputs-compte-style {
+      width: 100%;
+      display: block;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      .input-compte-element {
+        margin: 5px auto;
+        width: 50%;
+      }
+    }
+    input {
+      border-radius: 2px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-width: 1px;
+      border-color: $blue1;
+    }
+    .row {
+      display: block;
+    }
   }
-
-
 }
