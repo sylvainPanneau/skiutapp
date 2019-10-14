@@ -17,6 +17,27 @@
       }
     }
 
+    .trajets{
+      width: calc(100% - 20px);
+      display: inline-flex;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin-top: 50px;
+      margin-bottom: 50px;
+      .trajet{
+        margin: auto;
+        height: 30px;
+      }
+    }
+
+    #packs{
+      #grayed{
+        filter: grayscale(100);
+      }
+    }
+
     input {
       border-radius: 2px;
       -moz-border-radius: 2px;
@@ -26,8 +47,19 @@
       height: 20px;
     }
 
+    .hidden {
+      display: none;
+    }
+
     .row {
       display: flex;
+      .inputBlock{
+        height: 50px;
+        width: 210px;
+        input{
+          left:
+        }
+      }
     }
   }
 }
@@ -45,6 +77,21 @@
       .input-compte-element {
         margin: 5px auto;
         width: 50%;
+      }
+    }
+    .trajets{
+      margin-top: 50px;
+      width: 100%;
+      display: block;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin: 10px;
+    }
+    #packs{
+      #grayed{
+        filter: grayscale(100);
       }
     }
     input {
