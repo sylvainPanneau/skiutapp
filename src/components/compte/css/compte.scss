@@ -1,6 +1,16 @@
 .compte {
   position: absolute;
 
+  input {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-width: 1px;
+    border-color: $blue1;
+  }
+  .row {
+    display: flex;
+  }
 
 
 }

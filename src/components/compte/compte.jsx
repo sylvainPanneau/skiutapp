@@ -8,7 +8,7 @@ import Btn from "../common/buttons/simpleButton";
 import * as sel from "../../utils/selectors";
 import ApiStatus from "../../utils/apiStatus"
 import PageTitle from "../common/pageTitle";
-
+import InformationBlock from "../packs/informationBlock";
 
 const Compte = ({userInfo, updateInfos, updateStatus}) => {
     const [formInfos, setFormInfos] = useState(userInfo)
@@ -16,7 +16,7 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
     return <ApiStatus api={updateStatus} load={"onSuccess"}><div className="fullWidth fullHeight">
         <ContextMenu />
         <div className="compte fullWidth">
-          <PageTitle title="../images/titre_compte.svg" />
+          <PageTitle title="images/titre_compte.svg" />
           <div className="recap" >
             <div className="recapTxt">
             <div> Bonjour { userInfo.login }, </div><br /><div>Tes options:</div><br />
@@ -84,26 +84,28 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 </li>
                 }
 
-                <li> Pack Bouffe: 
-                <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                    <option value="0">non</option>
-                    <option value="1">Avec Porc</option>
-                    <option value="2">Sans Porc</option>
-                    <option value="3">Vegetarien</option>
-                </select>
-                </li>
-                <li> Assurance Annulation (10.8 euros): 
-                <select value={formInfos.assurance_annulation || "0"} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                    <option value="0">non</option>
-                    <option value="1">oui</option>
-                </select>
-                </li>
-                <li> Pack Goodies (10 euros): 
-                <select value={formInfos.goodies || "0"} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                    <option value="0">non</option>
-                    <option value="1">oui</option>
-                </select>
-                </li>
+                <div className="row">
+                    <InformationBlock icon="images/icone_assurance_1.svg" title="PACK BOUF : 42€">
+                        <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value="0">Nope</option>
+                            <option value="1">Avec Porc</option>
+                            <option value="2">Sans Porc</option>
+                            <option value="3">Végétarien</option>
+                        </select>
+                    </InformationBlock>
+                    <InformationBlock icon="images/icone_base.svg" title="LES GOODIES : 10€">
+                        <select value={formInfos.goodies || "0"} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </InformationBlock>
+                    <InformationBlock icon="images/icone_assurance_1.svg" title="ASSURANCE ANNULATION : 10.8€">
+                        <select value={formInfos.assurance_annulation || "0"} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value="0">non</option>
+                            <option value="1">oui</option>
+                        </select>
+                    </InformationBlock>
+                </div>
             </ul>
             </div>
           </div>
