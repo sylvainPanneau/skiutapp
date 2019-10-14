@@ -6,42 +6,43 @@ import {connect} from "react-redux";
 import * as c from "../../skiutconstants";
 import Btn from "../common/buttons/simpleButton";
 import * as sel from "../../utils/selectors";
+import ApiStatus from "../../utils/apiStatus"
 
 
-const Compte = ({userInfo, updateInfos}) => {
+const Compte = ({userInfo, updateInfos, updateStatus}) => {
     const [formInfos, setFormInfos] = useState(userInfo)
 
-    return <div className="fullWidth fullHeight">
+    return <ApiStatus api={updateStatus} load={"onSuccess"}><div className="fullWidth fullHeight">
         <ContextMenu />
         <div className="compte">
           <div className="recap" >
             <div className="recapTxt">
             <div> Bonjour { userInfo.login }, </div><br /><div>Tes options:</div><br />
             <ul>
-                <li> Email: <input name="email" type="text" value={formInfos.email || "email"} onChange={(e) => setFormInfos({ ...formInfos, email: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> </li>
-                <li> Tel: <input name="tel" type="number" value={formInfos.tel || ""} onChange={(e) => setFormInfos({ ...formInfos, tel: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> </li>
-                <li> City: <input name="city" type="text" value={formInfos.city || "ville"} onChange={(e) => setFormInfos({ ...formInfos, city: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> 
-                    ZipCode: <input name="zipcode" type="number" value={formInfos.zipcode || ""} onChange={(e) => setFormInfos({ ...formInfos, zipcode: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/></li> 
-                <li> Adresse: <input name="address" type="text" value={formInfos.address || "adresse"} onChange={(e) => setFormInfos({ ...formInfos, address: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> </li>
-                <li> Taille: <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> cm </li>
-                <li> Poids: <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> kg </li>
-                <li> Pointure: <input name="shoesize" type="number" value={formInfos.shoesize || ""} onChange={(e) => setFormInfos({ ...formInfos, shoesize: e.target.value})} disabled={userInfo["payment-first-received"] == 1}/> </li>
+                <li> Email: <input name="email" type="text" value={formInfos.email || "email"} onChange={(e) => setFormInfos({ ...formInfos, email: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
+                <li> Tel: <input name="tel" type="number" value={formInfos.tel || ""} onChange={(e) => setFormInfos({ ...formInfos, tel: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
+                <li> City: <input name="city" type="text" value={formInfos.city || "ville"} onChange={(e) => setFormInfos({ ...formInfos, city: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                    ZipCode: <input name="zipcode" type="number" value={formInfos.zipcode || ""} onChange={(e) => setFormInfos({ ...formInfos, zipcode: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></li>
+                <li> Adresse: <input name="address" type="text" value={formInfos.address || "adresse"} onChange={(e) => setFormInfos({ ...formInfos, address: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
+                <li> Taille: <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> cm </li>
+                <li> Poids: <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> kg </li>
+                <li> Pointure: <input name="shoesize" type="number" value={formInfos.shoesize || ""} onChange={(e) => setFormInfos({ ...formInfos, shoesize: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> </li>
                 <li> Trajet aller: 
-                <select value={formInfos.transport || "1"} onChange={(e) => setFormInfos({ ...formInfos, transport: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.transport || "1"} onChange={(e) => setFormInfos({ ...formInfos, transport: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Pas de navette aller</option>
                     <option value="1">Depuis Compy</option>
                     <option value="2">Depuis Paris</option>
                 </select>
                 </li>
                 <li> Trajet retour: 
-                <select value={formInfos["transport-back"] || "1"} onChange={(e) => setFormInfos({ ...formInfos, 'transport-back': e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos["transport-back"] || "1"} onChange={(e) => setFormInfos({ ...formInfos, 'transport-back': e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Non</option>
                     <option value="1">Oui</option>
                 </select>
                 </li>
 
                 <li> Pack: 
-                <select value={formInfos.pack || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.pack || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Bronze</option>
                     <option value="1">Argent</option>
                     <option value="2">Or</option>
@@ -50,29 +51,29 @@ const Compte = ({userInfo, updateInfos}) => {
                 </li>
                 {formInfos.pack == "NULL" &&
                 <li>
-                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">N/A</option>
                 </select>
-                <select value={formInfos.items || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.items || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="NULL">N/A</option>
                 </select>
                 </li>
                 }
                 {formInfos.pack != "NULL" &&
                 <li> Ski? Snow? : 
-                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="1">Ski</option>}
                     <option value="2">Snow</option>}
                 </select>
                 {formInfos.equipment == 1 &&
-                <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Juste les chaussures</option>
                     <option value="2">Juste les skis</option>
                     <option value="4">Les deux</option>
                 </select>
                 }
                 {formInfos.equipment == 2 &&
-                <select value={formInfos.items || "5"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.items || "5"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="1">Juste les boots</option>
                     <option value="3">Juste la board</option>
                     <option value="5">Les deux</option>
@@ -82,7 +83,7 @@ const Compte = ({userInfo, updateInfos}) => {
                 }
 
                 <li> Pack Bouffe: 
-                <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">non</option>
                     <option value="1">Avec Porc</option>
                     <option value="2">Sans Porc</option>
@@ -90,13 +91,13 @@ const Compte = ({userInfo, updateInfos}) => {
                 </select>
                 </li>
                 <li> Assurance Annulation (10.8 euros): 
-                <select value={formInfos.assurance_annulation || "0"} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.assurance_annulation || "0"} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">non</option>
                     <option value="1">oui</option>
                 </select>
                 </li>
                 <li> Pack Goodies (10 euros): 
-                <select value={formInfos.goodies || "0"} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["payment-first-received"] == 1}>
+                <select value={formInfos.goodies || "0"} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">non</option>
                     <option value="1">oui</option>
                 </select>
@@ -104,17 +105,19 @@ const Compte = ({userInfo, updateInfos}) => {
             </ul>
             </div>
           </div>
-          { !userInfo["payment-first-received"] &&
+          { userInfo["tra_status"] !== "V" &&
           <div className="soumettre">
               <Btn name="soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
           </div>
-            }
+          }
         </div>
     </div>
+    </ApiStatus>
 }
 
 const mapStateToProps = (state) => ({
-    userInfo: sel.userInfo(state)
+    userInfo: sel.userInfo(state),
+    updateStatus: sel.updateStatus(state)
   });
   
   const mapDispatchToProps = (dispatch) => ({

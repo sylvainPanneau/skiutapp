@@ -20,3 +20,6 @@ export const token = createSelector([c.LOG, 'data', 'token'])
 
 //Shotgun selectors
 export const shotgunStatus = createSelector([c.SHOTGUN, 'data', 'status'])
+
+//Compte selectors
+export const updateStatus = createSelector([c.COMPTE, c.CHANGE])
