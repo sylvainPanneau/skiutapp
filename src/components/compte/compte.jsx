@@ -44,7 +44,7 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 </li>
 
                 <li> Pack: 
-                <select value={formInfos.pack || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                <select value={formInfos.pack || "2"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="0">Bronze</option>
                     <option value="1">Argent</option>
                     <option value="2">Or</option>
@@ -63,7 +63,7 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 }
                 {formInfos.pack != "NULL" &&
                 <li> Ski? Snow? : 
-                <select value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                <select value={formInfos.equipment || "1"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value="1">Ski</option>}
                     <option value="2">Snow</option>}
                 </select>
@@ -106,6 +106,9 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                 </li>
             </ul>
             </div>
+          </div>
+          <div>
+              Total à payer : {userInfo["price"]} €
           </div>
           { userInfo["tra_status"] !== "V" &&
           <div className="soumettre">
