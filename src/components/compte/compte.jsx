@@ -7,6 +7,7 @@ import * as c from "../../skiutconstants";
 import Btn from "../common/buttons/simpleButton";
 import * as sel from "../../utils/selectors";
 import ApiStatus from "../../utils/apiStatus"
+import PageTitle from "../common/pageTitle";
 
 
 const Compte = ({userInfo, updateInfos, updateStatus}) => {
@@ -14,7 +15,8 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
 
     return <ApiStatus api={updateStatus} load={"onSuccess"}><div className="fullWidth fullHeight">
         <ContextMenu />
-        <div className="compte">
+        <div className="compte fullWidth">
+          <PageTitle title="../images/titre_compte.svg" />
           <div className="recap" >
             <div className="recapTxt">
             <div> Bonjour { userInfo.login }, </div><br /><div>Tes options:</div><br />
@@ -108,6 +110,13 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
           { userInfo["tra_status"] !== "V" &&
           <div className="soumettre">
               <Btn name="soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
+          </div>
+          }
+          {userInfo["tra_status"] !== "V" &&
+          <div className="validate-payment">
+              <Btn name="Payer" type="submit" action={() => {
+
+              }}/>
           </div>
           }
         </div>
