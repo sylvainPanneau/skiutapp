@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import * as c from "../../skiutconstants";
 import Btn from "../common/buttons/simpleButton";
 import * as sel from "../../utils/selectors";
-import {changeInput} from "../login/utils/loginUtils";
 
 
 const Compte = ({userInfo, updateInfos}) => {
