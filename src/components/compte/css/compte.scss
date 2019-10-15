@@ -2,17 +2,24 @@
   .compte {
     position: absolute;
 
+    .reacp-compte {
+      width: fit-content;
+      margin: 10px auto;
+      color: $hover-blue;
+      font-family: "Acumin";
+      font-weight: bold;
+    }
+
     .inputs-compte-style {
-      width: calc(100% - 20px);
+      width: fit-content;
       display: inline-flex;
       line-height: 20px;
       font-weight: bold;
       color: $hover-blue;
       font-family: "Acumin";
-      margin: 10px;
+      margin: auto;
 
       .input-compte-element {
-        margin: auto;
         height: 30px;
       }
     }
@@ -35,6 +42,10 @@
     #packs{
       #grayed{
         filter: grayscale(100);
+        margin: auto;
+      }
+      .information-block {
+        margin: auto;
       }
     }
 
@@ -53,13 +64,20 @@
 
     .row {
       display: flex;
+      margin-bottom: 20px;
       .inputBlock{
         height: 50px;
         width: 210px;
-        input{
-          left:
-        }
       }
+    }
+    .row.last {
+      left: 25%;
+      position: relative;
+      width: 50%;
+    }
+    .requests-buttons {
+      margin: auto;
+      width: fit-content;
     }
   }
 }
@@ -88,6 +106,10 @@
       color: $hover-blue;
       font-family: "Acumin";
       margin: 10px;
+      .trajet {
+        margin: 5px auto;
+        width: 50%;
+      }
     }
     #packs{
       #grayed{
