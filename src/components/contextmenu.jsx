@@ -3,7 +3,6 @@ import {Link, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {logout} from "../skiutactions"
-import ApiStatus from "../utils/apiStatus"
 import * as c from "../skiutconstants"
 import * as sel from "../utils/selectors"
 
@@ -39,7 +38,7 @@ function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, l
             :
             null
         if (showMenu === true) {
-            const menuComp = (<ApiStatus  api={logoutStatus} load={true}><div className="menu-context expanded">
+            const menuComp = (<div className="menu-context expanded">
                 <span className="menu-icon expanded" onClick={() => setShowMenu(!showMenu)}/>
                 <div className="menu-title"> MENU </div>
                 <div className="menu-options">
@@ -52,8 +51,7 @@ function ChangeMenu(showMenu, setShowMenu, isAdmin, isShotgun, isAuth, logout, l
                     {Disconnect}
                     {Admin}
                 </div>
-            </div>
-            </ApiStatus>);
+            </div>);
 
             setMenuComponent(menuComp)
         } else {

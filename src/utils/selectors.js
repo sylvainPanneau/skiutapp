@@ -24,3 +24,7 @@ export const shotgunStatus = createSelector([c.SHOTGUN, 'data', 'status'])
 //Compte selectors
 export const updateStatus = createSelector([c.COMPTE, c.CHANGE])
 export const newPrice = createSelector([c.COMPTE, c.CHANGE, 'data', 'new_price'])
+
+//Admin selectors
+export const payed_login = createSelector([c.NAME, c.RECAP_PAYED, 'data', 'has_payed'])
+export const unpayed_login = createSelector([c.NAME, c.RECAP_PAYED, 'data', 'not_payed'])

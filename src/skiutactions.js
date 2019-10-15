@@ -1,11 +1,10 @@
 import { callApi, cleanApiData } from "utils/apiUtils"
 import { API_URL } from "./config"
-import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, GET_RECAP, CHANGE_INFOS } from "./skiutactiontypes"
+import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS, GET_RECAP, CHANGE_INFOS } from "./skiutactiontypes"
 
-
-export const login = (log, pass) => {
-    const url = API_URL + "/login"
-    return callApi(url, LOG_API_KEY, "POST",{username: log,password: pass})
+export const login = (service, ticket) => {
+    const url = API_URL + "/login_v2"
+    return callApi(url, LOG_API_KEY, "POST",{service, ticket})
 }
 
 export const logout = () => {
@@ -31,4 +30,16 @@ export const shotgun = (login) => {
 
 export const clean_shotgun = () => {
     return cleanApiData(SHOTGUN_API_KEY)
+}
+
+export const add_payed_login = (login) => callApi(`${API_URL}/addPayedLogin`, ADD_PAY_LOGIN, "POST", {"login": login})
+
+export const get_recap_users = () => callApi(`${API_URL}/getRecapUsers`, GET_RECAP_USERS, "GET")
+
+export const clean_payed_login = () => {
+    return cleanApiData(ADD_PAY_LOGIN)
+}
+
+export const clean_recap_users = () => {
+    return cleanApiData(GET_RECAP_USERS)
 }

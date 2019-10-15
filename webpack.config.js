@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: [
@@ -51,7 +52,11 @@ module.exports = {
     extensions: [".js", ".json", ".jsx", ".css"]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      filename: "skiutc.html",
+      template: "public_html/skiutc_template.html"
+    })
   ],
   devServer: {
     contentBase: "./public_html",
