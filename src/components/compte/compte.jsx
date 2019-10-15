@@ -147,7 +147,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     </InformationBlock>
                 </div>
                 <div className="row last">
-                    <InformationBlock icon="images/icone_nourriture_1.svg" title="PACK BOUF : 42€">
+                    <InformationBlock icon="images/icone_nourriture_1.svg" title="PACK BOUFFE : 42€">
                         <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                             <option value="0">Nope</option>
                             <option value="1">Avec Porc</option>
@@ -175,7 +175,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
           </div>
           { userInfo["tra_status"] !== "V" &&
           <div className="requests-buttons">
-              <Btn name="soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
+              <Btn name="Soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
               <Btn name="Payer" type="submit" action={() => {
 
               }}/>
