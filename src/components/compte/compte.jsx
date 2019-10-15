@@ -34,10 +34,9 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     <div className="input-compte-element">City: <input name="city" type="text" value={formInfos.city || "ville"} onChange={(e) => setFormInfos({ ...formInfos, city: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
                     <div className="input-compte-element">ZipCode: <input name="zipcode" type="number" value={formInfos.zipcode || ""} onChange={(e) => setFormInfos({ ...formInfos, zipcode: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
                     <div className="input-compte-element">Adresse: <input name="address" type="text" value={formInfos.address || "adresse"} onChange={(e) => setFormInfos({ ...formInfos, address: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
-                    <div className="input-compte-element">Taille: <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> cm</div>
-                    <div className="input-compte-element">Poids: <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["tra_status"] == "V"}/> kg</div>
+                    <div className="input-compte-element">Taille (cm): <input name="size" type="number" value={formInfos.size || ""} onChange={(e) => setFormInfos({ ...formInfos, size: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
+                    <div className="input-compte-element">Poids (kg): <input name="weight" type="number" value={formInfos.weight || ""} onChange={(e) => setFormInfos({ ...formInfos, weight: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
                     <div className="input-compte-element">Pointure: <input name="shoesize" type="number" value={formInfos.shoesize || ""} onChange={(e) => setFormInfos({ ...formInfos, shoesize: e.target.value})} disabled={userInfo["tra_status"] == "V"}/></div>
-                    <div className="input-compte-element"></div>
                 </div>
                 <div className="trajets">
                 <div className="trajet"> Trajet aller:
@@ -73,7 +72,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                                 <option value={2}>Snow</option>}
                             </select>
                         {formInfos.equipment == 1 &&
-                            <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <select value={formInfos.items || 4} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                                 <option value={0}>Juste les chaussures</option>
                                 <option value={2}>Juste les skis</option>
                                 <option value={4}>Les deux</option>
@@ -147,7 +146,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                 </div>
                 <div className="row last">
                     <InformationBlock icon="images/icone_nourriture_1.svg" title="PACK BOUFFE : 42€">
-                        <select value={formInfos.food || 1} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                        <select value={formInfos.food || 0} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                             <option value={0}>Nope</option>
                             <option value={1}>Avec Porc</option>
                             <option value={2}>Sans Porc</option>
