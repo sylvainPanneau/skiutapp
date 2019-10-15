@@ -10,8 +10,18 @@ import ApiStatus from "../../utils/apiStatus"
 import PageTitle from "../common/pageTitle";
 import InformationBlock from "../packs/informationBlock";
 
-const Compte = ({userInfo, updateInfos, updateStatus}) => {
+const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
+
     const [formInfos, setFormInfos] = useState(userInfo)
+    const [price_recap, setPrice] = useState(userInfo["price"])
+
+    useEffect(() => {
+        console.log(newPrice)
+        if (newPrice) {
+            setPrice(newPrice)
+        }
+
+    }, [newPrice])
 
     return <ApiStatus api={updateStatus} load={"onSuccess"}><div className="fullWidth fullHeight">
         <ContextMenu />
@@ -50,14 +60,14 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
                     <div id="grayed">
                         <InformationBlock icon="images/pack_bronze.svg" title="PAS DE PACK">
                             <div className="inputBlock">
-                            <input name="pack" type="radio" value={"NULL"} checked={formInfos.pack === "NULL"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
-                                {formInfos.pack == "NULL" &&
+                            <input name="pack" type="radio" value={"4"} checked={formInfos.pack === "4"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                                {formInfos.pack == "4" &&
                                     <div>
                                         <select className="hidden" value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                                             <option value="0">N/A</option>
                                         </select>
-                                        <select className="hidden" value={formInfos.items || "NULL"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                            <option value="NULL">N/A</option>
+                                        <select className="hidden" value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                            <option value="4">N/A</option>
                                         </select>
                                     </div>
                                 }
@@ -171,7 +181,7 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
             </div>
           </div>
           <div className="reacp-compte">
-              Total à payer : {userInfo["price"]} €
+              Total à payer : {price_recap} €
           </div>
           { userInfo["tra_status"] !== "V" &&
           <div className="requests-buttons">
@@ -188,7 +198,8 @@ const Compte = ({userInfo, updateInfos, updateStatus}) => {
 
 const mapStateToProps = (state) => ({
     userInfo: sel.userInfo(state),
-    updateStatus: sel.updateStatus(state)
+    updateStatus: sel.updateStatus(state),
+    newPrice: sel.newPrice(state)
   });
   
   const mapDispatchToProps = (dispatch) => ({

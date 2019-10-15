@@ -23,3 +23,4 @@ export const shotgunStatus = createSelector([c.SHOTGUN, 'data', 'status'])
 
 //Compte selectors
 export const updateStatus = createSelector([c.COMPTE, c.CHANGE])
+export const newPrice = createSelector([c.COMPTE, c.CHANGE, 'data', 'new_price'])
