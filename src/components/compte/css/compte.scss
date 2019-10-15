@@ -1,6 +1,138 @@
-.compte {
-  position: absolute;
+@media only screen and (min-width: 767px) {
+  .compte {
+    position: absolute;
 
+    .reacp-compte {
+      width: fit-content;
+      margin: 10px auto;
+      color: $hover-blue;
+      font-family: "Acumin";
+      font-weight: bold;
+    }
 
+    .inputs-compte-style {
+      width: fit-content;
+      display: inline-flex;
+      line-height: 20px;
+      height: 40px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin: auto;
 
+      .input-compte-element {
+        height: 30px;
+      }
+    }
+
+    .trajets{
+      width: calc(100% - 20px);
+      display: inline-flex;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin-top: 50px;
+      margin-bottom: 50px;
+      .trajet{
+        margin: auto;
+        height: 30px;
+      }
+    }
+
+    #packs{
+      #grayed{
+        filter: grayscale(100);
+        margin: auto;
+      }
+      .information-block {
+        margin: auto;
+      }
+    }
+
+    input {
+      border-radius: 2px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-width: 1px;
+      border-color: $blue1;
+      height: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .row {
+      display: flex;
+      margin-bottom: 20px;
+      .inputBlock{
+        height: 50px;
+        width: 210px;
+      }
+    }
+    .row.last {
+      margin: auto;
+      position: relative;
+      width: fit-content;
+    }
+    .requests-buttons {
+      margin: auto;
+      width: fit-content;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .compte {
+    position: absolute;
+    .inputs-compte-style {
+      width: 100%;
+      display: block;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      .input-compte-element {
+        margin: 5px auto;
+        width: 50%;
+      }
+    }
+    .trajets{
+      margin-top: 50px;
+      width: 100%;
+      display: block;
+      line-height: 20px;
+      font-weight: bold;
+      color: $hover-blue;
+      font-family: "Acumin";
+      margin: 10px;
+      .trajet {
+        margin: 5px auto;
+        width: 50%;
+      }
+    }
+    #packs{
+      #grayed{
+        filter: grayscale(100);
+      }
+    }
+    input {
+      border-radius: 2px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-width: 1px;
+      border-color: $blue1;
+    }
+    .row {
+      display: block;
+    }
+    .reacp-compte {
+      width: fit-content;
+      margin: 10px auto;
+      color: $hover-blue;
+      font-family: "Acumin";
+      font-weight: bold;
+    }
+  }
 }

@@ -14,8 +14,18 @@ function ApiStatus({api, load, children, history}){
         //@TODO ApiStatus for an array of api given in props.api
 
     } else {
-        if (load) {
+        if (load === true) {
             let toReturn = api.status === "NEW" ?
+                <div className="fullHeight fullWidth">{children}</div>
+            :
+                <div className="loader fullHeight fullWidth">
+                    <div className = "loader-container">
+                        <Loader type="Triangle" color="#343434" height={120} width={120}  />
+                    </div>
+                </div>
+            return toReturn
+        }else if (load === "onSuccess") {
+            let toReturn = (api.status === "NEW" || api.status === "SUCCESS") ?
                 <div className="fullHeight fullWidth">{children}</div>
             :
                 <div className="loader fullHeight fullWidth">
