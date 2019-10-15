@@ -16,7 +16,6 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
     const [price_recap, setPrice] = useState(userInfo["price"])
 
     useEffect(() => {
-        console.log(newPrice)
         if (newPrice) {
             setPrice(newPrice)
         }
@@ -42,16 +41,16 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                 </div>
                 <div className="trajets">
                 <div className="trajet"> Trajet aller:
-                <select value={formInfos.transport || "1"} onChange={(e) => setFormInfos({ ...formInfos, transport: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                    <option value="0">Pas de navette aller</option>
-                    <option value="1">Depuis Compy</option>
-                    <option value="2">Depuis Paris</option>
+                <select value={formInfos.transport || 0} onChange={(e) => setFormInfos({ ...formInfos, transport: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                    <option value={0}>Pas de navette aller</option>
+                    <option value={1}>Depuis Compy</option>
+                    <option value={2}>Depuis Paris</option>
                 </select>
                 </div>
                 <div className="trajet"> Trajet retour: 
-                <select value={formInfos["transport-back"] || "1"} onChange={(e) => setFormInfos({ ...formInfos, 'transport-back': e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                    <option value="0">Non</option>
-                    <option value="1">Oui</option>
+                <select value={formInfos["transport-back"] || 0} onChange={(e) => setFormInfos({ ...formInfos, 'transport-back': e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                    <option value={0}>Non</option>
+                    <option value={1}>Oui</option>
                 </select>
                 </div>
                 </div>
@@ -60,31 +59,31 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     <div id="grayed">
                         <InformationBlock icon="images/pack_bronze.svg" title="PAS DE PACK">
                             <div className="inputBlock">
-                            <input name="pack" type="radio" value={"4"} checked={formInfos.pack === "4"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                            <input name="pack" type="radio" value={4} checked={formInfos.pack == 4} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
                             </div>
                         </InformationBlock>
                     </div>
                     <InformationBlock icon="images/pack_bronze.svg" title="PACK BRONZE">
                         <div className="inputBlock">
-                        <input name="pack" type="radio" value={"0"} checked={formInfos.pack === "0"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
-                        {formInfos.pack == "0" &&
+                        <input name="pack" type="radio" value={0} checked={formInfos.pack == 0} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                        {formInfos.pack == 0 &&
                             <div>
-                            <select value={formInfos.equipment || "1"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="1">Ski</option>}
-                                <option value="2">Snow</option>}
+                            <select value={formInfos.equipment || 1} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                <option value={1}>Ski</option>}
+                                <option value={2}>Snow</option>}
                             </select>
                         {formInfos.equipment == 1 &&
                             <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="0">Juste les chaussures</option>
-                                <option value="2">Juste les skis</option>
-                                <option value="4">Les deux</option>
+                                <option value={0}>Juste les chaussures</option>
+                                <option value={2}>Juste les skis</option>
+                                <option value={4}>Les deux</option>
                             </select>
                         }
                         {formInfos.equipment == 2 &&
-                            <select value={formInfos.items || "5"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="1">Juste les boots</option>
-                                <option value="3">Juste la board</option>
-                                <option value="5">Les deux</option>
+                            <select value={formInfos.items || 5} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                <option value={1}>Juste les boots</option>
+                                <option value={3}>Juste la board</option>
+                                <option value={5}>Les deux</option>
                             </select>
                         }
                         </div>
@@ -93,25 +92,25 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     </InformationBlock>
                     <InformationBlock icon="images/pack_argent.svg" title="PACK ARGENT">
                         <div className="inputBlock">
-                        <input name="pack" type="radio" value={"1"} checked={formInfos.pack === "1"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>   
-                        {formInfos.pack == "1" &&
+                        <input name="pack" type="radio" value={1} checked={formInfos.pack == 1} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                        {formInfos.pack == 1 &&
                         <div> 
-                        <select value={formInfos.equipment || "1"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                        <select value={formInfos.equipment || 1} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                             <option value="1">Ski</option>}
                             <option value="2">Snow</option>}
                         </select>
                         {formInfos.equipment == 1 &&
-                        <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                            <option value="0">Juste les chaussures</option>
-                            <option value="2">Juste les skis</option>
-                            <option value="4">Les deux</option>
+                        <select value={formInfos.items || 4} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value={0}>Juste les chaussures</option>
+                            <option value={2}>Juste les skis</option>
+                            <option value={4}>Les deux</option>
                         </select>
                         }
                         {formInfos.equipment == 2 &&
-                        <select value={formInfos.items || "5"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                            <option value="1">Juste les boots</option>
-                            <option value="3">Juste la board</option>
-                            <option value="5">Les deux</option>
+                        <select value={formInfos.items || 5} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value={1}>Juste les boots</option>
+                            <option value={3}>Juste la board</option>
+                            <option value={5}>Les deux</option>
                         </select>
                         }
                         </div>
@@ -120,25 +119,25 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     </InformationBlock>
                     <InformationBlock icon="images/pack_or.svg" title="PACK OR">
                         <div className="inputBlock">
-                        <input name="pack" type="radio" value={"2"} checked={formInfos.pack === "2"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
-                        {formInfos.pack == "2" &&
+                        <input name="pack" type="radio" value={2} checked={formInfos.pack == 2} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
+                        {formInfos.pack == 2 &&
                             <div>
-                            <select value={formInfos.equipment || "1"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="1">Ski</option>}
-                                <option value="2">Snow</option>}
+                            <select value={formInfos.equipment || 1} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                <option value={1}>Ski</option>}
+                                <option value={2}>Snow</option>}
                             </select>
                             {formInfos.equipment == 1 &&
-                            <select value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="0">Juste les chaussures</option>
-                                <option value="2">Juste les skis</option>
-                                <option value="4">Les deux</option>
+                            <select value={formInfos.items || 4} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                <option value={0}>Juste les chaussures</option>
+                                <option value={2}>Juste les skis</option>
+                                <option value={4}>Les deux</option>
                             </select>
                             }
                             {formInfos.equipment == 2 &&
-                            <select value={formInfos.items || "5"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                <option value="1">Juste les boots</option>
-                                <option value="3">Juste la board</option>
-                                <option value="5">Les deux</option>
+                            <select value={formInfos.items || 5} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                                <option value={1}>Juste les boots</option>
+                                <option value={3}>Juste la board</option>
+                                <option value={5}>Les deux</option>
                             </select>
                             }
                         </div>
@@ -148,23 +147,23 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                 </div>
                 <div className="row last">
                     <InformationBlock icon="images/icone_nourriture_1.svg" title="PACK BOUFFE : 42€">
-                        <select value={formInfos.food || "0"} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                            <option value="0">Nope</option>
-                            <option value="1">Avec Porc</option>
-                            <option value="2">Sans Porc</option>
-                            <option value="3">Végétarien</option>
+                        <select value={formInfos.food || 1} onChange={(e) => setFormInfos({ ...formInfos, food: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value={0}>Nope</option>
+                            <option value={1}>Avec Porc</option>
+                            <option value={2}>Sans Porc</option>
+                            <option value={3}>Végétarien</option>
                         </select>
                     </InformationBlock>
                     <InformationBlock icon="images/icone_base.svg" title="LES GOODIES : 10€">
-                        <select value={formInfos.goodies || "0"} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
+                        <select value={formInfos.goodies || 0} onChange={(e) => setFormInfos({ ...formInfos, goodies: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value={0}>non</option>
+                            <option value={1}>oui</option>
                         </select>
                     </InformationBlock>
                     <InformationBlock icon="images/icone_assurance_1.svg" title="ASSURANCE ANNULATION : 11€">
-                        <select value={formInfos.assurance_annulation || "0"} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                            <option value="0">non</option>
-                            <option value="1">oui</option>
+                        <select value={formInfos.assurance_annulation || 0} onChange={(e) => setFormInfos({ ...formInfos, assurance_annulation: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
+                            <option value={0}>non</option>
+                            <option value={1}>oui</option>
                         </select>
                     </InformationBlock>
                 </div>
