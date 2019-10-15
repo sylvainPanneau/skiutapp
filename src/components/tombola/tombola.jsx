@@ -10,7 +10,7 @@ import Btn from "../common/buttons/simpleButton";
 const checkTickets = (form, buy) => {
   if ( form.ticket1 < 0 || form.ticket5 < 0 || form.ticket10 < 0 || (form.ticket1 === 0 && form.ticket5 === 0 && form.ticket10 === 0)){
   } else {
-      buy(form)
+      buy({...form, service: window.location.href})
   }
 }
 
