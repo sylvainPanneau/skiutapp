@@ -61,16 +61,6 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                         <InformationBlock icon="images/pack_bronze.svg" title="PAS DE PACK">
                             <div className="inputBlock">
                             <input name="pack" type="radio" value={"4"} checked={formInfos.pack === "4"} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
-                                {formInfos.pack == "4" &&
-                                    <div>
-                                        <select className="hidden" value={formInfos.equipment || "0"} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                            <option value="0">N/A</option>
-                                        </select>
-                                        <select className="hidden" value={formInfos.items || "4"} onChange={(e) => setFormInfos({ ...formInfos, items: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
-                                            <option value="4">N/A</option>
-                                        </select>
-                                    </div>
-                                }
                             </div>
                         </InformationBlock>
                     </div>

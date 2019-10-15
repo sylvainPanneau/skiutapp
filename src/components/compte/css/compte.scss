@@ -126,5 +126,12 @@
     .row {
       display: block;
     }
+    .reacp-compte {
+      width: fit-content;
+      margin: 10px auto;
+      color: $hover-blue;
+      font-family: "Acumin";
+      font-weight: bold;
+    }
   }
 }
