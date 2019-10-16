@@ -3,9 +3,8 @@ import { connect } from "react-redux"
 import { Route, Switch, withRouter } from 'react-router-dom';
 import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
-import { Shotgun } from "./components/shotgun/shotgun"
+import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/tombola"
-import { ShotgunDummy } from "./components/shotgun/shotgundummy"
 import Compte from "./components/compte/compte"
 import {Admin} from "./components/admin/admin"
 import Packs from "./components/packs/container"
@@ -16,18 +15,12 @@ import ApiStatus from "./utils/apiStatus"
 import LoginV2 from "./components/login/login_v2"
 import "css/container.scss"
 import * as c from "./skiutconstants"
-import * as sel from "./utils/selectors";
 
-function AppComp({meta, getMeta, shotgunAuthorized, history}) {
+function AppComp({meta, getMeta, history}) {
 
     useEffect(() => {
         getMeta()
     }, [])
-
-    const ShotgunRoute = shotgunAuthorized ?
-        <Route path="/shotgun" component={Shotgun} />
-        :
-        <Route path="/shotgun" component={ShotgunDummy} />
 
     return(
         <ApiStatus api={meta}>
@@ -35,7 +28,7 @@ function AppComp({meta, getMeta, shotgunAuthorized, history}) {
             <Switch className="fullWidth fullHeight">
                 <Route path="/compte" component={Compte} />
                 <Route path="/admin" component={Admin} />
-                {ShotgunRoute}
+                <Route path="/shotgun" component={Shotgun} />
                 <Route path="/station" component={StationComponent} />
                 <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginV2} />
@@ -50,8 +43,7 @@ function AppComp({meta, getMeta, shotgunAuthorized, history}) {
 
 const mapStateToProps = (state) => {
     return {
-        meta: state[c.META],
-        shotgunAuthorized: sel.shotgunAuthorized(state)
+        meta: state[c.META]
     }
 }
 
