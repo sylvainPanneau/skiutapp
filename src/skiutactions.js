@@ -1,6 +1,6 @@
 import { callApi, cleanApiData } from "utils/apiUtils"
 import { API_URL } from "./config"
-import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS, GET_RECAP, CHANGE_INFOS } from "./skiutactiontypes"
+import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS, GET_RECAP, CHANGE_INFOS, PAYMENT_REQUEST } from "./skiutactiontypes"
 
 export const login = (service, ticket) => {
     const url = API_URL + "/login_v2"
@@ -43,3 +43,5 @@ export const clean_payed_login = () => {
 export const clean_recap_users = () => {
     return cleanApiData(GET_RECAP_USERS)
 }
+
+export const pay_pack = (data) => callApi(`${API_URL}/paiement`, PAYMENT_REQUEST, "POST", data)

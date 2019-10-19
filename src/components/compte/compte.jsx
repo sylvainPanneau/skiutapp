@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
+import { API_URL } from "../../config"
 import { ContextMenu } from "../contextmenu"
-import { get_recap, change_infos } from "../../skiutactions";
+import { get_recap, change_infos, pay_pack } from "../../skiutactions";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
 import * as c from "../../skiutconstants";
@@ -10,7 +11,7 @@ import ApiStatus from "../../utils/apiStatus"
 import PageTitle from "../common/pageTitle";
 import InformationBlock from "../packs/informationBlock";
 
-const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
+const Compte = ({userInfo, updateInfos, updateStatus, newPrice, paymentData, payPack }) => {
 
     const [formInfos, setFormInfos] = useState(userInfo)
     const [price_recap, setPrice] = useState(userInfo["price"])
@@ -21,6 +22,13 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
         }
 
     }, [newPrice])
+
+
+    useEffect(() => {
+      if(paymentData.url) {
+        window.location = paymentData.url;
+      }
+    }, [paymentData]);
 
     return <ApiStatus api={updateStatus} load={"onSuccess"}><div className="fullWidth fullHeight">
         <ContextMenu />
@@ -46,7 +54,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                     <option value={2}>Depuis Paris</option>
                 </select>
                 </div>
-                <div className="trajet"> Trajet retour: 
+                <div className="trajet"> Trajet retour:
                 <select value={formInfos["transport-back"] || 0} onChange={(e) => setFormInfos({ ...formInfos, 'transport-back': e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                     <option value={0}>Non</option>
                     <option value={1}>Oui</option>
@@ -93,7 +101,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
                         <div className="inputBlock">
                         <input name="pack" type="radio" value={1} checked={formInfos.pack == 1} onChange={(e) => setFormInfos({ ...formInfos, pack: e.target.value})} disabled={userInfo["tra_status"] == "V"}/>
                         {formInfos.pack == 1 &&
-                        <div> 
+                        <div>
                         <select value={formInfos.equipment || 1} onChange={(e) => setFormInfos({ ...formInfos, equipment: e.target.value})} disabled={userInfo["tra_status"] == "V"}>
                             <option value="1">Ski</option>}
                             <option value="2">Snow</option>}
@@ -174,9 +182,11 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
           { userInfo["tra_status"] !== "V" &&
           <div className="requests-buttons">
               <Btn name="Soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
-              <Btn name="Payer" type="submit" action={() => {
-
-              }}/>
+              <Btn
+                name="Payer"
+                type="submit"
+                disabled = { userInfo ? userInfo['tra_id'] === "V" : true} 
+                action={() => payPack() }/>
           </div>
           }
         </div>
@@ -187,11 +197,13 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice}) => {
 const mapStateToProps = (state) => ({
     userInfo: sel.userInfo(state),
     updateStatus: sel.updateStatus(state),
-    newPrice: sel.newPrice(state)
+    newPrice: sel.newPrice(state),
+    paymentData: sel.payment_data(state)
   });
-  
+
   const mapDispatchToProps = (dispatch) => ({
-    updateInfos: (formInfos) => dispatch(change_infos(formInfos))
+    updateInfos: (formInfos) => dispatch(change_infos(formInfos)),
+    payPack: () => dispatch(pay_pack({ service: window.location.href })),
   });
-  
+
   export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Compte));
