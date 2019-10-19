@@ -7,6 +7,11 @@ export const login = (service, ticket) => {
     return callApi(url, LOG_API_KEY, "POST",{service, ticket})
 }
 
+export const login_tremplin = (mail, password) => {
+    const url = API_URL + "/loginTremplin"
+    return callApi(url, LOG_API_KEY, "POST",{mail, password})
+}
+
 export const logout = () => {
     const url = API_URL + "/logout"
     return callApi(url, LOG_API_KEY, "GET")

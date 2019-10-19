@@ -33,6 +33,8 @@ const LoginCAS = ({ history, match, location, login, loginStatus, token }) => {
           <div className="login">
             <Button name="Connexion" action={ handleRedirection } />
             <br/>
+            <Button name="Tremplin" to="/loginTremplin"  />
+            <br/>
             <Button name="Accueil" to="/" />
           </div>
         </div>

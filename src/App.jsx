@@ -13,6 +13,7 @@ import { VoyageComponent } from "./components/voyage/voyage"
 import { getMeta } from "./skiutactions"
 import ApiStatus from "./utils/apiStatus"
 import LoginV2 from "./components/login/login_v2"
+import { LoginTremplinComponent } from "./components/login/login_tremplin"
 import "css/container.scss"
 import * as c from "./skiutconstants"
 
@@ -24,7 +25,7 @@ function AppComp({meta, getMeta, history}) {
 
     return(
         <ApiStatus api={meta}>
-          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs', '/login']}>
+          <ConnectMiddleware authorizedPathnames={['/', '/accueil', '/station', '/voyage', '/packs', '/login', '/loginTremplin']}>
             <Switch className="fullWidth fullHeight">
                 <Route path="/compte" component={Compte} />
                 <Route path="/admin" component={Admin} />
@@ -32,6 +33,7 @@ function AppComp({meta, getMeta, history}) {
                 <Route path="/station" component={StationComponent} />
                 <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginV2} />
+                <Route path="/loginTremplin" component={LoginTremplinComponent} />
                 <Route path="/tombola" component={Tombola} />
                 <Route path="/packs" component={Packs} />
                 <Route path="/" component={Accueil} />
