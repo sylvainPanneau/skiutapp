@@ -181,7 +181,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice, paymentData, pay
           </div>
           { userInfo["tra_status"] !== "V" &&
           <div className="requests-buttons">
-              <Btn name="Soumettre" type="submit" action={ () => {updateInfos(formInfos)}}/>
+              <Btn name="Enregistrer" type="submit" action={ () => {updateInfos(formInfos)}}/>
               <Btn
                 name="Payer"
                 type="submit"
