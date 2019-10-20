@@ -9,7 +9,7 @@ export const login = (service, ticket) => {
 
 export const login_tremplin = (mail, password) => {
     const url = API_URL + "/loginTremplin"
-    return callApi(url, LOG_API_KEY, "POST",{mail, password})
+    return callApi(url, LOG_API_KEY, "POST",{"mail_tremplin": mail, "password": password})
 }
 
 export const logout = () => {
