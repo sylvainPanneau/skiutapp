@@ -177,7 +177,7 @@ const Compte = ({userInfo, updateInfos, updateStatus, newPrice, paymentData, pay
             </div>
           </div>
           <div className="reacp-compte">
-              Total à payer : {price_recap} €
+              Total à payer : {price_recap} € (enregistre tes choix avant de payer)
           </div>
           { userInfo["tra_status"] !== "V" &&
           <div className="requests-buttons">
