@@ -9,6 +9,7 @@ import ApiStatus from "../../utils/apiStatus";
 import {changeInput} from "../login/utils/loginUtils";
 import Button from "../common/buttons/simpleButton";
 import * as R from "ramda";
+import AdminTombola from "./tombola/container";
 
 const Row = ({user}) => {
     return <tr>
@@ -108,6 +109,7 @@ function AdminComponent({getRecap, payed_login, unpayed_login, admin_get_status,
                 <div className="admin-row" onClick={() => {setSelected(<RecapComponent payed_login={payed_login} unpayed_login={unpayed_login}/>)}}>Récapitulatifs</div>
                 <div className="admin-row" onClick={() => {setSelected(<PaymentComponent addLogin={addLogin}/>)}}>Gestion des paiements</div>
                 <div className="admin-row" onClick={() => {setSelected(<MailComponent />)}}>Envoi de mail</div>
+                <div className="admin-row" onClick={() => {setSelected(<AdminTombola/>)}}>Admin Tombola</div>
             </div>
             <div className="admin-content fullWidth">
                 {Selected}

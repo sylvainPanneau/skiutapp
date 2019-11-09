@@ -31,3 +31,6 @@ export const unpayed_login = createSelector([c.NAME, c.RECAP_PAYED, 'data', 'not
 
 //payement selectors
 export const payment_data = createSelector([c.PAYMENT, 'data'])
+
+//tombola admin
+export const tombola_admin = createSelector([c.TOMBOLA_ADMIN, 'data'])
