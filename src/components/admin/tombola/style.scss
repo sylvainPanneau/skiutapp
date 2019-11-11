@@ -1,0 +1,57 @@
+@import "../../../css/colors.scss";
+
+.tombola-admin {
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  text-align: center;
+  .input-field {
+    input {
+      margin: 0 10px;
+    }
+
+    .changePos {
+      cursor: pointer;
+      display: inline;
+      margin: 5px;
+      padding: 5px;
+      border: solid 3px;
+      border-color: $black;
+      &.disabled {
+        background-color: $light-grey;
+      }
+    }
+  }
+
+  .fields {
+    margin-left: auto;
+    margin-right: auto;
+
+    table {
+      color: $white;
+      tr {
+        cursor: pointer;
+      }
+      /* Background-color of the odd rows */
+      tr:nth-child(odd) {
+        background-color: #323C50;
+      }
+      /* Background-color of the even rows */
+      tr:nth-child(even) {
+        background-color: #2C3446;
+      }
+      th {
+        background-color: #1F2739;
+      }
+      td:first-child { color: #FB667A; }
+
+      tr:hover {
+        background-color: #464A52;
+      }
+
+      tr.focused {
+        background-color: #000000;
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import ConnectMiddleware from "./utils/connectMiddleware";
 import { Accueil } from "./components/accueil"
 import { Shotgun } from "./components/shotgun"
 import Tombola from "./components/tombola/tombola"
+import TombolaResult from "./components/tombola/tombolaResult";
 import Compte from "./components/compte/compte"
 import {Admin} from "./components/admin/admin"
 import Packs from "./components/packs/container"
@@ -34,7 +35,8 @@ function AppComp({meta, getMeta, history}) {
                 <Route path="/voyage" component={VoyageComponent} />
                 <Route path="/login" component={LoginV2} />
                 <Route path="/loginTremplin" component={LoginTremplinComponent} />
-                <Route path="/tombola" component={Tombola} />
+                {/*<Route path="/tombola" component={Tombola} />*/}
+                <Route path="/tombola" component={TombolaResult} />
                 <Route path="/packs" component={Packs} />
                 <Route path="/" component={Accueil} />
             </Switch>
