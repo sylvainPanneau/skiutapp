@@ -10,4 +10,6 @@ export const PAYED_LOGIN = "PAYED_LOGIN"
 export const RECAP_PAYED = "RECAP_PAYED"
 export const PAYMENT = "PAYMENT"
 export const TOMBOLA_ADMIN = "TOMBOLA_ADMIN"
+export const TOMBOLA_RESULT = "TOMBOLA_RESULT"
+
 export const shotgun_delay = new Date("2019-10-14 7:00:00")

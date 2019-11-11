@@ -1,6 +1,6 @@
 import { callApi, cleanApiData } from "utils/apiUtils"
 import { API_URL } from "./config"
-import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS, GET_RECAP, CHANGE_INFOS, PAYMENT_REQUEST, GET_TOMBOLA_ADMIN } from "./skiutactiontypes"
+import { LOG_API_KEY, META_API_KEY, TOMBOLA_API_KEY, SHOTGUN_API_KEY, ADD_PAY_LOGIN, GET_RECAP_USERS, GET_RECAP, CHANGE_INFOS, PAYMENT_REQUEST, GET_TOMBOLA_ADMIN, GET_TOMBOLA_RESULT } from "./skiutactiontypes"
 
 export const login = (service, ticket) => {
     const url = API_URL + "/login_v2"
@@ -55,3 +55,7 @@ export const get_tombola_admin = () => callApi(`${API_URL}/tombola_batch`, GET_T
 export const post_tombola_admin = (data) => callApi(`${API_URL}/tombola_batch`, GET_TOMBOLA_ADMIN, "POST", data)
 export const patch_tombola_admin = (data) => callApi(`${API_URL}/tombola_batch`, GET_TOMBOLA_ADMIN, "PATCH", data)
 export const delete_tombola_admin = (data) => callApi(`${API_URL}/tombola_batch`, GET_TOMBOLA_ADMIN, "DELETE", data)
+
+
+export const play_tombola = () => callApi(`${API_URL}/play_tombola`, GET_TOMBOLA_RESULT, "GET")
+export const get_tombola_result = () => callApi(`${API_URL}/tombola_result`, GET_TOMBOLA_RESULT, "GET")
